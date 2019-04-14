@@ -72,10 +72,10 @@ function backup(){
 
 	#Clean Backup dir
 	rm -rf ${destiny}/*
+
 	if [ ! -d "${destiny}/.config/" ]; then
 		mkdir "${destiny}/.config/"
 	fi
-
 	#vsCode
 	cp -R ~/.config/Code/User ${destiny}/.config/Code/
 
