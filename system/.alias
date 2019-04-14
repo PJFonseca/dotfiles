@@ -35,5 +35,5 @@ alias hosts="sudo $EDITOR /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
-alias update="sudo dnf -y update && sudo dnf -y upgrade && sudo dnf -y autoremove"
+alias update="sudo dnf -y update && sudo dnf -y upgrade && sudo dnf -y autoremove && sudo backup"
 alias path='echo -e ${PATH//:/\\n}'

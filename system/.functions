@@ -88,6 +88,8 @@ function backup(){
 	cp -R ~/.config/keepassxc ${destiny}/.config/keepassxc/
 	#teamviewer
 	cp -R ~/.config/teamviewer ${destiny}/.config/teamviewer/
+	#VNC
+	cp -R ~/.vnc ${destiny}/
 	#variety
 	cp -R ~/.config/variety ${destiny}/.config/variety/
 	
