@@ -67,3 +67,28 @@ function kbshortcuts(){
 	echo
 	done;
 }
+function backup(){
+	local destiny="/mnt/Stuff/Dropbox/Documentos/LinuxBackup"
+
+	#Clean Backup dir
+	rm -rf ${destiny}/*
+	if [ ! -d "${destiny}/.config/" ]; then
+		mkdir "${destiny}/.config/"
+	fi
+
+	#vsCode
+	cp -R ~/.config/Code/User ${destiny}/.config/Code/
+
+	#DBeaver
+	cp -R ~/.dbeaver4 ${destiny}/
+
+	#Filezilla
+	cp -R ~/.config/filezilla ${destiny}/.config/filezilla/
+	#Keepassxc
+	cp -R ~/.config/keepassxc ${destiny}/.config/keepassxc/
+	#teamviewer
+	cp -R ~/.config/teamviewer ${destiny}/.config/teamviewer/
+	#variety
+	cp -R ~/.config/variety ${destiny}/.config/variety/
+	
+}
