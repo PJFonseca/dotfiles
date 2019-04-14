@@ -29,8 +29,6 @@ wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.r
 #VNC
 wget -P /tmp/ https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.19.325-Linux-x64.rpm && sudo dnf install -y /tmp/VNC-Viewer-6.19.325-Linux-x64.rpm
 
-
-
 #Skype
 wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
 #DBeaver
@@ -45,3 +43,7 @@ gnome-shell-extension-installer 1112 # Screenshot Tool by oal
 
 #Codecs
 sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
+
+#SoftLinks
+ln -s ~/.dotfiles/.bashrc ~/.bashrc
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig

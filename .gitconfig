@@ -1,0 +1,7 @@
+[user]
+	name = PJFonseca
+	email = pfonseca7@gmail.com
+[core]
+	autocrlf = input
+[credential]
+	helper = cache --timeout=999999900
