@@ -79,9 +79,6 @@ function backup(){
 	#vsCode
 	cp -R ~/.config/Code/User ${destiny}/.config/Code/
 
-	#telegram AutoStart
-	cp -R ~/.config/autostart ${destiny}/.config/autostart/
-
 	#DBeaver
 	cp -R ~/.dbeaver4 ${destiny}/
 
