@@ -79,6 +79,9 @@ function backup(){
 	#vsCode
 	cp -R ~/.config/Code/User ${destiny}/.config/Code/
 
+	#telegram AutoStart
+	cp -R ~/.config/autostart ${destiny}/.config/autostart/
+
 	#DBeaver
 	cp -R ~/.dbeaver4 ${destiny}/
 
@@ -92,5 +95,9 @@ function backup(){
 	cp -R ~/.vnc ${destiny}/
 	#variety
 	cp -R ~/.config/variety ${destiny}/.config/variety/
-	
+}
+
+function restore(){
+	#Restore files from Dropbox
+	cp -R /mnt/Stuff/Dropbox/Documentos/LinuxBackup/. ~/
 }

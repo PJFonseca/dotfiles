@@ -47,3 +47,11 @@ sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-fr
 #SoftLinks
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+
+#Configs
+
+#Telegram to start in tray
+sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
+
+#Mounting - FSTab
+sudo echo "/dev/disk/by-uuid/80b5f91f-6d05-49f6-bf74-51e7ec9f756f /mnt/Stuff auto nosuid,nodev,nofail,x-gvfs-show 0 0" >> /etc/fstab
