@@ -26,12 +26,9 @@ alias ....="cd ../../.."
 alias -- -="cd -"                  # Go to previous dir with -
 alias cd.='cd $(readlink -f .)' # Go to real dir (i.e. if current dir is linked)
 
-# Network
-alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-
 # Miscellaneous
 
-alias hosts="sudo nano /etc/hosts"
+alias hosts="sudo $EDITOR /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="wget -O /dev/null https://speed.hetzner.de/100MB.bin"
