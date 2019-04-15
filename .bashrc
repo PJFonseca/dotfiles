@@ -17,3 +17,5 @@ export PATH="$PATH:$HOME/.dotfiles/system"
  	[ -f "$DOTFILE" ] && . "$DOTFILE"	
  done;
  unset file;
+
+source ~/.dotfiles/.bash_prompt

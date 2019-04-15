@@ -14,8 +14,8 @@ alias paths='echo -e ${PATH//:/\\n}'
 
 # Directory listing/traversal
 
-alias l="ls -lahA "
-alias ll="ls -lA "
+alias l="ls -l "
+alias ll="ls -lhA "
 alias lt="ls -lhAtr"
 alias ld="ls -ld */"
 alias lpm="stat -c '%a %n' *"
@@ -35,5 +35,5 @@ alias hosts="sudo $EDITOR /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
-alias update="sudo dnf -y update && sudo dnf -y upgrade && sudo dnf -y autoremove && backup"
+alias update="sudo dnf -y update && sudo dnf -y upgrade && sudo dnf -y autoremove && backup && clean"
 alias path='echo -e ${PATH//:/\\n}'

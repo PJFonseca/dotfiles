@@ -54,6 +54,19 @@ function getcertnames() {
 function hpoff(){
 	net rpc shutdown -C MESSAGE -I 192.168.1.77 -U PJFonseca -f -t 1
 }
+function meteo() {
+  local LOCALE=$(echo ${LANG:-en} | cut -c1-2)
+  if [ $# -eq 0 ]; then
+    local LOCATION=$(curl -s ipinfo.io/loc)
+  else
+    local LOCATION=$1
+  fi
+  curl -s "$LOCALE.wttr.in/$LOCATION"
+}
+
+function clean(){
+	rm -r ~/Transferências/*
+} 
 
 function kbshortcuts(){
 	# Print out all Slots

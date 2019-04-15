@@ -47,6 +47,7 @@ sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-fr
 #SoftLinks
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
 
 #Configs
 
