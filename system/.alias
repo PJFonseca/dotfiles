@@ -26,6 +26,13 @@ alias ....="cd ../../.."
 alias -- -="cd -"                  # Go to previous dir with -
 alias cd.='cd $(readlink -f .)' # Go to real dir (i.e. if current dir is linked)
 
+# Always enable colored grep output`
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+
+unset GREP_OPTIONS
+
 # Miscellaneous
 
 alias hosts="sudo $EDITOR /etc/hosts"

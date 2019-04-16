@@ -17,6 +17,13 @@ function ytdl(){
     fi
 }
 
+function audiobookdl(){
+	youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Public/AudioBooks/%(artist)s/%(album)s/%(title)s.%(ext)s'
+}
+function musicdl(){
+	youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Música/%(title)s.%(ext)s'
+}
+
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
 function getcertnames() {
