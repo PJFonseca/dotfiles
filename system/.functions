@@ -61,6 +61,10 @@ function getcertnames() {
 function hpoff(){
 	net rpc shutdown -C MESSAGE -I HPSERVER -U PJFonseca -f -t 1
 }
+#Update host files to block bad hosts
+function updateblockedhosts(){
+	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sync
+}
 #Meteo in CLI
 function meteo() {
   local LOCALE=$(echo ${LANG:-en} | cut -c1-2)
