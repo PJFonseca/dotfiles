@@ -1,19 +1,17 @@
 # Repo of my _not-so-fancy-or-techy-_***dotfiles***
 
 ## **Intro**
-I'm a newbie in the Linux world but this ***dotfiles*** thing it's ***AWESOME***. So, as the law says, one must create a repo of the ***dotfiles*** and share it to not be considered an outlaw.
+I'm a newbie in the Linux world but this ***dotfiles*** thing it's ***AWESOME***. So, as the law says, one must create a repo of the ***dotfiles*** and share it if he/she does not want to be considered an outlaw.
 
 ## **Heads up**
 
 This ***dotfiles*** is to ***help ME*** and are  ***tailored to ME***, and actually it ***works for ME***. 
 
-So don't get **[ put some sort of state of mind and/or spirit in here ]** about this ***dotfiles*** not working 100% on your system. Deal with it, you are more then capable of doing it so.
-
-
+So don't get **[ put some sort of state of mind and/or spirit in here ]** about this ***dotfiles*** not working 100% on your system. Deal with it, you are more then capable of doing that.
 
 ## **Instructions**
 
-Well I'm so newbie that I don't know what to write in here. I have one install script ([<code>install.sh</code>](https://github.com/PJFonseca/dotfiles/blob/master/install/install.sh)) but it was never tested and for sure it will ***fail***, so if you try it just remember there will be **Dragons**, not the Daenerys Targaryen ones unfortunately.
+I'm so newbie that I don't know what to write in the instructions to install and use my ***dotfiles***. I have one install script ([<code>install.sh</code>](https://github.com/PJFonseca/dotfiles/blob/master/install/install.sh)) but it was never tested and for sure it will ***fail***, so if you try it just remember there will be **Dragons**, not the Daenerys Targaryen ones unfortunately.
 
 
 ## **The end**
