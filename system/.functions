@@ -72,9 +72,11 @@ function meteo() {
   curl -s "$LOCALE.wttr.in/$LOCATION"
 }
 
-#Clears the Download dir
+#Clears some dirs
 function clean(){
-	rm -r ~/Transferências/*
+	rm -r ~/Transferências/* 2> /dev/null
+	rm -r ~/Imagens/* 2> /dev/null
+	rm -rf ~/.local/share/Trash/* 2> /dev/null
 } 
 #Show the defined Custom Keyboard Shortcuts in Gnome
 function kbshortcuts(){
