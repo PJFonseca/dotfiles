@@ -184,11 +184,20 @@ function backup(){
 	cp -R ~/.vnc ${destiny}/
 	#variety
 	cp -R ~/.config/variety ${destiny}/.config/variety/
+
+	#dash-to-panel settings
+	dconf dump /org/gnome/shell/extensions/dash-to-panel/ > ${destiny}/dtp_settings
 }
 
 function restore(){
+
+	local source="/mnt/Stuff/Dropbox/Documentos/LinuxBackup"
+
 	#Restore files from Dropbox
-	cp -R /mnt/Stuff/Dropbox/Documentos/LinuxBackup/. ~/
+	cp -R ${source}/. ~/
+
+	#dash-to-panel settings
+	dconf load /org/gnome/shell/extensions/dash-to-panel/ < ${source}/dtp_settings
 }
 
 function getip() {
