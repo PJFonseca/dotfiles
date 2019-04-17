@@ -1,22 +1,20 @@
 #!/bin/bash
 
 #Repos and Basics
+hostnamectl set-hostname --static "fedorabox"
 sudo dnf -y update
 sudo dnf upgrade --best --allowerasing --refresh -y
-hostnamectl set-hostname --static "fedorabox"
-sudo dnf install fedora-workstation-repositories
-sudo dnf install -y steam --enablerepo=rpmfusion-nonfree-steam
-sudo dnf install -y wget
+sudo dnf install -y fedora-workstation-repositories
 
 #VSCode stuff
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
-
 ##Install Software
-
 sudo dnf install \
 -y \
+steam --enablerepo=rpmfusion-nonfree-steam \
+wget \
 numlockx 'Enable number lock at startup' \
 youtube-dl 'YouTube Downloaded -> https://ytdl-org.github.io/youtube-dl/index.html' \
 nano \
@@ -39,7 +37,6 @@ nautilus-extensions \
 nautilus-image-converter \
 nautilus-search-tool 
 
-
 # Remove un-needed stuff
 sudo dnf remove \
 -y \
@@ -47,7 +44,6 @@ gnome-shell-extension-background-logo \
 totem \
 chromium \
 flowblade
-
 
 #TeamViewer
 wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
@@ -81,7 +77,6 @@ gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 gsettings set org.gnome.nautilus.list-view use-tree-view true
 
-
 #Codecs
 sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
 
@@ -89,8 +84,6 @@ sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-fr
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
-
-#Configs
 
 #Telegram to start in tray
 sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
