@@ -27,5 +27,7 @@ _by The Offspring on Smash in 1994_
 
 *P.S.: Sorry about my strange english ( I guess ), but not my native language.*
 
+_keywords_: **functions**, **aliases**, **alias**, **bash**, **env**, **shell**, petrol, mad max, tina turner, 80, queen... hummmm, this is going the wrong way, let me stop :)
+
 
 
