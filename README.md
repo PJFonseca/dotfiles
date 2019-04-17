@@ -22,7 +22,7 @@ Don't have anything else more to write, so:
 Well, till next time.
 Ta-ta!***
 
-_by Offspring on Smash in 1994_
+_by The Offspring on Smash in 1994_
 
 
 *P.S.: Sorry about my strange english ( I guess ), but not my native language.*
