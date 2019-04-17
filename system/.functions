@@ -17,7 +17,7 @@ function ytdl(){
     fi
 }
 
-function audiobookdl(){
+function bookdl(){
 	youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Public/AudioBooks/%(artist)s/%(album)s/%(title)s.%(ext)s'
 }
 function musicdl(){
@@ -187,4 +187,36 @@ function backup(){
 function restore(){
 	#Restore files from Dropbox
 	cp -R /mnt/Stuff/Dropbox/Documentos/LinuxBackup/. ~/
+}
+
+function getip() {
+	curl -m 15 -s "https://httpbin.org/ip" | grep --color=no -oE '[0-9.]+' || curl -m 15 -s "ifconfig.me"
+}
+
+function getgateway() {
+	local gw
+	gw="$(route -n | grep -E '^0.0.0.0' | xargs | cut -d' ' -f2)"
+	[ -n "$gw" ] && echo "$gw" || return 1
+}
+
+function checkinternet() {
+	wget --timeout=15 "google.com" || wget --timeout=15 "bing.com"
+}
+
+function checkdns() {
+	ping -c 1 -q "8.8.8.8"
+}
+
+function checkip() {
+
+	local hostname="$(nmblookup -A "$1" | sed -n 2p | awk '{print $1}')"
+	if [ "$(ping -c 1 -q "$1" | sed -n 4p | awk '{print $4}')" == 1 ]; then
+		echo $hostname "is Online"
+	else
+		echo "Offline"
+	fi
+}
+
+function checkgateway() {
+	ping -c 1 -q "$(route -n | grep -E '^0.0.0.0' | xargs | cut -d' ' -f2)"
 }
