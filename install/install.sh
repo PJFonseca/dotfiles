@@ -13,16 +13,12 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
 
-# YouTube Downloaded -> https://ytdl-org.github.io/youtube-dl/index.html
-sudo dnf install -y youtube-dl
-
-#Enable number lock at startup
-sudo dnf install -y numlockx
-
 ##Install Software
 
 sudo dnf install \
 -y \
+numlockx 'Enable number lock at startup' \
+youtube-dl 'YouTube Downloaded -> https://ytdl-org.github.io/youtube-dl/index.html' \
 nano \
 arc-theme \
 pop-icon-theme \
