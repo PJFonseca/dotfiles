@@ -255,33 +255,49 @@ function flashtasmota(){
 function install_remote_ssl(){
 	
 	#Gatering info needed
-	printf 'Server (username@domain): '
-	read SERVER
-	printf 'Email: '
-	read EMAIL
-	printf 'Domain: '
-	read DOMAIN
-	printf 'cPanel Username: '
-	read CPANELUSERNAME
+	local SERVER=""
+	local EMAIL=""
+	local DOMAIN=""
+	local CPANELUSERNAME=""
+
+	while [[ $SERVER == '' ]] # While SERVER is empty...
+	do
+		read -p "Server (username@domain): " SERVER # Ask the user to enter the server details
+	done 
+	
+	while [[ $EMAIL == '' ]] # While EMAIL is empty...
+	do
+		read -p "Email: " EMAIL # Ask the user to enter the email
+	done 
+	
+	while [[ $DOMAIN == '' ]] # While DOMAIN is empty...
+	do
+		read -p "Domain (without www): " DOMAIN # Ask the user to enter the domain
+	done 
+
+	while [[ $CPANELUSERNAME == '' ]] # While CPANELUSERNAME is empty...
+	do
+		read -p "cPanel Username: " CPANELUSERNAME # Ask the user to enter the domain
+	done 
 
 	# Creating the staging script
-	echo '#!/bin/bash' > install_ssl_staging.sh
-	echo "curl https://get.acme.sh | sh" >> install_ssl_staging.sh
-	echo "source ~/.bashrc" >> install_ssl_staging.sh
-	echo "~/.acme.sh/acme.sh --update-account --accountemail "$EMAIL"" >> install_ssl_staging.sh
-	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --staging" >> install_ssl_staging.sh
+	echo '#!/bin/bash' > /tmp/install_ssl_staging.sh
+	echo "curl https://get.acme.sh | sh" >> /tmp/install_ssl_staging.sh
+	echo "source ~/.bashrc" >> /tmp/install_ssl_staging.sh
+	echo "~/.acme.sh/acme.sh --update-account --accountemail "$EMAIL"" >> /tmp/install_ssl_staging.sh
+	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --staging" >> /tmp/install_ssl_staging.sh
 	
 	# Creating the FORCE script. This is to be executed if the staging gives green
 	echo '#!/bin/bash' > install_ssl_force.sh
-	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --force" >> install_ssl_force.sh
-	echo "export DEPLOY_cPanel_USER="$CPANELUSERNAME"" >> install_ssl_force.sh
-	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain "$DOMAIN"" >> install_ssl_force.sh
-	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www."$DOMAIN"" >> install_ssl_force.sh
-	echo "crontab -l" >> install_ssl_force.sh
+	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --force" >> /tmp/install_ssl_force.sh
+	echo "export DEPLOY_cPanel_USER="$CPANELUSERNAME"" >> /tmp/install_ssl_force.sh
+	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain "$DOMAIN"" >> /tmp/install_ssl_force.sh
+	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www."$DOMAIN"" >> /tmp/install_ssl_force.sh
+	echo "crontab -l" >> /tmp/install_ssl_force.sh
 	
 	# Copying files to target server
-	scp -P 21098 ./install_ssl_staging.sh $SERVER:~
-	scp -P 21098 ./install_ssl_force.sh $SERVER:~
+	scp -P 21098 /tmp/install_ssl_staging.sh $SERVER:~
+	scp -P 21098 /tmp/install_ssl_force.sh $SERVER:~
 
 	# Instructions before enter the SSH
 	echo "Make the scripts executable"
