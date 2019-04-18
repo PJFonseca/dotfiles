@@ -277,7 +277,7 @@ function install_remote_ssl(){
 
 	while [[ $CPANELUSERNAME == '' ]] # While CPANELUSERNAME is empty...
 	do
-		read -p "cPanel Username: " CPANELUSERNAME # Ask the user to enter the domain
+		read -p "cPanel Username: " CPANELUSERNAME # Ask the user to enter the cPanel Username
 	done 
 
 	# Creating the staging script
@@ -296,8 +296,7 @@ function install_remote_ssl(){
 	echo "crontab -l" >> /tmp/install_ssl_force.sh
 	
 	# Copying files to target server
-	scp -P 21098 /tmp/install_ssl_staging.sh $SERVER:~
-	scp -P 21098 /tmp/install_ssl_force.sh $SERVER:~
+	scp -P 21098 /tmp/install_ssl_staging.sh $SERVER:~ && scp -P 21098 /tmp/install_ssl_force.sh $SERVER:~
 
 	# Instructions before enter the SSH
 	echo "Make the scripts executable"
