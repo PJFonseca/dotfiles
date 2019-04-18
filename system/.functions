@@ -288,7 +288,7 @@ function install_remote_ssl(){
 	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --staging" >> /tmp/install_ssl_staging.sh
 	
 	# Creating the FORCE script. This is to be executed if the staging gives green
-	echo '#!/bin/bash' > install_ssl_force.sh
+	echo '#!/bin/bash' > /tmp/install_ssl_force.sh
 	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --force" >> /tmp/install_ssl_force.sh
 	echo "export DEPLOY_cPanel_USER="$CPANELUSERNAME"" >> /tmp/install_ssl_force.sh
 	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain "$DOMAIN"" >> /tmp/install_ssl_force.sh
