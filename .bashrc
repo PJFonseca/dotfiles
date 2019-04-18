@@ -18,4 +18,4 @@ export PATH="$PATH:$HOME/.dotfiles/system"
  done;
  unset file;
 
-source ~/.dotfiles/.bash_prompt
+source ~/.dotfiles/.bash_prompt.

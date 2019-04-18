@@ -63,7 +63,7 @@ function hpoff(){
 }
 #Update host files to block bad hosts
 function updateblockedhosts(){
-	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' && sync
+	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' && sync
 }
 #Meteo in CLI
 function meteo() {
@@ -216,6 +216,7 @@ function getgateway() {
 
 function checkinternet() {
 	wget --timeout=15 "google.com" || wget --timeout=15 "bing.com"
+	rm -R ~/index.html
 }
 
 function checkdns() {
@@ -234,4 +235,62 @@ function checkip() {
 
 function checkgateway() {
 	ping -c 1 -q "$(route -n | grep -E '^0.0.0.0' | xargs | cut -d' ' -f2)"
+}
+
+function flashtasmota(){
+	#Flash my sonoff's with Tasmota
+	wget -P /tmp/ http://sonoff.maddox.co.uk/tasmota/sonoff.bin
+	sudo esptool.py --port /dev/ttyUSB0 --baud 115200 write_flash -fs 1MB -fm dout 0x0 /tmp/sonoff.bin
+	rm -R /tmp/sonoff.bin
+}
+
+# This will generate two scripts and copy them to the target server
+# that has cPanel on it and needs SSL certificates. 
+# The port 21098 used by my provider (namecheap.com) in the SSH connections.
+# Feel free to change.
+#
+# This is based on this tutorial: https://github.com/Neilpang/acme.sh/wiki/Simple-guide-to-add-TLS-cert-to-cpanel
+# Thank you Neil Pang for this awesome script. Find him at https://twitter.com/neilpangxa
+
+function install_remote_ssl(){
+	
+	#Gatering info needed
+	printf 'Server (username@domain): '
+	read SERVER
+	printf 'Email: '
+	read EMAIL
+	printf 'Domain: '
+	read DOMAIN
+	printf 'cPanel Username: '
+	read CPANELUSERNAME
+
+	# Creating the staging script
+	echo '#!/bin/bash' > install_ssl_staging.sh
+	echo "curl https://get.acme.sh | sh" >> install_ssl_staging.sh
+	echo "source ~/.bashrc" >> install_ssl_staging.sh
+	echo "~/.acme.sh/acme.sh --update-account --accountemail "$EMAIL"" >> install_ssl_staging.sh
+	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --staging" >> install_ssl_staging.sh
+	
+	# Creating the FORCE script. This is to be executed if the staging gives green
+	echo '#!/bin/bash' > install_ssl_force.sh
+	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --force" >> install_ssl_force.sh
+	echo "export DEPLOY_cPanel_USER="$CPANELUSERNAME"" >> install_ssl_force.sh
+	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain "$DOMAIN"" >> install_ssl_force.sh
+	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www."$DOMAIN"" >> install_ssl_force.sh
+	echo "crontab -l" >> install_ssl_force.sh
+	
+	# Copying files to target server
+	scp -P 21098 ./install_ssl_staging.sh $SERVER:~
+	scp -P 21098 ./install_ssl_force.sh $SERVER:~
+
+	# Instructions before enter the SSH
+	echo "Make the scripts executable"
+	echo ""
+	echo "chmod +x install_ssl_staging.sh install_ssl_force.sh"
+	echo ""
+	echo "Then run install_ssl_staging.sh and if it succeeds, run the install_ssl_force.sh"
+	echo ""
+
+	#SSH into target server
+	ssh -p 21098 $SERVER
 }

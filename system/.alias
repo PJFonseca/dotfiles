@@ -35,7 +35,7 @@ unset GREP_OPTIONS
 
 # Miscellaneous
 
-alias hosts="sudo $EDITOR /etc/hosts"
+alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="wget -O /dev/null https://speed.hetzner.de/100MB.bin"
@@ -43,3 +43,5 @@ alias update="sudo dnf -y update && sudo dnf -y upgrade && sudo dnf -y autoremov
 alias path='echo -e ${PATH//:/\\n}'
 alias cls="clear"
 alias scrf="screenfetch"
+alias home="cd ~"
+alias sshn="ssh -p 21098"
