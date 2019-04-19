@@ -62,6 +62,7 @@ wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gn
 #Install
 gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
 gnome-shell-extension-installer 1112 # Screenshot Tool by oal
+gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
 
 #Install flat-remix-gtk theme
 cd /tmp && rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
