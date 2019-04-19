@@ -281,20 +281,22 @@ function install_remote_ssl(){
 	done 
 
 	# Creating the staging script
-	echo '#!/bin/bash' > /tmp/install_ssl_staging.sh
-	echo "curl https://get.acme.sh | sh" >> /tmp/install_ssl_staging.sh
-	echo "source ~/.bashrc" >> /tmp/install_ssl_staging.sh
-	echo "~/.acme.sh/acme.sh --update-account --accountemail "$EMAIL"" >> /tmp/install_ssl_staging.sh
-	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --staging" >> /tmp/install_ssl_staging.sh
-	
+	cat << EOF > /tmp/install_ssl_staging.sh
+	#!/bin/bash
+	curl https://get.acme.sh | sh
+	source ~/.bashrc
+	~/.acme.sh/acme.sh --update-account --accountemail $EMAIL
+	~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d $DOMAIN -d www.$DOMAIN --staging
+EOF
 	# Creating the FORCE script. This is to be executed if the staging gives green
-	echo '#!/bin/bash' > /tmp/install_ssl_force.sh
-	echo "~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d "$DOMAIN" -d www."$DOMAIN" --force" >> /tmp/install_ssl_force.sh
-	echo "export DEPLOY_cPanel_USER="$CPANELUSERNAME"" >> /tmp/install_ssl_force.sh
-	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain "$DOMAIN"" >> /tmp/install_ssl_force.sh
-	echo "~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www."$DOMAIN"" >> /tmp/install_ssl_force.sh
-	echo "crontab -l" >> /tmp/install_ssl_force.sh
-	
+	cat << EOF > /tmp/install_ssl_force.sh
+	#!/bin/bash
+	~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d $DOMAIN -d www.$DOMAIN --force
+	export DEPLOY_cPanel_USER=$CPANELUSERNAME
+	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain $DOMAIN
+	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www.$DOMAIN
+	crontab -l
+EOF
 	# Copying files to target server
 	scp -P 21098 /tmp/install_ssl_staging.sh $SERVER:~ && scp -P 21098 /tmp/install_ssl_force.sh $SERVER:~
 
@@ -308,4 +310,25 @@ function install_remote_ssl(){
 
 	#SSH into target server
 	ssh -p 21098 $SERVER
+}
+
+# Install Postman. Kudos to: https://medium.com/@udomsak/install-postman-on-fedora-core-29-5e09941d804e
+function install_postman(){
+    wget -P /tmp/ https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
+    sudo tar xvzf /tmp/postman-linux-x64.tar.gz -C /opt
+    sudo ln -s /opt/Postman/Postman /usr/bin/postman
+    
+    cat << EOF > ~/.local/share/applications/postman2.desktop
+    [Desktop Entry]
+    Name=Postman
+    GenericName=API Client
+    X-GNOME-FullName=Postman API Client
+    Comment=Make and view REST API calls and responses
+    Keywords=api;
+    Exec=/opt/Postman/Postman
+    Terminal=false
+    Type=Application
+    Icon=/opt/Postman/app/resources/app/assets/icon.png
+    Categories=Development;Utilities;
+EOF
 }
