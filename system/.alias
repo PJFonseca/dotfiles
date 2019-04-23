@@ -14,7 +14,7 @@ alias paths='echo -e ${PATH//:/\\n}'
 
 # Directory listing/traversal
 
-alias l="ls -l "
+alias l="ls -lhF --color=auto"
 alias ll="ls -lhA "
 alias lt="ls -lhAtr"
 alias ld="ls -ld */"
@@ -43,7 +43,8 @@ alias update="sudo dnf -y update && sudo dnf -y upgrade && sudo dnf -y autoremov
 alias path='echo -e ${PATH//:/\\n}'
 alias cls="clear"
 alias specs="screenfetch"
-alias home="cd ~"
 alias sshn="ssh -p 21098"
 alias edit="sudo gedit"
+alias h="history"
 alias install="sudo dnf -y install"
+alias sysinfo="sudo rpm -qi basesystem"
