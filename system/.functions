@@ -1,27 +1,12 @@
 #Download stuff from YouTube
-function ytdl(){
-
-    if [ -z "${1}" ]; then
-		echo "ERROR: No url specified";
-        return 1;
-    fi;
-    if [ -z "${2}" ]; then
-        echo "ERROR: No type specified.";
-        return 2;
-    fi;
-
-    if [ $2=='1' ]; then
-        youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1
-    else
-        youtube-dl $1
-    fi
-}
-
 function bookdl(){
-	youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Public/AudioBooks/%(artist)s/%(album)s/%(title)s.%(ext)s'
+	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Public/AudioBooks/%(artist)s/%(album)s/%(title)s.%(ext)s'
 }
 function musicdl(){
-	youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Música/%(title)s.%(ext)s'
+	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Música/%(title)s.%(ext)s'
+}
+function playlistdl(){
+	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '/mnt/Stuff/Dropbox/Música/TMP/%(title)s.%(ext)s'
 }
 
 # Show all the names (CNs and SANs) listed in the SSL certificate
