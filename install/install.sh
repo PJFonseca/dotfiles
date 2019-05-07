@@ -35,7 +35,8 @@ ffmpeg \
 git \
 nautilus-extensions \
 nautilus-image-converter \
-nautilus-search-tool 
+nautilus-search-tool \
+trash-cli
 
 # Remove un-needed stuff
 sudo dnf remove \
