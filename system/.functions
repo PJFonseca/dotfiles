@@ -317,6 +317,10 @@ function install_postman(){
     Categories=Development;Utilities;
 EOF
 }
+function install_dbeaver(){
+		wget -P /tmp/ https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
+    sudo rpm -Uhv /tmp/dbeaver-ce-latest-stable.x86_64.rpm
+}
 
 function man2pdf(){	
 	man -t $1 | ps2pdf - $1.pdf
