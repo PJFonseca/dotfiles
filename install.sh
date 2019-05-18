@@ -36,7 +36,8 @@ git \
 nautilus-extensions \
 nautilus-image-converter \
 nautilus-search-tool \
-trash-cli
+trash-cli\
+pwgen
 
 # Remove un-needed stuff
 sudo dnf remove \
@@ -111,4 +112,4 @@ ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
 sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
 
 #Mounting - FSTab
-sudo echo "/dev/disk/by-uuid/80b5f91f-6d05-49f6-bf74-51e7ec9f756f /mnt/Stuff auto nosuid,nodev,nofail,x-gvfs-show 0 0" >> /etc/fstab
+#sudo echo "/dev/disk/by-uuid/80b5f91f-6d05-49f6-bf74-51e7ec9f756f /mnt/Stuff auto nosuid,nodev,nofail,x-gvfs-show 0 0" >> /etc/fstab

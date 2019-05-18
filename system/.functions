@@ -323,5 +323,5 @@ function install_dbeaver(){
 }
 
 function man2pdf(){	
-	man -t $1 | ps2pdf - $1.pdf
+	man -t $1 | ps2pdf - ~/Transferências/$1.pdf
 }
