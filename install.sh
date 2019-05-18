@@ -45,9 +45,6 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 ~/.dropbox-dist/dropboxd
 
-#Discord
-cd /tmp/ && wget -P /tmp/ https://discordapp.com/api/download?platform=linux&format=tar.gz && sudo tar xvzf discord*.tar.gz -C /usr/share && sudo chmod 777 -R /usr/share/Discord && sudo mv /usr/share/Discord /usr/share/discord
-
 #TeamViewer
 cd /tmp/ && wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
 
