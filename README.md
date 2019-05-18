@@ -14,7 +14,7 @@ So don't get **[ put some sort of state of mind and/or spirit in here ]** about 
 I'm so newbie that I don't know what to write in the instructions to install and use my ***dotfiles***. I have one install script ([<code>install.sh</code>](https://github.com/PJFonseca/dotfiles/blob/master/install/install.sh)) but it was never tested and for sure it will ***fail***, so if you try it just remember there will be **Dragons**, not the Daenerys Targaryen ones unfortunately.
 
 ## **Install**
-<code>git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles && cd ~/.dotfiles && ./install.sh</code>
+<code>sudo git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles && cd ~/.dotfiles && chmod +x install.sh && ./install.sh</code>
 
 
 
