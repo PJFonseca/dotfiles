@@ -9,8 +9,6 @@ sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y python-vlc npapi-vlc 
 
-
-
 ##Install Software
 sudo dnf install \
 -y \
@@ -116,7 +114,6 @@ sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
 
 #Mounting - FSTab
 #sudo echo "/dev/disk/by-uuid/80b5f91f-6d05-49f6-bf74-51e7ec9f756f /mnt/Stuff auto nosuid,nodev,nofail,x-gvfs-show 0 0" >> /etc/fstab
-
 
 # Remove un-needed stuff
 sudo dnf remove \
