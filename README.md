@@ -15,12 +15,11 @@ I'm so newbie that I don't know what to write in the instructions to install and
 
 ## **Install**
 <code>
-git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles
+git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles</code>
 
-cd ~/.dotfiles;
+<code>cd ~/.dotfiles;</code>
 
-./install.sh
-</code>
+<code>./install.sh</code>
 
 
 
