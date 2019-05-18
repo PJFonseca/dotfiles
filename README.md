@@ -16,8 +16,6 @@ I'm so newbie that I don't know what to write in the instructions to install and
 ## **Install**
 <code>sudo rm -rf ~/.dotfiles && &&git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles && cd ~/.dotfiles && chmod +x install.sh && sudo ./install.sh</code>
 
-
-
 ## **Keywords**
 **functions**, **aliases**, **alias**, **bash**, **env**, **shell**, petrol, mad max, tina turner, 80, queen... hummmm, this is going the wrong way, let me stop.
 
