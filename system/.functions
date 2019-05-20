@@ -321,6 +321,15 @@ function install_dbeaver(){
 		wget -P /tmp/ https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
     sudo rpm -Uhv /tmp/dbeaver-ce-latest-stable.x86_64.rpm
 }
+# Install Brother HLL2360DW
+function install_printer(){
+		sudo dnf install dpkg
+		wget -P /tmp/ https://download.brother.com/welcome/dlf101123/brgenml1lpr-3.1.0-1.i386.deb
+		wget -P /tmp/ https://download.brother.com/welcome/dlf101125/brgenml1cupswrapper-3.1.0-1.i386.deb
+		sudo dpkg  -i  --force-all brgenml1lpr-3.1.0-1.i386.deb
+		sudo dpkg  -i  --force-all brgenml1cupswrapper-3.1.0-1.i386.deb
+		sudo dpkg  -l  |  grep  Brother
+}
 
 function man2pdf(){	
 	man -t $1 | ps2pdf - ~/Transferências/$1.pdf
