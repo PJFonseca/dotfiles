@@ -326,9 +326,18 @@ function install_printer(){
 		sudo dnf install dpkg
 		wget -P /tmp/ https://download.brother.com/welcome/dlf101123/brgenml1lpr-3.1.0-1.i386.deb
 		wget -P /tmp/ https://download.brother.com/welcome/dlf101125/brgenml1cupswrapper-3.1.0-1.i386.deb
-		sudo dpkg -i --force-all brgenml1lpr-3.1.0-1.i386.deb
-		sudo dpkg -i --force-all brgenml1cupswrapper-3.1.0-1.i386.deb
+		sudo dpkg -i --force-all /tmp/brgenml1lpr-3.1.0-1.i386.deb
+		sudo dpkg -i --force-all /tmp/brgenml1cupswrapper-3.1.0-1.i386.deb
 		sudo dpkg -l | grep  Brother
+}
+
+function install_dotfiles(){
+	rm -rf ~/.bashrc
+	ln -s ~/.dotfiles/.bashrc ~/.bashrc
+	rm -rf ~/.gitconfig
+	ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+	rm -rf ~/.bash_prompt
+	ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
 }
 
 function man2pdf(){	
