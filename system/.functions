@@ -323,12 +323,9 @@ function install_dbeaver(){
 }
 # Install Brother HLL2360DW
 function install_printer(){
-		sudo dnf install dpkg
-		wget -P /tmp/ https://download.brother.com/welcome/dlf101123/brgenml1lpr-3.1.0-1.i386.deb
-		wget -P /tmp/ https://download.brother.com/welcome/dlf101125/brgenml1cupswrapper-3.1.0-1.i386.deb
-		sudo dpkg -i --force-all /tmp/brgenml1lpr-3.1.0-1.i386.deb
-		sudo dpkg -i --force-all /tmp/brgenml1cupswrapper-3.1.0-1.i386.deb
-		sudo dpkg -l | grep  Brother
+		wget -P /tmp/ https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.1-1.gz
+		sudo gunzip /tmp/linux-brprinter-installer-2.2.1-1.gz
+		sudo bash linux-brprinter-installer-2.1.1-1 HLL2360D
 }
 
 function install_dotfiles(){
