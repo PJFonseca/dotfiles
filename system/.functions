@@ -325,8 +325,8 @@ function install_dbeaver(){
 function install_printer(){
 		wget -P /tmp/ https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.1-1.gz
 		sudo gunzip /tmp/linux-brprinter-installer-2.2.1-1.gz
-		sudo chmod +x /tmp/linux-brprinter-installer-2.1.1-1
-		sudo /tmp/linux-brprinter-installer-2.1.1-1 HLL2360D
+		sudo chmod +x /tmp/linux-brprinter-installer-2.2.1-1
+		sudo /tmp/linux-brprinter-installer-2.2.1-1 HLL2360D
 }
 
 function install_dotfiles(){
