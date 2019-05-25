@@ -33,7 +33,7 @@ unset GREP_OPTIONS
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
-alias speedtest="wget -O /dev/null https://speed.hetzner.de/100MB.bin"
+alias speedtest="wget -O /dev/null https://speed.hetzner.de/1GB.bin"
 alias path='echo -e ${PATH//:/\\n}'
 alias cls="clear"
 alias specs="screenfetch"

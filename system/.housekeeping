@@ -47,6 +47,8 @@ function backup(){
 	cp -R ~/.vnc $LINUX_BACKUP_FOLDER/
 	#variety
 	cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
+	#ssh
+	cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
 
 	#dash-to-panel settings
 	dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $LINUX_BACKUP_FOLDER/dtp_settings
