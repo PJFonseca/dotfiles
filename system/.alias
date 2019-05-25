@@ -9,7 +9,6 @@ alias aliases="alias | sed 's/=.*//'"
 alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
 
-
 # Directory listing/traversal
 alias l="ls -lhF --color=auto"
 alias ll="ls -lhA "
@@ -45,7 +44,7 @@ alias sshn-copy-id="ssh-copy-id -p 21098"
 alias scpn="scp -P 21098"
 
 alias edit="sudo gedit"
-alias fstab="sudo gedit /etc/fstab"
+alias fstab="sudo nano /etc/fstab"
 alias h="history"
 alias install="sudo dnf -y install"
 alias sysinfo="sudo rpm -qi basesystem"
