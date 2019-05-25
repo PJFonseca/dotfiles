@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Repos and Basics
-hostnamectl set-hostname --static "fedorabox"
+hostnamectl set-hostname --static "FedoraBox"
 sudo dnf -y update
 sudo dnf upgrade --best --allowerasing --refresh -y
 sudo dnf install -y fedora-workstation-repositories
@@ -37,59 +37,22 @@ trash-cli \
 libcxx \
 pwgen
 
-#VSCode stuff
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-
-#Dropbox
-cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-~/.dropbox-dist/dropboxd
-
 #TeamViewer
-cd /tmp/ && wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
-
-#VNC
-cd /tmp/ && wget -P /tmp/ https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.19.325-Linux-x64.rpm && sudo dnf install -y /tmp/VNC-Viewer-6.19.325-Linux-x64.rpm
-
-#Skype
-cd /tmp/ && wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
-
+install_teamviewer
 #DBeaver
-cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm
-
+install_dbeaver
+#VNC
+install_vnc
+#Skype
+install_skype
 #Postman
-cd /tmp/ && wget -P /tmp/ https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
-sudo tar xvzf /tmp/postman-linux-x64.tar.gz -C /opt
-sudo ln -s /opt/Postman/Postman /usr/bin/postman
-
-cat << EOF > ~/.local/share/applications/postman2.desktop
-[Desktop Entry]
-Name=Postman
-GenericName=API Client
-X-GNOME-FullName=Postman API Client
-Comment=Make and view REST API calls and responses
-Keywords=api;
-Exec=/opt/Postman/Postman
-Terminal=false
-Type=Application
-Icon=/opt/Postman/app/resources/app/assets/icon.png
-Categories=Development;Utilities;
-EOF
-
-#Extensions
-cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
-
-#Install
-gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
-gnome-shell-extension-installer 1112 # Screenshot Tool by oal
-gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
-
+install_postman
+#gnome-shell-extension-installer
+install_gsei
 #Install flat-remix-gtk theme
-cd /tmp && rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
-cd /tmp && rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
-
+install_theme
 #Cursor
-cd /tmp/ && wget -P /tmp/ http://download-ib01.fedoraproject.org/pub/fedora/linux/releases/30/Everything/x86_64/os/Packages/b/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm && sudo dnf install -y /tmp/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm
+install_breeze_cursor
 
 #Interface
 gsettings set org.gnome.desktop.interface gtk-theme 'Flat-Remix-GTK-Blue-Dark'
@@ -103,7 +66,7 @@ gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 gsettings set org.gnome.nautilus.list-view use-tree-view true
 
 #Codecs
-sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
+install_codecs
 
 #SoftLinks
 rm -rf ~/.bashrc
@@ -115,9 +78,6 @@ ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
 
 #Telegram to start in tray
 sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
-
-#Mounting - FSTab
-#sudo echo "/dev/disk/by-uuid/80b5f91f-6d05-49f6-bf74-51e7ec9f756f /mnt/Stuff auto nosuid,nodev,nofail,x-gvfs-show 0 0" >> /etc/fstab
 
 # Remove un-needed stuff
 sudo dnf remove \

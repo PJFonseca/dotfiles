@@ -1,19 +1,16 @@
 # Shortcuts
-
 alias reload="source ~/.bashrc"
 alias _="sudo"
 alias g="git"
 alias rr="rm -rf"
 
 # List declared aliases, functions, paths
-
 alias aliases="alias | sed 's/=.*//'"
 alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
 
 
 # Directory listing/traversal
-
 alias l="ls -lhF --color=auto"
 alias ll="ls -lhA "
 alias lt="ls -lhAtr"
@@ -23,8 +20,8 @@ alias lpm="stat -c '%a %n' *"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias -- -="cd -"                  # Go to previous dir with -
-alias cd.='cd $(readlink -f .)' # Go to real dir (i.e. if current dir is linked)
+alias -- -="cd -"
+alias cd.='cd $(readlink -f .)'
 
 # Always enable colored grep output`
 alias grep="grep --color=auto"
@@ -34,12 +31,10 @@ alias egrep="egrep --color=auto"
 unset GREP_OPTIONS
 
 # Miscellaneous
-
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="wget -O /dev/null https://speed.hetzner.de/100MB.bin"
-alias update="sudo dnf -y update --best --allowerasing && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && clean all && backup && sudo youtube-dl -U && clean && updateblockedhosts"
 alias path='echo -e ${PATH//:/\\n}'
 alias cls="clear"
 alias specs="screenfetch"
@@ -50,7 +45,7 @@ alias sshn-copy-id="ssh-copy-id -p 21098"
 alias scpn="scp -P 21098"
 
 alias edit="sudo gedit"
+alias fstab="sudo gedit /etc/fstab"
 alias h="history"
 alias install="sudo dnf -y install"
 alias sysinfo="sudo rpm -qi basesystem"
-alias samplepdf="wget -P ~/ http://www.africau.edu/images/default/sample.pdf"

@@ -13,8 +13,12 @@ export PATH
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/.dotfiles/system"
 
- for DOTFILE in ~/.dotfiles/system/.{alias,functions,functions_install,env}; do
+ for DOTFILE in ~/.dotfiles/system/.{alias,functions,housekeeping,tasmota,env}; do
  	[ -f "$DOTFILE" ] && . "$DOTFILE"	
+ done;
+
+ for UTILS in ~/.dotfiles/includes/.{utils,install}; do
+ 	[ -f "$UTILS" ] && . "$UTILS"	
  done;
  unset file;
 

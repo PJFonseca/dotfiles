@@ -1,0 +1,64 @@
+#Clears some dirs
+function clean(){
+	rm -r ~/$DOWNLOAD_FOLDER/* 2> /dev/null
+	rm -r ~/$IMAGES_FOLDER/* 2> /dev/null
+	rm -rf ~/.local/share/Trash/* 2> /dev/null
+}
+
+#Update host files to block bad hosts
+function ublock(){
+	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' && sync
+}
+
+function update(){
+    DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
+    if [[ "${DISTRO}" = "Fedora" ]]; then
+        sudo dnf -y update --best --allowerasing && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && clean all && backup && sudo youtube-dl -U && clean && updateblockedhosts
+    else
+        #ToDo Ubuntu part
+		return 1;
+	fi;
+}
+function testvar(){
+	local destiny=$LINUX_BACKUP_FOLDER
+	echo $destiny
+}
+function backup(){
+	local destiny=$LINUX_BACKUP_FOLDER
+
+	#Clean Backup dir
+	rm -rf $LINUX_BACKUP_FOLDER/*
+
+	if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
+		mkdir "$LINUX_BACKUP_FOLDER/.config/"
+	fi
+	#vsCode
+	cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
+
+	#DBeaver
+	cp -R ~/.dbeaver4 $LINUX_BACKUP_FOLDER/
+
+	#Filezilla
+	cp -R ~/.config/filezilla $LINUX_BACKUP_FOLDER/.config/filezilla/
+	#Keepassxc
+	cp -R ~/.config/keepassxc $LINUX_BACKUP_FOLDER/.config/keepassxc/
+	#teamviewer
+	cp -R ~/.config/teamviewer $LINUX_BACKUP_FOLDER/.config/teamviewer/
+	#VNC
+	cp -R ~/.vnc $LINUX_BACKUP_FOLDER/
+	#variety
+	cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
+
+	#dash-to-panel settings
+	dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $LINUX_BACKUP_FOLDER/dtp_settings
+	msgout success "Personal Backup done!"
+}
+
+function restore(){
+	#Restore files from Dropbox
+	cp -R $LINUX_BACKUP_FOLDER/. ~/
+
+	#dash-to-panel settings
+	dconf load /org/gnome/shell/extensions/dash-to-panel/ < $LINUX_BACKUP_FOLDER/dtp_settings
+	msgout success "Restore done!"
+}
