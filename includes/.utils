@@ -50,9 +50,9 @@ function checkip() {
 
 	local hostname="$(nmblookup -A "$1" | sed -n 2p | awk '{print $1}')"
 	if [ "$(ping -c 1 -q "$1" | sed -n 4p | awk '{print $4}')" == 1 ]; then
-		echo $hostname "is Online"
+		msgout success $hostname "is Online"
 	else
-		echo "Offline"
+		msgout error "Offline"
 	fi
 }
 function checkgateway() {

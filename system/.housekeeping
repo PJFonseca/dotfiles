@@ -3,11 +3,13 @@ function clean(){
 	rm -r ~/$DOWNLOAD_FOLDER/* 2> /dev/null
 	rm -r ~/$IMAGES_FOLDER/* 2> /dev/null
 	rm -rf ~/.local/share/Trash/* 2> /dev/null
+	msgout success "System clean!"
 }
 
 #Update host files to block bad hosts
 function ublock(){
 	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' && sync
+	msgout success "Hosts updated!"
 }
 
 function update(){
@@ -19,10 +21,7 @@ function update(){
 		return 1;
 	fi;
 }
-function testvar(){
-	local destiny=$LINUX_BACKUP_FOLDER
-	echo $destiny
-}
+
 function backup(){
 	local destiny=$LINUX_BACKUP_FOLDER
 
