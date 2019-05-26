@@ -256,3 +256,8 @@ function getcertnames() {
 		return 1;
 	fi;
 }
+
+function sshn(){
+	sshn-copy-id $1
+	sshn $1
+}

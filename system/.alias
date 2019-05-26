@@ -39,8 +39,8 @@ alias cls="clear"
 alias specs="screenfetch"
 
 #Alias to use a specific port
-alias sshn="ssh -p 21098"
-alias sshn-copy-id="ssh-copy-id -p 21098"
+#alias sshn="ssh -p 21098"
+#alias sshn-copy-id="ssh-copy-id -p 21098"
 alias scpn="scp -P 21098"
 
 alias edit="sudo gedit"
