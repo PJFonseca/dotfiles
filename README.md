@@ -30,7 +30,7 @@ Ta-ta!***
 _by The Offspring on Smash in 1994_
 
 
-*P.S.: Sorry about my strange english ( I guess ), but not my native language.*
+*P.S.: Sorry about my strange english ( I guess ), not my native language.*
 
 
 
