@@ -21,9 +21,13 @@ I'm so newbie that I don't know what to write in the instructions to install and
 
 **Full Instalation**
 
+If you are starting from fresh in a Fedora Machine
+
 <code>cd ~/.dotfiles && chmod +x install.sh && sudo ./install.sh</code>
 
-**Activating dotfiles**
+**Activating dotfiles** 
+
+If you only need to activate the dotfiles
 
 <code>
     rm -rf ~/.bashrc && ln -s ~/.dotfiles/.bashrc ~/.bashrc && rm -rf ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig && rm -rf ~/.bash_prompt && ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
