@@ -19,11 +19,11 @@ I'm so newbie that I don't know what to write in the instructions to install and
 
 <code>sudo rm -rf ~/.dotfiles && git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles</code>
 
-**Instalation**
+**Full Instalation**
 
 <code>cd ~/.dotfiles && chmod +x install.sh && sudo ./install.sh</code>
 
-**Activate**
+**Activating dotfiles**
 
 <code>
     rm -rf ~/.bashrc && ln -s ~/.dotfiles/.bashrc ~/.bashrc && rm -rf ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig && rm -rf ~/.bash_prompt && ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
