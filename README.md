@@ -26,12 +26,7 @@ I'm so newbie that I don't know what to write in the instructions to install and
 **Activate**
 
 <code>
-    rm -rf ~/.bashrc
-	ln -s ~/.dotfiles/.bashrc ~/.bashrc
-	rm -rf ~/.gitconfig
-	ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-	rm -rf ~/.bash_prompt
-	ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
+    rm -rf ~/.bashrc && ln -s ~/.dotfiles/.bashrc ~/.bashrc && rm -rf ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig && rm -rf ~/.bash_prompt && ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
 </code>
 
 ## **Keywords**
