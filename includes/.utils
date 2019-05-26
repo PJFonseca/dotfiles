@@ -257,6 +257,7 @@ function getcertnames() {
 	fi;
 }
 
+#Making sure that when connecting via SSH the ssh keys are copied
 function sshn(){
 	sshn-copy-id $1
 	sshn $1
