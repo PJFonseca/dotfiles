@@ -262,3 +262,14 @@ function sshn(){
 	sshn-copy-id $1
 	sshn $1
 }
+
+#To reset TeamViewer settings and stop showing the warning
+function teamviewer_reset(){
+	sudo teamviewer --daemon stop
+	sudo macchanger -r eth0 > /dev/null
+	sudo ifconfig wlan0 down
+	sudo macchanger -r wlan0 > /dev/null
+	sudo ifconfig wlan0 up
+	sudo rm -rf /opt/teamviewer/config/global.conf
+	sudo teamviewer --daemon start
+}
