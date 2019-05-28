@@ -272,3 +272,13 @@ function teamviewer_reset(){
 	sudo rm -rf /opt/teamviewer/config/global.conf
 	sudo teamviewer --daemon start
 }
+
+function youtubedl_update(){
+	sudo youtube-dl -U &> /dev/null
+	msgout success "youtube-dl updated!"
+}
+
+
+function repos(){
+	cd /etc/yum.repos.d/
+}

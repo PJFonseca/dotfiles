@@ -2,7 +2,7 @@
 alias reload="source ~/.bashrc"
 alias _="sudo"
 alias g="git"
-alias rr="rm -rf"
+alias sr="sudo rm -rf"
 
 # List declared aliases, functions, paths
 alias aliases="alias | sed 's/=.*//'"
@@ -11,11 +11,12 @@ alias paths='echo -e ${PATH//:/\\n}'
 
 # Directory listing/traversal
 alias l="ls -lhF --color=auto"
-alias ll="ls -lhA "
+alias ll="ls -lhAa "
 alias lt="ls -lhAtr"
 alias ld="ls -ld */"
 alias lpm="stat -c '%a %n' *"
 
+alias ~="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
