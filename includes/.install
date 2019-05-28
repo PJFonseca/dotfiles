@@ -102,3 +102,7 @@ function install_codecs(){
 	sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
 	msgout success "Codecs installed!"
 }
+function install_gnometodo(){
+	sudo dnf install gnome-todo
+	msgout success "GNOME To Do installed!"
+}
