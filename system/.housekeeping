@@ -15,7 +15,7 @@ function ublock(){
 function update(){
     DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
     if [[ "${DISTRO}" = "Fedora" ]]; then
-        sudo dnf -y update --best --allowerasing && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && clean all && backup && sudo youtube-dl -U && clean && updateblockedhosts
+        sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && clean all && backup && sudo youtube-dl -U && clean && updateblockedhosts
     else
         #ToDo Ubuntu part
 		return 1;
