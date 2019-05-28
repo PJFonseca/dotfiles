@@ -35,8 +35,7 @@ nautilus-image-converter \
 nautilus-search-tool \
 trash-cli \
 libcxx \
-pwgen \
-gnome-todo
+pwgen
 
 #TeamViewer
 install_teamviewer
