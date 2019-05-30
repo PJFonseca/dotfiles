@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. ~/.dotfiles/includes/.install --source-only
-. ~/.dotfiles/includes/.utils --source-only
+~/.dotfiles/includes/.install --source-only
+~/.dotfiles/includes/.utils --source-only
 
 #Repos and Basics
 hostnamectl set-hostname --static "FedoraBox"
