@@ -1,5 +1,8 @@
 #!/bin/bash
 
+. ~/.dotfiles/includes/.install --source-only
+. ~/.dotfiles/includes/.utils --source-only
+
 #Repos and Basics
 hostnamectl set-hostname --static "FedoraBox"
 sudo dnf -y update
@@ -7,7 +10,7 @@ sudo dnf upgrade --best --allowerasing --refresh -y
 sudo dnf install -y fedora-workstation-repositories
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install -y python-vlc npapi-vlc 
+sudo dnf install -y python-vlc
 
 ##Install Software
 sudo dnf install \
