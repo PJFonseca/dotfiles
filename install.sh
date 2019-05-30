@@ -44,14 +44,14 @@ libcxx \
 pwgen
 
 #SoftLinks
-rm -rf ~/.bashrc
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
-rm -rf ~/.gitconfig
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-rm -rf ~/.bash_prompt
-ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
+rm -rf /home/$USER/.bashrc
+ln -s /home/$USER/.dotfiles/.bashrc /home/$USER/.bashrc
+rm -rf /home/$USER/.gitconfig
+ln -s /home/$USER/.dotfiles/.gitconfig /home/$USER/.gitconfig
+rm -rf /home/$USER/.bash_prompt
+ln -s /home/$USER/.dotfiles/.bash_prompt /home/$USER/.bash_prompt
 
-source ~/.bashrc
+source /home/$USER/.bashrc
 
 #TeamViewer
 install_teamviewer
