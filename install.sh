@@ -54,21 +54,54 @@ ln -s /home/$USER/.dotfiles/.bash_prompt /home/$USER/.bash_prompt
 source /home/$USER/.bashrc
 
 #TeamViewer
-install_teamviewer
+cd /tmp/ && wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
+msgout success "Teamviewer installed!"
+
 #DBeaver
-install_dbeaver
+cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm
+msgout success "DBeaver installed!"
+
 #VNC
-install_vnc
+cd /tmp/ && wget -P /tmp/ https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.19.325-Linux-x64.rpm && sudo dnf install -y /tmp/VNC-Viewer-6.19.325-Linux-x64.rpm
+msgout success "VNC installed!"
+
 #Skype
-install_skype
+cd /tmp/ && wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
+msgout success "Skype installed!"
+
 #Postman
-install_postman
+wget -P /tmp/ https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
+sudo tar xvzf /tmp/postman-linux-x64.tar.gz -C /opt
+sudo ln -s /opt/Postman/Postman /usr/bin/postman
+
+cat << EOF > ~/.local/share/applications/postman2.desktop
+[Desktop Entry]
+Name=Postman
+GenericName=API Client
+X-GNOME-FullName=Postman API Client
+Comment=Make and view REST API calls and responses
+Keywords=api;
+Exec=/opt/Postman/Postman
+Terminal=false
+Type=Application
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Categories=Development;Utilities;
+EOF
+msgout success "Postman installed!"
+
 #gnome-shell-extension-installer
-install_gsei
+cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
+gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
+gnome-shell-extension-installer 1112 # Screenshot Tool by oal
+gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
+msgout success "GNOME Extensions: Dash to Panel, Screenshot and No Topleft Hot Corner installed!"
+
 #Install flat-remix-gtk theme
-install_theme
+cd /tmp && rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
+cd /tmp && rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
+
 #Cursor
-install_breeze_cursor
+cd /tmp/ && wget -P /tmp/ http://download-ib01.fedoraproject.org/pub/fedora/linux/releases/30/Everything/x86_64/os/Packages/b/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm && sudo dnf install -y /tmp/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm
 
 #Interface
 gsettings set org.gnome.desktop.interface gtk-theme 'Flat-Remix-GTK-Blue-Dark'
@@ -82,16 +115,9 @@ gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 gsettings set org.gnome.nautilus.list-view use-tree-view true
 
 #Codecs
-install_codecs
+sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
+msgout success "Codecs installed!"
 
 
 #Telegram to start in tray
 sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
-
-# Remove un-needed stuff
-sudo dnf remove \
--y \
-gnome-shell-extension-background-logo \
-totem \
-chromium \
-flowblade

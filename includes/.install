@@ -20,6 +20,12 @@ EOF
 	msgout success "Postman installed!"
 }
 
+function install_telegram(){
+	cd /tmp/ && wget -P /tmp/ --trust-server-names https://updates.tdesktop.com/tlinux/tsetup.1.7.0.tar.xz && tar -xvf tsetup.1.7.0.tar.xz -C /tmp/
+	sudo mv Telegram /opt/telegram
+	sudo ln -sf /opt/telegram/Telegram /usr/bin/telegram
+}
+
 function install_dbeaver(){
 	##wget -P /tmp/ https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
     ##sudo rpm -Uhv /tmp/dbeaver-ce-latest-stable.x86_64.rpm
