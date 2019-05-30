@@ -21,9 +21,8 @@ EOF
 }
 
 function install_telegram(){
-	cd /tmp/ && wget -P /tmp/ --trust-server-names https://updates.tdesktop.com/tlinux/tsetup.1.7.0.tar.xz && tar -xvf tsetup.1.7.0.tar.xz -C /tmp/
-	sudo mv Telegram /opt/telegram
-	sudo ln -sf /opt/telegram/Telegram /usr/bin/telegram
+	cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+	sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 }
 
 function install_dbeaver(){

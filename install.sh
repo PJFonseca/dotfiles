@@ -69,6 +69,10 @@ msgout success "VNC installed!"
 cd /tmp/ && wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
 msgout success "Skype installed!"
 
+#Telegram
+cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+
 #Postman
 wget -P /tmp/ https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
 sudo tar xvzf /tmp/postman-linux-x64.tar.gz -C /opt
