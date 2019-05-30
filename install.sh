@@ -37,6 +37,16 @@ trash-cli \
 libcxx \
 pwgen
 
+#SoftLinks
+rm -rf ~/.bashrc
+ln -s ~/.dotfiles/.bashrc ~/.bashrc
+rm -rf ~/.gitconfig
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+rm -rf ~/.bash_prompt
+ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
+
+source ~/.bashrc
+
 #TeamViewer
 install_teamviewer
 #DBeaver
@@ -68,13 +78,6 @@ gsettings set org.gnome.nautilus.list-view use-tree-view true
 #Codecs
 install_codecs
 
-#SoftLinks
-rm -rf ~/.bashrc
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
-rm -rf ~/.gitconfig
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-rm -rf ~/.bash_prompt
-ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
 
 #Telegram to start in tray
 sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
