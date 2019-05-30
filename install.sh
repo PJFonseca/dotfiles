@@ -1,7 +1,10 @@
 #!/bin/bash
 
-~/.dotfiles/includes/.install --source-only
-~/.dotfiles/includes/.utils --source-only
+if [ -d ~/.dotfiles/includes ]; then
+  for file in ~/.dotfiles/includes/.*; do
+    . "$file"
+  done
+fi
 
 #Repos and Basics
 hostnamectl set-hostname --static "FedoraBox"
