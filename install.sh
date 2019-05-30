@@ -26,6 +26,7 @@ nano \
 arc-theme \
 vlc \
 code \
+steam \
 firefox \
 filezilla \
 audacity \
