@@ -31,7 +31,9 @@ filezilla \
 audacity \
 keepassxc \
 telegram-desktop \
+gnome-tweaks \
 gnome-tweak-tool \
+variety \
 qbittorrent \
 exfat-utils \
 ffmpeg \
@@ -55,19 +57,15 @@ source /home/$USER/.bashrc
 
 #TeamViewer
 cd /tmp/ && wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
-msgout success "Teamviewer installed!"
 
 #DBeaver
 cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm
-msgout success "DBeaver installed!"
 
 #VNC
 cd /tmp/ && wget -P /tmp/ https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.19.325-Linux-x64.rpm && sudo dnf install -y /tmp/VNC-Viewer-6.19.325-Linux-x64.rpm
-msgout success "VNC installed!"
 
 #Skype
 cd /tmp/ && wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
-msgout success "Skype installed!"
 
 #Telegram
 cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
@@ -91,14 +89,12 @@ Type=Application
 Icon=/opt/Postman/app/resources/app/assets/icon.png
 Categories=Development;Utilities;
 EOF
-msgout success "Postman installed!"
 
 #gnome-shell-extension-installer
 cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
 gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
 gnome-shell-extension-installer 1112 # Screenshot Tool by oal
 gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
-msgout success "GNOME Extensions: Dash to Panel, Screenshot and No Topleft Hot Corner installed!"
 
 #Install flat-remix-gtk theme
 cd /tmp && rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
@@ -120,8 +116,6 @@ gsettings set org.gnome.nautilus.list-view use-tree-view true
 
 #Codecs
 sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
-msgout success "Codecs installed!"
-
 
 #Telegram to start in tray
 sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
