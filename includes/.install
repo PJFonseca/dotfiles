@@ -107,3 +107,25 @@ function install_codecs(){
 	sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
 	msgout success "Codecs installed!"
 }
+
+function install_kdenlive(){
+	cd /tmp/ && wget -P /tmp/ https://files.kde.org/kdenlive/release/kdenlive-19.04.2d-x86_64.appimage
+	sudo mkdir /opt/kdenlive
+	sudo mv kdenlive-19.04.2d-x86_64.appimage /opt/kdenlive/
+
+	wget -P /tmp/ https://cialu.net/wp-content/uploads/2019/02/kdenlive.png
+	sudo mv kdenlive.png /opt/kdenlive/kdenlive.png
+
+cat << EOF > ~/.local/share/applications/kdenlive.desktop
+	[Desktop Entry]
+	Type=Application
+	Name=Kdenlive
+	GenericName=Video editor
+	Comment=KDE Video editor
+	Categories=Utility;Video;Editor;
+	Exec=/opt/kdenlive/kdenlive-19.04.2d-x86_64.appimage
+	Icon=/opt/kdenlive/kdenlive.png
+	Name[en_US]=Kdenlive
+EOF
+	msgout success "Kdenlive installed!"
+}
