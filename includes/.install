@@ -127,7 +127,9 @@ cat << EOF > ~/.local/share/applications/kdenlive.desktop
 	Categories=Utility;Video;Editor;
 	Exec=/opt/kdenlive/kdenlive-19.04.2d-x86_64.appimage
 	Icon=/opt/kdenlive/kdenlive.png
-	Name[en_US]=Kdenlive
+	Terminal=false
+    Type=Application
+	Categories=AudioVideo;Utilities;
 EOF
 	msgout success "Kdenlive installed!"
 }
