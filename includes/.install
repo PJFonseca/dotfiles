@@ -110,6 +110,8 @@ function install_codecs(){
 
 function install_kdenlive(){
 	cd /tmp/ && wget -P /tmp/ https://files.kde.org/kdenlive/release/kdenlive-19.04.2d-x86_64.appimage
+	sudo chmod +x kdenlive-19.04.2d-x86_64.appimage
+
 	sudo mkdir /opt/kdenlive
 	sudo mv kdenlive-19.04.2d-x86_64.appimage /opt/kdenlive/
 
