@@ -133,3 +133,53 @@ cat << EOF > ~/.local/share/applications/kdenlive.desktop
 EOF
 	msgout success "Kdenlive installed!"
 }
+
+function install_kdenlive(){
+	cd /tmp/ && wget -P /tmp/ https://files.kde.org/kdenlive/release/kdenlive-19.04.2d-x86_64.appimage
+	sudo chmod +x kdenlive-19.04.2d-x86_64.appimage
+
+	sudo mkdir /opt/kdenlive
+	sudo mv kdenlive-19.04.2d-x86_64.appimage /opt/kdenlive/
+
+	wget -P /tmp/ https://cialu.net/wp-content/uploads/2019/02/kdenlive.png
+	sudo mv kdenlive.png /opt/kdenlive/kdenlive.png
+
+cat << EOF > ~/.local/share/applications/kdenlive.desktop
+	[Desktop Entry]
+	Type=Application
+	Name=Kdenlive
+	GenericName=Video editor
+	Comment=KDE Video editor
+	Categories=Utility;Video;Editor;
+	Exec=/opt/kdenlive/kdenlive-19.04.2d-x86_64.appimage
+	Icon=/opt/kdenlive/kdenlive.png
+	Terminal=false
+EOF
+	msgout success "Kdenlive installed!"
+}
+
+function install_ledger(){
+	cd /tmp/ && wget -P /tmp/ https://download-live.ledger.com/releases/latest/download/linux -O ledger.appimage
+
+	sudo chmod +x ledger.appimage
+
+	sudo mkdir /opt/ledger
+	sudo mv ledger.appimage /opt/ledger/
+
+	wget -P /tmp/ https://d1ic4altzx8ueg.cloudfront.net/finder-us/wp-uploads/2018/07/best-icx-wallets.png -O ledger.png
+	sudo mv ledger.png /opt/ledger/ledger.png
+
+	cat << EOF > ~/.local/share/applications/ledger.desktop
+	[Desktop Entry]
+	Type=Application
+	Name=Ledger Nano S
+	GenericName=Ledger Nano S
+	Comment=Ledger Nano S
+	Categories=Utility;
+	Exec=/opt/ledger/ledger.appimage
+	Icon=/opt/ledger/ledger.png
+	Terminal=false
+EOF
+	msgout success "Ledger installed!"
+}
+
