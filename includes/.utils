@@ -297,5 +297,6 @@ function myip(){
 }
 
 function compress_mp4(){
-	ffmpeg -i ${1} -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p compressed.mp4
+	filename=$(basename "$1")
+	ffmpeg -i ${1} -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p "${filename%.*}"_compressed.mp4
 }
