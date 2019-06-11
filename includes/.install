@@ -1,5 +1,5 @@
 # Install Postman. Kudos to: https://medium.com/@udomsak/install-postman-on-fedora-core-29-5e09941d804e
-function install_postman(){
+function postman_install(){
     wget -P /tmp/ https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
     sudo tar xvzf /tmp/postman-linux-x64.tar.gz -C /opt
     sudo ln -s /opt/Postman/Postman /usr/bin/postman
@@ -20,12 +20,12 @@ EOF
 	msgout success "Postman installed!"
 }
 
-function install_telegram(){
+function telegram_install(){
 	cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
 	sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 }
 
-function install_dbeaver(){
+function dbeaver_install(){
 	##wget -P /tmp/ https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
     ##sudo rpm -Uhv /tmp/dbeaver-ce-latest-stable.x86_64.rpm
 	cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm
@@ -33,7 +33,7 @@ function install_dbeaver(){
 }
 
 # Install Brother HLL2360DW
-function install_printer(){
+function printer_install(){
 	wget -P /tmp/ https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.1-1.gz
 	sudo gunzip /tmp/linux-brprinter-installer-2.2.1-1.gz
 	sudo chmod +x /tmp/linux-brprinter-installer-2.2.1-1
@@ -41,7 +41,7 @@ function install_printer(){
 	msgout success "Brother HLL2360DW installed!"
 }
 
-function install_symlinks(){
+function symlinks_install(){
 	rm -rf ~/.bashrc
 	ln -s ~/.dotfiles/.bashrc ~/.bashrc
 	rm -rf ~/.gitconfig
@@ -52,7 +52,7 @@ function install_symlinks(){
 }
 
 #Discord
-function install_discord(){
+function discord_install(){
 	cd ~/
 	mkdir -p ~/.local/bin
 	wget "https://discordapp.com/api/download/canary?platform=linux&format=tar.gz" -O discord.tar.gz
@@ -67,25 +67,25 @@ function install_discord(){
 }
 
 #TeamViewer
-function install_teamviewer(){
+function teamviewer_install(){
 	cd /tmp/ && wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
 	msgout success "Teamviewer installed!"
 }
 
 #VNC-Viewer
-function install_vnc(){
+function vnc_install(){
 	cd /tmp/ && wget -P /tmp/ https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.19.325-Linux-x64.rpm && sudo dnf install -y /tmp/VNC-Viewer-6.19.325-Linux-x64.rpm
 	msgout success "VNC installed!"
 }
 
 #Skype
-function install_skype(){
+function skype_install(){
 	cd /tmp/ && wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
 	msgout success "Skype installed!"
 }
 
 #gnome-shell-extension-installer
-function install_gsei(){
+function gsei_install(){
 	cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
 	gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
 	gnome-shell-extension-installer 1112 # Screenshot Tool by oal
@@ -93,48 +93,22 @@ function install_gsei(){
 	msgout success "GNOME Extensions: Dash to Panel, Screenshot and No Topleft Hot Corner installed!"
 }
 #Flat Remix
-function install_theme(){
+function theme_install(){
 	cd /tmp && rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
 	cd /tmp && rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
 }
 
 #breeze-cursor
-function install_breeze_cursor(){
+function breeze_cursor_install(){
 	cd /tmp/ && wget -P /tmp/ http://download-ib01.fedoraproject.org/pub/fedora/linux/releases/30/Everything/x86_64/os/Packages/b/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm && sudo dnf install -y /tmp/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm
 }
 
-function install_codecs(){
+function codecs_install(){
 	sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
 	msgout success "Codecs installed!"
 }
 
-function install_kdenlive(){
-	cd /tmp/ && wget -P /tmp/ https://files.kde.org/kdenlive/release/kdenlive-19.04.2d-x86_64.appimage
-	sudo chmod +x kdenlive-19.04.2d-x86_64.appimage
-
-	sudo mkdir /opt/kdenlive
-	sudo mv kdenlive-19.04.2d-x86_64.appimage /opt/kdenlive/
-
-	wget -P /tmp/ https://cialu.net/wp-content/uploads/2019/02/kdenlive.png
-	sudo mv kdenlive.png /opt/kdenlive/kdenlive.png
-
-cat << EOF > ~/.local/share/applications/kdenlive.desktop
-	[Desktop Entry]
-	Type=Application
-	Name=Kdenlive
-	GenericName=Video editor
-	Comment=KDE Video editor
-	Categories=Utility;Video;Editor;
-	Exec=/opt/kdenlive/kdenlive-19.04.2d-x86_64.appimage
-	Icon=/opt/kdenlive/kdenlive.png
-	Terminal=false
-    Type=Application
-	Categories=AudioVideo;Utilities;
-EOF
-	msgout success "Kdenlive installed!"
-}
-
-function install_kdenlive(){
+function kdenlive_install(){
 	cd /tmp/ && wget -P /tmp/ https://files.kde.org/kdenlive/release/kdenlive-19.04.2d-x86_64.appimage
 	sudo chmod +x kdenlive-19.04.2d-x86_64.appimage
 
@@ -158,7 +132,7 @@ EOF
 	msgout success "Kdenlive installed!"
 }
 
-function install_ledger(){
+function ledger_install(){
 	cd /tmp/ && wget -P /tmp/ https://download-live.ledger.com/releases/latest/download/linux -O ledger.appimage
 
 	sudo chmod +x ledger.appimage
@@ -182,4 +156,3 @@ function install_ledger(){
 EOF
 	msgout success "Ledger installed!"
 }
-
