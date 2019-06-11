@@ -7,6 +7,8 @@
  fi
 # User specific environment
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export HISTSIZE=
+export HISTFILESIZE=
 export PATH
 
 # User specific aliases and functions
