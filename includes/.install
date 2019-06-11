@@ -28,7 +28,7 @@ function telegram_install(){
 function dbeaver_install(){
 	##wget -P /tmp/ https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
     ##sudo rpm -Uhv /tmp/dbeaver-ce-latest-stable.x86_64.rpm
-	cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm
+	cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm -O dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm
 	msgout success "DBeaver installed!"
 }
 
