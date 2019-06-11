@@ -8,6 +8,7 @@ alias sr="sudo rm -rf"
 alias aliases="alias | sed 's/=.*//'"
 alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
+alias path='echo -e ${PATH//:/\\n}'
 
 # Directory listing/traversal
 alias l="ls -lhF --color=auto"
@@ -35,17 +36,12 @@ alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
 alias speedtest="wget -O /dev/null https://speed.hetzner.de/1GB.bin"
-alias path='echo -e ${PATH//:/\\n}'
 alias cls="clear"
 alias specs="screenfetch"
-
-#Alias to use a specific port
-#alias sshn="ssh -p 21098"
-#alias sshn-copy-id="ssh-copy-id -p 21098"
-alias scpn="scp -P 21098"
-
 alias edit="sudo gedit"
 alias fstab="sudo nano /etc/fstab"
-#alias h="history"
 alias install="sudo dnf -y install"
 alias sysinfo="sudo rpm -qi basesystem"
+
+#Alias to use a specific port
+alias scpn="scp -P 21098"
