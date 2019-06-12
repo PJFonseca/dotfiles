@@ -15,7 +15,7 @@ export PATH
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/.dotfiles/system"
 
- for DOTFILE in ~/.dotfiles/system/.{alias,functions,housekeeping,tasmota,env}; do
+ for DOTFILE in ~/.dotfiles/system/.{alias,functions,housekeeping,env}; do
  	[ -f "$DOTFILE" ] && . "$DOTFILE"	
  done;
 

@@ -29,6 +29,12 @@ function msgout(){
 	echo '-- '$message;
 	tput sgr0;
 }
+#Flash my sonoff's with Tasmota
+function flashtasmota(){
+	wget -P /tmp/ http://sonoff.maddox.co.uk/tasmota/sonoff.bin
+	sudo esptool.py --port /dev/ttyUSB0 --baud 115200 write_flash -fs 1MB -fm dout 0x0 /tmp/sonoff.bin
+	rm -R /tmp/sonoff.bin
+}
 
 function getip() {
 	curl -m 15 -s "https://httpbin.org/ip" | grep --color=no -oE '[0-9.]+' || curl -m 15 -s "ifconfig.me"
