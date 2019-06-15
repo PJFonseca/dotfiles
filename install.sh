@@ -25,7 +25,6 @@ youtube-dl \
 nano \
 arc-theme \
 vlc \
-code \
 steam \
 firefox \
 filezilla \

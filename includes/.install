@@ -160,4 +160,5 @@ EOF
 function govpt_install(){
 	cd /tmp/ && wget -P /tmp/ https://autenticacao.gov.pt/fa/ajuda/software/plugin-autenticacao-gov_fedora.rpm -O plugin-autenticacao-gov_fedora.rpm
 	sudo dnf install -y plugin-autenticacao-gov_fedora.rpm
+	msgout success "GOV.pt plugin installed!"
 }
