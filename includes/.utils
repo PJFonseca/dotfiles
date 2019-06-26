@@ -52,6 +52,22 @@ function checkdns() {
 	ping -c 1 -q "8.8.8.8"
 }
 
+function domaindns(){
+	# Purpose: DNS Propagation checker
+	# Source: https://guides.wp-bullet.com
+
+
+	NS=($(dig ${1} NS +short))
+	A=($(dig ${1} A +short))
+	TXT=($(dig ${1} TXT +short))
+	CNAME=($(dig ${1} CNAME +short))
+
+	echo "NS: ${NS}"
+	echo "A: ${A}"
+	echo "TXT:" $TXT
+	echo "CNAME: ${CNAME}"
+}
+
 function checkip() {
 
 	local hostname="$(nmblookup -A "$1" | sed -n 2p | awk '{print $1}')"
@@ -307,6 +323,26 @@ function compress_mp4(){
 	ffmpeg -i ${1} -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p "${filename%.*}"_compressed.mp4
 }
 
-function hfind(){
+function fhistory(){
 	history | grep $1
+}
+
+function fssh(){
+	case $1 in
+		contas) 	
+			SERVER=contaseberloques.pt	
+			USER=contaseb		
+		;;
+		fls)    	
+			SERVER=fls-solutions.pt
+			USER=lusodefe			
+		;;
+		multiplus)  
+			SERVER=multiplus.com.pt
+			USER=multipluscom		
+		;;
+		*)       echo "'$1' não foi encontrado"            		;;
+	esac
+	ssh-keyscan $SERVER >> ~/.ssh/known_hosts
+	ssh -p 21098 $USER@$SERVER
 }

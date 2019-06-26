@@ -50,8 +50,8 @@ function backup(){
 	#ssh
 	cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
 
-	#dash-to-panel settings
-	dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $LINUX_BACKUP_FOLDER/dtp_settings
+	#settings
+	dconf dump /org/gnome/ > $LINUX_BACKUP_FOLDER/dtp_settings
 	msgout success "Personal Backup done!"
 }
 
@@ -59,7 +59,7 @@ function restore(){
 	#Restore files from Dropbox
 	cp -R $LINUX_BACKUP_FOLDER/. ~/
 
-	#dash-to-panel settings
-	dconf load /org/gnome/shell/extensions/dash-to-panel/ < $LINUX_BACKUP_FOLDER/dtp_settings
+	#settings
+	dconf load /org/gnome/ < $LINUX_BACKUP_FOLDER/dtp_settings
 	msgout success "Restore done!"
 }

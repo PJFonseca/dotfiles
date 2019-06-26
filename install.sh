@@ -43,6 +43,7 @@ nautilus-image-converter \
 nautilus-search-tool \
 trash-cli \
 libcxx \
+nautilus-dropbox \
 pwgen
 
 #SoftLinks
@@ -97,8 +98,8 @@ gnome-shell-extension-installer 1112 # Screenshot Tool by oal
 gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
 
 #Install flat-remix-gtk theme
-cd /tmp && rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
-cd /tmp && rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
+cd /tmp && sudo rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
+cd /tmp && sudo rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
 
 #Cursor
 cd /tmp/ && wget -P /tmp/ http://download-ib01.fedoraproject.org/pub/fedora/linux/releases/30/Everything/x86_64/os/Packages/b/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm && sudo dnf install -y /tmp/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm
