@@ -2,7 +2,9 @@
 function clean(){
 	rm -r ~/$DOWNLOAD_FOLDER/* 2> /dev/null
 	rm -r ~/$IMAGES_FOLDER/* 2> /dev/null
-	rm -rf ~/.local/share/Trash/* 2> /dev/null
+	rm -rf ~/.local/share/Trash/info/* 2> /dev/null
+	rm -rf ~/.local/share/Trash/files/* 2> /dev/null
+	
 	msgout success "System clean!"
 }
 

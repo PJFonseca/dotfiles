@@ -32,6 +32,7 @@ alias egrep="egrep --color=auto"
 unset GREP_OPTIONS
 
 # Miscellaneous
+alias openhab="ssh openhabian@192.168.1.4"
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"

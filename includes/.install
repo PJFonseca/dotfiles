@@ -143,7 +143,7 @@ function ledger_install(){
 	wget -P /tmp/ https://d1ic4altzx8ueg.cloudfront.net/finder-us/wp-uploads/2018/07/best-icx-wallets.png -O ledger.png
 	sudo mv ledger.png /opt/ledger/ledger.png
 
-	cat << EOF > ~/.local/share/applications/ledger.desktop
+	cat << EOF > ~/.local/share/applications/appimagekit-ledger-live-desktop.desktop
 	[Desktop Entry]
 	Type=Application
 	Name=Ledger Nano S
@@ -154,7 +154,6 @@ function ledger_install(){
 	Icon=/opt/ledger/ledger.png
 	Terminal=false
 EOF
-	rm -R appimagekit-ledger-live-desktop.desktop
 	msgout success "Ledger installed!"
 }
 
@@ -162,4 +161,16 @@ function govpt_install(){
 	cd /tmp/ && wget -P /tmp/ https://autenticacao.gov.pt/fa/ajuda/software/plugin-autenticacao-gov_fedora.rpm -O plugin-autenticacao-gov_fedora.rpm
 	sudo dnf install -y plugin-autenticacao-gov_fedora.rpm
 	msgout success "GOV.pt plugin installed!"
+}
+
+function default_editors(){
+	xdg-mime default code.desktop text/plain
+	xdg-mime default code.desktop text/plain
+	xdg-mime default firefox.desktop text/html
+}
+
+function obs_install(){
+	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+	sudo dnf install -y obs-studio
+	sudo dnf install -y xorg-x11-drv-nvidia-cuda
 }
