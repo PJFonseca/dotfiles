@@ -13,7 +13,11 @@ function ublock(){
 	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' &> /dev/null && sync &> /dev/null
 	msgout success "Hosts updated!"
 }
-
+function ublock_disable(){
+	sudo rm -R /etc/hosts
+	sudo touch /etc/hosts
+	msgout success "Block in the Hosts was disabled!"
+}
 function update(){
     DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
     if [[ "${DISTRO}" = "Fedora" ]]; then
