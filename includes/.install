@@ -85,12 +85,13 @@ function skype_install(){
 }
 
 #gnome-shell-extension-installer
-function gsei_install(){
+function gnomeShellExtentions_install(){
 	cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
 	gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
 	gnome-shell-extension-installer 1112 # Screenshot Tool by oal
 	gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
-	msgout success "GNOME Extensions: Dash to Panel, Screenshot and No Topleft Hot Corner installed!"
+	gnome-shell-extension-installer 1206 # Clock Override by .ext
+	msgout success "GNOME Extensions installed!"
 }
 #Flat Remix
 function theme_install(){

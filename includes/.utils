@@ -166,6 +166,10 @@ function audible2pc(){
 	/mnt/Stuff/OpenAudible/OpenAudible
 }
 
+function ffind(){
+	sudo find / -name *$1* 2>/dev/null
+}
+
 function man2pdf(){	
 	man -t $1 | ps2pdf - ~/$DOWNLOAD_FOLDER/$1.pdf
 }
