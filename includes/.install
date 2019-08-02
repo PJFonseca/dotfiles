@@ -175,3 +175,10 @@ function obs_install(){
 	sudo dnf install -y obs-studio
 	sudo dnf install -y xorg-x11-drv-nvidia-cuda
 }
+
+function openaudible_install(){
+	cd /tmp/ && wget -P /tmp/ https://github.com/openaudible/openaudible/releases/download/v1.5.2/OpenAudible_linux_1.5.2.sh -O OpenAudible_linux_1.5.2.sh
+	chmod +x OpenAudible_linux_1.5.2.sh
+	sudo ./OpenAudible_linux_1.5.2.sh
+	msgout success "OpenAudible installed!"
+}
