@@ -25,7 +25,7 @@ alias -- -="cd -"
 alias cd.='cd $(readlink -f .)'
 
 # Always enable colored grep output`
-alias grep="grep --color=auto"
+alias grep="grep -i --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
