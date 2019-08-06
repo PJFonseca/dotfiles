@@ -52,6 +52,7 @@ alias edit="sudo gedit"
 alias fstab="sudo nano /etc/fstab"
 alias install="sudo dnf -y install"
 alias sysinfo="sudo rpm -qi basesystem"
+alias cpus="cat /proc/cpuinfo | grep \"model name\" | wc -l"
 
 #Alias to use a specific port
 alias scpn="scp -P 21098"
