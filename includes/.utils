@@ -357,12 +357,12 @@ function fssh(){
  
 function mergeMP4(){
 	directory=$(pwd)
-	rm -R $directory/inputs.txt
-	rm -R $directory/output.mp4
+	rm -R inputs.txt
+	rm -R output.mp4
 	#Replace spaces from the names to underscores
 	for i in *' '* ; do mv "$i" "${i// /_}" ; done
 	#Grab the files into an array
-	files=$( find $directory -type f -name "*.mp4" | sort -V )
+	files=$( find . -type f -name "*.mp4" | sort -V )
 	#Create a list of inputs 
 	for i in $files; do 
 		echo "file '$i'" >> inputs.txt
