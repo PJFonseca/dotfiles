@@ -53,9 +53,6 @@ alias fstab="sudo nano /etc/fstab"
 alias install="sudo dnf -y install"
 alias sysinfo="sudo rpm -qi basesystem"
 alias cpus="cat /proc/cpuinfo | grep \"model name\" | wc -l"
-alias filesymlinks="find -L / -xtype l -samefile $1 2>/dev/null"
-alias allsymlinks="find $1 -type l -exec ls -lad {} \;"
-#alias brokensymlinks="find /home/$USER -type l -exec sh -c 'file -b "${1}" | grep -q ^broken' sh {} 2>/dev/null \; -print"
 
 #Alias to use a specific port
 alias scpn="scp -P 21098"

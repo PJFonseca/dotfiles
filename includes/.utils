@@ -370,3 +370,10 @@ function mergeMP4(){
 	#do the magic
 	ffmpeg -f concat -safe 0 -i inputs.txt -c copy output.mp4
 }
+
+function filesymlinks(){
+	find -L / -xtype l -samefile $1 2>/dev/null
+}
+function allsymlinks(){
+	find $1 -type l -exec ls -lad {} \;
+}
