@@ -91,6 +91,8 @@ function gnomeShellExtentions_install(){
 	gnome-shell-extension-installer 1112 # Screenshot Tool by oal
 	gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
 	gnome-shell-extension-installer 1206 # Clock Override by .ext
+	gnome-shell-extension-installer 708 # Panel OSD by jens
+	
 	msgout success "GNOME Extensions installed!"
 }
 #Flat Remix

@@ -151,11 +151,11 @@ function bookdl(){
 }
 function musicdl(){
 	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s'
-	msg $MUSIC_FOLDER
+	msgout $MUSIC_FOLDER
 }
 function videodl(){
-	youtube-dl $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s'
-	msg $MUSIC_FOLDER
+	youtube-dl $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
+	msgout $MUSIC_FOLDER
 }
 function playlistdl(){
 	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '$MUSIC_FOLDER/TMP/%(title)s.%(ext)s'
