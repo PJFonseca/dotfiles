@@ -23,7 +23,7 @@ I'm so newbie that I don't know what to write in the instructions to install and
 
 If you are starting from fresh in a Fedora Machine
 
-<code>cd ~/.dotfiles && chmod +x install.sh && sudo ./install.sh</code>
+<code>cd ~/.dotfiles && chmod +x install.sh && ./install.sh</code>
 
 **Activating dotfiles** 
 

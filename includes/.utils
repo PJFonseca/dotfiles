@@ -112,12 +112,12 @@ function extract () {
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function compress() {
-	local tmpFile="${@%/}.tar";
+	local tmpFile="${2}.tar";
 	tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
 
 	size=$(
-		stat -f"%z" "${tmpFile}" 2> /dev/null; # macOS `stat`
-		stat -c"%s" "${tmpFile}" 2> /dev/null;  # GNU `stat`
+		stat -f"%z" "${2}" 2> /dev/null; # macOS `stat`
+		stat -c"%s" "${2}" 2> /dev/null;  # GNU `stat`
 	);
 
 	local cmd="";
@@ -133,15 +133,15 @@ function compress() {
 	fi;
 
 	echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
-	"${cmd}" -v "${tmpFile}" || return 1;
-	[ -f "${tmpFile}" ] && rm "${tmpFile}";
+	"${cmd}" -v "${2}" || return 1;
+	[ -f "${2}" ] && rm "${2}";
 
 	zippedSize=$(
-		stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # macOS `stat`
-		stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
+		stat -f"%z" "${2}.gz" 2> /dev/null; # macOS `stat`
+		stat -c"%s" "${2}.gz" 2> /dev/null; # GNU `stat`
 	);
 
-	echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
+	echo "${2}.gz ($((zippedSize / 1000)) kB) created successfully.";
 }
 #Download stuff from YouTube
 function bookdl(){
