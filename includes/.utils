@@ -31,9 +31,10 @@ function msgout(){
 }
 #Flash my sonoff's with Tasmota
 function flashtasmota(){
-	wget -P /tmp/ http://sonoff.maddox.co.uk/tasmota/sonoff.bin
-	sudo esptool.py --port /dev/ttyUSB0 --baud 115200 write_flash -fs 1MB -fm dout 0x0 /tmp/sonoff.bin
-	rm -R /tmp/sonoff.bin
+	wget -P /tmp/ http://sonoff.maddox.co.uk/tasmota/sonoff-basic.bin
+	sudo esptool.py --port /dev/ttyUSB0 --baud 115200 write_flash -fs 1MB -fm dout 0x0 /tmp/sonoff-basic.bin
+	rm -R /tmp/sonoff-basic.bin
+	
 }
 
 function getip() {

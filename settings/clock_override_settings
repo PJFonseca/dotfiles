@@ -1,0 +1,2 @@
+[/]
+override-string='%H:%M:%S @ %a, %d%b%y'

@@ -57,7 +57,12 @@ function backup(){
 	cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
 
 	#settings
-	dconf dump /org/gnome/ > $LINUX_BACKUP_FOLDER/dtp_settings
+	cd ~/.dotfiles/settings/
+	dconf dump /org/gnome/shell/extensions/dash-to-panel/ > dash_to_panel_settings
+	dconf dump /org/gnome/shell/extensions/clock_override/ > clock_override_settings
+	dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
+	dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
+	
 	msgout success "Personal Backup done!"
 }
 
@@ -66,6 +71,10 @@ function restore(){
 	cp -R $LINUX_BACKUP_FOLDER/. ~/
 
 	#settings
-	dconf load /org/gnome/ < $LINUX_BACKUP_FOLDER/dtp_settings
+	cd ~/.dotfiles/settings/
+	dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
+	dconf load /org/gnome/shell/extensions/clock_override/ < clock_override_settings
+	dconf load /org/gnome/shell/extensions/panel-osd/ < panel_osd_settings
+	dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
 	msgout success "Restore done!"
 }
