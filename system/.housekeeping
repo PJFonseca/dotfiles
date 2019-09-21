@@ -57,6 +57,8 @@ function backup(){
 	cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
 	#ssh
 	cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
+	#autostart
+	cp -R ~/.config/autostart $LINUX_BACKUP_FOLDER/.config/autostart/
 
 	#settings
 	cd ~/.dotfiles/settings/
