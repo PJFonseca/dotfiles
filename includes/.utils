@@ -163,21 +163,6 @@ function playlistdl(){
 	msgout success "Music downloaded!"
 	cd $MUSIC_FOLDER/TMP/
 }
-function nodumbqs_dl(){
-	urls="$(curl https://www.nodumbquestions.fm/ | grep mp3 | cut -d "\"" -f 2)"
-	
-	for u in $urls
-	do
-		file=$PODCAST_FOLDER/nodumbqs/${u##*/}
-		
-		if [ ! -f "$file" ]
-		then
-			wget -P $PODCAST_FOLDER/nodumbqs "$u"
-			#echo $file 
-		fi
-	done
-}
-
 function audible2pc(){
 	cd /run/user/1000/gvfs/mtp\:host\=Android_Android_b0d2615a/Armazen.\ interno\ partilhado/Android/data/com.audible.application/files
 	find . -name '*.aax' -print0 | xargs -0 cp -n -t /mnt/Stuff/OpenAudible/aax/

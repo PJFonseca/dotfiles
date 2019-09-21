@@ -1,0 +1,14 @@
+function nodumbqs_dl(){
+	urls="$(curl https://www.nodumbquestions.fm/ | grep mp3 | cut -d "\"" -f 2)"
+	
+	for u in $urls
+	do
+		file=$PODCAST_FOLDER/nodumbqs/${u##*/}
+		
+		if [ ! -f "$file" ]
+		then
+			wget -P $PODCAST_FOLDER/nodumbqs "$u"
+			#echo $file 
+		fi
+	done
+}

@@ -19,7 +19,7 @@ export PATH="$PATH:$HOME/.dotfiles/system"
  	[ -f "$DOTFILE" ] && . "$DOTFILE"	
  done;
 
- for UTILS in ~/.dotfiles/includes/.{utils,install}; do
+ for UTILS in ~/.dotfiles/includes/.{utils,install,podcasts}; do
  	[ -f "$UTILS" ] && . "$UTILS"	
  done;
  unset file;
