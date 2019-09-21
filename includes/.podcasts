@@ -8,7 +8,6 @@ function nodumbqs_dl(){
 		if [ ! -f "$file" ]
 		then
 			wget -P $PODCAST_FOLDER/nodumbqs "$u"
-			#echo $file 
 		fi
 	done
 }
