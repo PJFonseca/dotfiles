@@ -64,6 +64,7 @@ function backup(){
 	dconf dump /org/gnome/shell/extensions/clock_override/ > clock_override_settings
 	dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
 	dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
+	dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
 	
 	msgout success "Personal Backup done!"
 }
@@ -78,5 +79,6 @@ function restore(){
 	dconf load /org/gnome/shell/extensions/clock_override/ < clock_override_settings
 	dconf load /org/gnome/shell/extensions/panel-osd/ < panel_osd_settings
 	dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
+	dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
 	msgout success "Restore done!"
 }
