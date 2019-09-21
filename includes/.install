@@ -185,3 +185,10 @@ function openaudible_install(){
 	sudo ./OpenAudible_linux_1.5.2.sh
 	msgout success "OpenAudible installed!"
 }
+
+#System Sensors
+function sensors_install(){
+	sudo dnf install lm_sensors
+	sudo sensors-detect --auto
+	msgout success "Sensors installed!"
+}
