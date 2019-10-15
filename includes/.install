@@ -21,7 +21,7 @@ EOF
 }
 
 function telegram_install(){
-	cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+	cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xf -C /opt/
 	sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 	sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
 }
