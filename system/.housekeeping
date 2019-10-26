@@ -10,14 +10,20 @@ function clean(){
 
 #Update host files to block bad hosts
 function ublock(){
-	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' &> /dev/null && sync &> /dev/null
+	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' &> /dev/null && sync &> /dev/null
 	msgout success "Hosts updated!"
 }
-function ublock_disable(){
-	sudo rm -R /etc/hosts
-	sudo touch /etc/hosts
-	msgout success "Block in the Hosts was disabled!"
+function togglehost() {
+    if [ -e /etc/host.bak ]
+    then
+        sudo mv /etc/host.bak /etc/hosts
+        echo "Hosts file is active again"
+    else
+        sudo mv /etc/hosts /etc/host.bak
+        echo "Hosts file is set aside"
+    fi
 }
+
 function update(){
     DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
     if [[ "${DISTRO}" = "Fedora" ]]; then
