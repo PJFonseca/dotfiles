@@ -202,12 +202,13 @@ function meteo() {
 # This is based on this tutorial: https://github.com/Neilpang/acme.sh/wiki/Simple-guide-to-add-TLS-cert-to-cpanel
 # Thank you Neil Pang for this awesome script. Find him at https://twitter.com/neilpangxa
 
-function rssl(){
+function install_remote_ssl(){
 	#Gatering info needed
 	local SERVER=""
 	local EMAIL=""
 	local DOMAIN=""
 	local CPANELUSERNAME=""
+	local PATH=""
 
 	while [[ $SERVER == '' ]] # While SERVER is empty...
 	do
@@ -229,18 +230,23 @@ function rssl(){
 		read -p "cPanel Username: " CPANELUSERNAME # Ask the user to enter the cPanel Username
 	done 
 
+	while [[ $PATH == '' ]] # While PATH is empty...
+	do
+		read -p "Path to the page (~/public_html/): " PATH # Ask the user to enter the path to the page
+	done 
+
 	# Creating the staging script
 	cat << EOF > /tmp/install_ssl_staging.sh
 	#!/bin/bash
 	curl https://get.acme.sh | sh
 	source ~/.bashrc
 	~/.acme.sh/acme.sh --update-account --accountemail $EMAIL
-	~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d $DOMAIN -d www.$DOMAIN --staging
+	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATH -d $DOMAIN -d www.$DOMAIN --staging
 EOF
 	# Creating the FORCE script. This is to be executed if the staging gives green
 	cat << EOF > /tmp/install_ssl_force.sh
 	#!/bin/bash
-	~/.acme.sh/acme.sh --issue --webroot ~/public_html/ -d $DOMAIN -d www.$DOMAIN --force
+	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATH -d $DOMAIN -d www.$DOMAIN --force
 	export DEPLOY_cPanel_USER=$CPANELUSERNAME
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain $DOMAIN
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www.$DOMAIN
