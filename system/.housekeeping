@@ -30,9 +30,6 @@ function update(){
         sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && sudo dnf -y clean all && backup && ydl_update && clean && ublock
 		#Update GNOME Shell Extensions
 		gnome-shell-extension-installer --yes --update --restart-shell
-    else
-        #ToDo Ubuntu part
-		return 1;
 	fi;
 }
 
@@ -75,6 +72,7 @@ function backup(){
 	dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
 	
 	msgout success "Personal Backup done!"
+	cd ~/
 }
 
 function restore(){
@@ -89,4 +87,5 @@ function restore(){
 	dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
 	dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
 	msgout success "Restore done!"
+	cd ~/
 }

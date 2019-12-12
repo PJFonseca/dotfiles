@@ -208,7 +208,7 @@ function install_remote_ssl(){
 	local EMAIL=""
 	local DOMAIN=""
 	local CPANELUSERNAME=""
-	local PATH=""
+	local PATHSITE=""
 
 	while [[ $SERVER == '' ]] # While SERVER is empty...
 	do
@@ -230,9 +230,9 @@ function install_remote_ssl(){
 		read -p "cPanel Username: " CPANELUSERNAME # Ask the user to enter the cPanel Username
 	done 
 
-	while [[ $PATH == '' ]] # While PATH is empty...
+	while [[ $PATHSITE == '' ]] # While PATH is empty...
 	do
-		read -p "Path to the page (~/public_html/): " PATH # Ask the user to enter the path to the page
+		read -p "Path to the page (~/public_html/): " PATHSITE # Ask the user to enter the path to the page
 	done 
 
 	# Creating the staging script
@@ -241,12 +241,12 @@ function install_remote_ssl(){
 	curl https://get.acme.sh | sh
 	source ~/.bashrc
 	~/.acme.sh/acme.sh --update-account --accountemail $EMAIL
-	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATH -d $DOMAIN -d www.$DOMAIN --staging
+	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATHSITE -d $DOMAIN -d www.$DOMAIN --staging
 EOF
 	# Creating the FORCE script. This is to be executed if the staging gives green
 	cat << EOF > /tmp/install_ssl_force.sh
 	#!/bin/bash
-	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATH -d $DOMAIN -d www.$DOMAIN --force
+	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATHSITE -d $DOMAIN -d www.$DOMAIN --force
 	export DEPLOY_cPanel_USER=$CPANELUSERNAME
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain $DOMAIN
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www.$DOMAIN
@@ -342,7 +342,7 @@ function fhistory(){
 	history | grep $1
 }
 
- function ssh_clients(){
+function ssh_clients(){
 	SERVER=185.61.153.74
 	case $1 in
 		contas) 	
@@ -378,6 +378,30 @@ function mergeMP4(){
 	done;
 	#do the magic
 	ffmpeg -f concat -safe 0 -i inputs.txt -c copy output.mp4
+}
+
+function ODT2PDF(){
+	#Replace spaces from the names to underscores
+	for i in *' '* ; do mv "$i" "${i// /_}" ; done
+	libreoffice --headless --convert-to pdf *.odt
+	pdfunite $(ls *.pdf | sort -n) ~/Book_of_Labs.pdf
+	rm -R *.pdf
+}
+function ODP2PDF(){
+	#Replace spaces from the names to underscores
+	for i in *' '* ; do mv "$i" "${i// /_}" ; done
+	libreoffice --headless --convert-to pdf *.odp
+	pdfunite $(ls *.pdf | sort -n) ~/Book_of_Slides.pdf
+	rm -R *.pdf
+}
+
+function facebook_videos_download(){
+	rm -R inputs.txt
+	files=$( grep -o '/graca.sousabarriga/videos/[^"]*' ${1})
+	for i in $files; do 
+		echo "https://www.facebook.com/$i" >> inputs.txt
+	done;
+	youtube-dl --cookies cookies.txt --batch-file inputs.txt 
 }
 
 function filesymlinks(){
