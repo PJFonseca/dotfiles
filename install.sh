@@ -43,6 +43,7 @@ nautilus-image-converter \
 nautilus-search-tool \
 trash-cli \
 libcxx \
+remmina \
 nautilus-dropbox \
 pwgen
 

@@ -62,6 +62,9 @@ function backup(){
 	cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
 	#autostart
 	cp -R ~/.config/autostart $LINUX_BACKUP_FOLDER/.config/autostart/
+	#remmina
+	cp -R ~/.local/share/remmina $LINUX_BACKUP_FOLDER/.local/share/remmina
+	cp -R ~/.config/remmina $LINUX_BACKUP_FOLDER/.config/remmina
 
 	#settings
 	cd ~/.dotfiles/settings/
