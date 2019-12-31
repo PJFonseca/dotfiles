@@ -188,6 +188,22 @@ function openaudible_install(){
 	sudo ./OpenAudible_linux_1.5.2.sh
 	msgout success "OpenAudible installed!"
 }
+function slack_install(){
+	cd /tmp/ && wget -P /tmp/ https://downloads.slack-edge.com/linux_releases/slack-4.2.0-0.1.fc21.x86_64.rpm -O slack-4.2.0-0.1.fc21.x86_64.rpm 
+	sudo dnf install slack-4.2.0-0.1.fc21.x86_64.rpm
+	msgout success "Slack installed!"
+}
+function etcher_install(){
+	cd /tmp/ && wget -P /tmp/ https://github.com/balena-io/etcher/releases/download/v1.5.70/balena-etcher-electron-1.5.70.x86_64.rpm -O balena-etcher-electron-1.5.70.x86_64.rpm 
+	sudo dnf install balena-etcher-electron-1.5.70.x86_64.rpm
+	msgout success "Etcher installed!"
+}
+function vmware_install(){
+	cd /tmp/ && wget -P /tmp/ https://www.vmware.com/go/getworkstation-linux -O VMware-Workstation-Full.x86_64.bundle 
+	sudo sh VMware-Workstation-Full.x86_64.bundle --console --required --set-setting vmware-installer --set-setting vmware-installer libdir /usr/lib --ignore-errors
+	msgout success "VMware Workstation installed!"
+	msgout success "Serial: VG51H-6PDE3-088PZ-VWYZ9-YCRT4"
+}
 
 #System Sensors
 function sensors_install(){
