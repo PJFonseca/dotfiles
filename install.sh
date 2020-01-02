@@ -45,7 +45,8 @@ trash-cli \
 libcxx \
 remmina \
 nautilus-dropbox \
-pwgen
+pwgen \
+asciinema
 
 #SoftLinks
 rm -rf /home/$USER/.bashrc
