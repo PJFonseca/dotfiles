@@ -86,7 +86,7 @@ function backup(){
 
 function restore(){
 	#Restore files from Dropbox
-	cp -R $LINUX_BACKUP_FOLDER/ ~/
+	cp -R $LINUX_BACKUP_FOLDER ~/
 
 	#settings
 	cd ~/.dotfiles/settings/
