@@ -77,7 +77,7 @@ function backup(){
 	#OpenHAB Backup
 	if findmnt /mnt/openhab-conf; then
 		cp -R /mnt/openhab-conf/ $LINUX_BACKUP_FOLDER/
-
+	fi
 	msgout success "Personal Backup done!"
 	cd ~/
 }
