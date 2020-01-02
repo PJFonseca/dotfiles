@@ -75,7 +75,8 @@ function backup(){
 	dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
 
 	#OpenHAB Backup
-	#cp -R /mnt/openhab-conf/ $LINUX_BACKUP_FOLDER/
+	if findmnt /mnt/openhab-conf; then
+		cp -R /mnt/openhab-conf/ $LINUX_BACKUP_FOLDER/
 
 	msgout success "Personal Backup done!"
 	cd ~/
