@@ -86,11 +86,7 @@ function backup(){
 
 function restore(){
 	#Restore files from Dropbox
-	if [[ "${HOSTNAME}" = "FedoraBox" ]]; then
-		cp -R $LINUX_BACKUP_FOLDER ~/
-	else
-		
-	fi
+	cp -R $LINUX_BACKUP_FOLDER ~/
 
 	#settings
 	cd ~/.dotfiles/settings/
