@@ -34,57 +34,59 @@ function update(){
 }
 
 function backup(){
-	local destiny=$LINUX_BACKUP_FOLDER
+	if [[ "${HOSTNAME}" = "FedoraBox" ]]; then
+		local destiny=$LINUX_BACKUP_FOLDER
 
-	#Clean Backup dir
-	rm -rf $LINUX_BACKUP_FOLDER/*
+		#Clean Backup dir
+		rm -rf $LINUX_BACKUP_FOLDER/*
 
-	if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
-		mkdir "$LINUX_BACKUP_FOLDER/.config/"
-	fi
-	#vsCode
-	cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
+		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
+			mkdir "$LINUX_BACKUP_FOLDER/.config/"
+		fi
+		#vsCode
+		cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
 
-	#DBeaver
-	cp -R ~/.dbeaver4 $LINUX_BACKUP_FOLDER/
+		#DBeaver
+		cp -R ~/.dbeaver4 $LINUX_BACKUP_FOLDER/
 
-	#Filezilla
-	cp -R ~/.config/filezilla $LINUX_BACKUP_FOLDER/.config/filezilla/
-	#Keepassxc
-	cp -R ~/.config/keepassxc $LINUX_BACKUP_FOLDER/.config/keepassxc/
-	#teamviewer
-	cp -R ~/.config/teamviewer $LINUX_BACKUP_FOLDER/.config/teamviewer/
-	#VNC
-	cp -R ~/.vnc $LINUX_BACKUP_FOLDER/
-	#variety
-	cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
-	#ssh
-	cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
-	#autostart
-	cp -R ~/.config/autostart $LINUX_BACKUP_FOLDER/.config/autostart/
-	#remmina
-	cp -R ~/.local/share/remmina $LINUX_BACKUP_FOLDER/.local/share/remmina
-	cp -R ~/.config/remmina $LINUX_BACKUP_FOLDER/.config/remmina
+		#Filezilla
+		cp -R ~/.config/filezilla $LINUX_BACKUP_FOLDER/.config/filezilla/
+		#Keepassxc
+		cp -R ~/.config/keepassxc $LINUX_BACKUP_FOLDER/.config/keepassxc/
+		#teamviewer
+		cp -R ~/.config/teamviewer $LINUX_BACKUP_FOLDER/.config/teamviewer/
+		#VNC
+		cp -R ~/.vnc $LINUX_BACKUP_FOLDER/
+		#variety
+		cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
+		#ssh
+		cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
+		#autostart
+		cp -R ~/.config/autostart $LINUX_BACKUP_FOLDER/.config/autostart/
+		#remmina
+		cp -R ~/.local/share/remmina $LINUX_BACKUP_FOLDER/.local/share/remmina
+		cp -R ~/.config/remmina $LINUX_BACKUP_FOLDER/.config/remmina
 
-	#settings
-	cd ~/.dotfiles/settings/
-	dconf dump /org/gnome/shell/extensions/dash-to-panel/ > dash_to_panel_settings
-	dconf dump /org/gnome/shell/extensions/clock_override/ > clock_override_settings
-	dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
-	dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
-	dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
+		#settings
+		cd ~/.dotfiles/settings/
+		dconf dump /org/gnome/shell/extensions/dash-to-panel/ > dash_to_panel_settings
+		dconf dump /org/gnome/shell/extensions/clock_override/ > clock_override_settings
+		dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
+		dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
+		dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
 
-	#OpenHAB Backup
-	if findmnt /mnt/openhab-conf; then
-		cp -R /mnt/openhab-conf/ $LINUX_BACKUP_FOLDER/
-	fi
-	msgout success "Personal Backup done!"
-	cd ~/
+		#OpenHAB Backup
+		if [ "$(ls -A /mnt/openhab-conf)" ]; then
+			cp -R /mnt/openhab-conf/ $LINUX_BACKUP_FOLDER/
+		fi
+		msgout success "Personal Backup done!"
+		cd ~/
+	fi;
 }
 
 function restore(){
 	#Restore files from Dropbox
-	cp -R $LINUX_BACKUP_FOLDER/. ~/
+	cp -R $LINUX_BACKUP_FOLDER/ ~/
 
 	#settings
 	cd ~/.dotfiles/settings/
