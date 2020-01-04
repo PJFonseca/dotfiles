@@ -60,3 +60,4 @@ alias temp="watch -n 1 sensors"
 
 #Alias to use a specific port
 alias scpn="scp -P 21098"
+alias oneplus2="adb connect 192.168.1.68:5555 && scrcpy --max-size 1024 --max-fps 30 -b2M -m800"

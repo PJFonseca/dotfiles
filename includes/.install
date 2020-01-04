@@ -211,3 +211,31 @@ function sensors_install(){
 	sudo sensors-detect --auto
 	msgout success "Sensors installed!"
 }
+
+function scrcpy_install(){
+	cd /tmp/ && wget -P /tmp/ https://copr-be.cloud.fedoraproject.org/results/zeno/scrcpy/fedora-rawhide-x86_64/01127652-scrcpy/scrcpy-1.12.1-1.fc32.x86_64.rpm -O scrcpy-1.12.1-1.fc32.x86_64.rpm
+	sudo dnf install scrcpy-1.12.1-1.fc32.x86_64.rpm
+	#Add user to group plugdev
+	sudo usermod -aG plugdev $LOGNAME
+	sudo touch /etc/udev/rules.d/99-add-device-to-scrcpy.rules
+	echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", ATTR{idProduct}=="9001", MODE="0666", GROUP="plugdev", TAG+="snap_scrcpy_adb"' | sudo tee /etc/udev/rules.d/99-add-device-to-scrcpy.rules
+	echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", ATTR{idProduct}=="9001", MODE="0666", GROUP="plugdev", TAG+="snap_scrcpy_scrcpy"' | sudo tee -a /etc/udev/rules.d/99-add-device-to-scrcpy.rules
+	sudo udevadm control --reload-rules
+	adb kill-server
+	adb devices
+
+	cp /mnt/Stuff/Dropbox/Documentos/LinuxBackup/openhab-conf/icons/classic/mobile.svg ~/.local/share/applications/scrcpy.svg
+
+	cat << EOF > ~/.local/share/applications/scrcpy.desktop
+	[Desktop Entry]
+	Type=Application
+	Name=scrcpy
+	GenericName=Android Screen Recorder
+	Comment=This application provides display and control of Android devices connected on USB 
+	Categories=Utility;Video;
+	Exec=sh -c "adb connect 192.168.1.68:5555;scrcpy --max-size 1024 --max-fps 30 -b2M -m800"
+	Icon=/home/pjfonseca/.local/share/applications/scrcpy.svg
+	Terminal=false
+EOF
+	msgout success "Scrcpy installed!"
+}
