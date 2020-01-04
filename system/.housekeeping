@@ -17,6 +17,7 @@ function ublock(){
 	sudo -- sh -c "echo 0.0.0.0 account.jetbrains.com >> /etc/hosts"
 	msgout success "Hosts updated!"
 }
+
 function togglehost() {
     if [ -e /etc/host.bak ]
     then
@@ -101,4 +102,9 @@ function restore(){
 	dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
 	msgout success "Restore done!"
 	cd ~/
+}
+#Update dotfiles
+function dotfiles_update(){
+	sudo rm -rf ~/.dotfiles && git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles
+	rm -rf ~/.bashrc && ln -s ~/.dotfiles/.bashrc ~/.bashrc && rm -rf ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig && rm -rf ~/.bash_prompt && ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
 }
