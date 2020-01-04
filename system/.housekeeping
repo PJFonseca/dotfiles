@@ -86,6 +86,11 @@ function backup(){
 		fi
 		msgout success "Personal Backup done!"
 		cd ~/
+
+		#GNOME Settings
+		dconf dump /org/gnome/ > $LINUX_BACKUP_FOLDER/gnome_settings
+
+
 	fi;
 }
 
@@ -101,6 +106,7 @@ function restore(){
 	dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
 	dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
 	msgout success "Restore done!"
+	dconf load /org/gnome/shell/keybindings/ < $LINUX_BACKUP_FOLDER/gnome_settings
 	cd ~/
 }
 #Update dotfiles
