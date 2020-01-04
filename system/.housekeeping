@@ -82,6 +82,9 @@ function backup(){
 		dconf dump /org/gnome/desktop/wm/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings
 		dconf dump /org/gnome/mutter/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings_mutter
 		dconf dump /org/gnome/mutter/wayland/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings_wayland
+		dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > $LINUX_BACKUP_FOLDER/custom-keybindings
+		dconf dump /org/gnome/terminal/ > $LINUX_BACKUP_FOLDER/terminal
+		
 
 		#OpenHAB Backup
 		if [ "$(ls -A /mnt/openhab-conf)" ]; then
@@ -110,6 +113,8 @@ function restore(){
 	dconf load /org/gnome/desktop/wm/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings
 	dconf load /org/gnome/mutter/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings_mutter
 	dconf load /org/gnome/mutter/wayland/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings_wayland
+	dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < $LINUX_BACKUP_FOLDER/custom-keybindings
+	dconf load /org/gnome/terminal/ < $LINUX_BACKUP_FOLDER/terminal
 
 	msgout success "Restore done!"
 	cd ~/
