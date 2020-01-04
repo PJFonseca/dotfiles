@@ -40,6 +40,7 @@ alias 777='chmod -R 777'
 unset GREP_OPTIONS
 
 # Miscellaneous
+alias pulse="pulseaudio -k"
 alias openhab="ssh openhabian@192.168.1.4"
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
