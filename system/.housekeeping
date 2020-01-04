@@ -11,10 +11,10 @@ function clean(){
 #Update host files to block bad hosts
 function ublock(){
 	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' &> /dev/null && sync &> /dev/null
-	sudo echo "1.2.3.4 account.jetbrains.com" >> /etc/hosts
-	sudo echo "1.2.3.4 http://www.jetbrains.com" >> /etc/hosts
-	sudo echo "1.2.3.4 www-weighted.jetbrains.com" >> /etc/hosts
-	sudo echo "0.0.0.0 account.jetbrains.com" >> /etc/hosts
+	sudo -- sh -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
+	sudo -- sh -c "echo 1.2.3.4 http://www.jetbrains.com >> /etc/hosts"
+	sudo -- sh -c "echo 1.2.3.4 www-weighted.jetbrains.com >> /etc/hosts"
+	sudo -- sh -c "echo 0.0.0.0 account.jetbrains.com >> /etc/hosts"
 	msgout success "Hosts updated!"
 }
 function togglehost() {
