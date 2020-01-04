@@ -79,7 +79,7 @@ function backup(){
 		#dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
 		#dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
 		#dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
-		dconf dump /org/gnome/ > gnome_settings
+		dconf dump /org/gnome/ > $LINUX_BACKUP_FOLDER/gnome_settings
 
 		#OpenHAB Backup
 		if [ "$(ls -A /mnt/openhab-conf)" ]; then
@@ -105,7 +105,7 @@ function restore(){
 	#dconf load /org/gnome/shell/extensions/panel-osd/ < panel_osd_settings
 	#dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
 	#dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
-	#dconf load /org/gnome/shell/keybindings/ < gnome_settings
+	dconf load /org/gnome/ < $LINUX_BACKUP_FOLDER/gnome_settings
 	msgout success "Restore done!"
 	cd ~/
 }
