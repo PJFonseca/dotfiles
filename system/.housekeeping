@@ -107,4 +107,5 @@ function restore(){
 function dotfiles_update(){
 	sudo rm -rf ~/.dotfiles && git clone --recurse-submodules https://github.com/PJFonseca/dotfiles ~/.dotfiles
 	rm -rf ~/.bashrc && ln -s ~/.dotfiles/.bashrc ~/.bashrc && rm -rf ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig && rm -rf ~/.bash_prompt && ln -s ~/.dotfiles/.bash_prompt ~/.bash_prompt
+	reload
 }
