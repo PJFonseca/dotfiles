@@ -74,11 +74,12 @@ function backup(){
 
 		#settings
 		cd ~/.dotfiles/settings/
-		dconf dump /org/gnome/shell/extensions/dash-to-panel/ > dash_to_panel_settings
-		dconf dump /org/gnome/shell/extensions/clock_override/ > clock_override_settings
-		dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
-		dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
-		dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
+		#dconf dump /org/gnome/shell/extensions/dash-to-panel/ > dash_to_panel_settings
+		#dconf dump /org/gnome/shell/extensions/clock_override/ > clock_override_settings
+		#dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
+		#dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
+		#dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
+		dconf dump /org/gnome/ > gnome_settings
 
 		#OpenHAB Backup
 		if [ "$(ls -A /mnt/openhab-conf)" ]; then
@@ -88,8 +89,7 @@ function backup(){
 		cd ~/
 
 		#GNOME Settings
-		dconf dump /org/gnome/ > $LINUX_BACKUP_FOLDER/gnome_settings
-
+		
 
 	fi;
 }
@@ -100,13 +100,13 @@ function restore(){
 
 	#settings
 	cd ~/.dotfiles/settings/
-	dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
-	dconf load /org/gnome/shell/extensions/clock_override/ < clock_override_settings
-	dconf load /org/gnome/shell/extensions/panel-osd/ < panel_osd_settings
-	dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
-	dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
+	#dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
+	#dconf load /org/gnome/shell/extensions/clock_override/ < clock_override_settings
+	#dconf load /org/gnome/shell/extensions/panel-osd/ < panel_osd_settings
+	#dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
+	#dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
+	#dconf load /org/gnome/shell/keybindings/ < gnome_settings
 	msgout success "Restore done!"
-	dconf load /org/gnome/shell/keybindings/ < $LINUX_BACKUP_FOLDER/gnome_settings
 	cd ~/
 }
 #Update dotfiles
