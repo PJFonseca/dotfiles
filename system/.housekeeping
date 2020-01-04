@@ -74,12 +74,13 @@ function backup(){
 
 		#settings
 		cd ~/.dotfiles/settings/
-		#dconf dump /org/gnome/shell/extensions/dash-to-panel/ > dash_to_panel_settings
-		#dconf dump /org/gnome/shell/extensions/clock_override/ > clock_override_settings
-		#dconf dump /org/gnome/shell/extensions/panel-osd/ > panel_osd_settings
-		#dconf dump /org/gnome/shell/extensions/screenshot/ > screenshot_settings
-		#dconf dump /org/gnome/shell/extensions/openweather/ > openweather_settings
-		dconf dump /org/gnome/ > $LINUX_BACKUP_FOLDER/gnome_settings
+		dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $LINUX_BACKUP_FOLDER/dash_to_panel_settings
+		dconf dump /org/gnome/shell/extensions/clock_override/ > $LINUX_BACKUP_FOLDER/clock_override_settings
+		dconf dump /org/gnome/shell/extensions/panel-osd/ > $LINUX_BACKUP_FOLDER/panel_osd_settings
+		dconf dump /org/gnome/shell/extensions/screenshot/ > $LINUX_BACKUP_FOLDER/screenshot_settings
+		dconf dump /org/gnome/shell/extensions/openweather/ > $LINUX_BACKUP_FOLDER/openweather_settings
+		dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > $LINUX_BACKUP_FOLDER/media-keys
+		dconf dump /org/gnome/desktop/wm/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings
 
 		#OpenHAB Backup
 		if [ "$(ls -A /mnt/openhab-conf)" ]; then
@@ -100,12 +101,13 @@ function restore(){
 
 	#settings
 	cd ~/.dotfiles/settings/
-	#dconf load /org/gnome/shell/extensions/dash-to-panel/ < dash_to_panel_settings
-	#dconf load /org/gnome/shell/extensions/clock_override/ < clock_override_settings
-	#dconf load /org/gnome/shell/extensions/panel-osd/ < panel_osd_settings
-	#dconf load /org/gnome/shell/extensions/screenshot/ < screenshot_settings
-	#dconf load /org/gnome/shell/extensions/openweather/ < openweather_settings
-	dconf load /org/gnome/ < $LINUX_BACKUP_FOLDER/gnome_settings
+	dconf load /org/gnome/shell/extensions/dash-to-panel/ < $LINUX_BACKUP_FOLDER/dash_to_panel_settings
+	dconf load /org/gnome/shell/extensions/clock_override/ < $LINUX_BACKUP_FOLDER/clock_override_settings
+	dconf load /org/gnome/shell/extensions/panel-osd/ < $LINUX_BACKUP_FOLDER/panel_osd_settings
+	dconf load /org/gnome/shell/extensions/screenshot/ < $LINUX_BACKUP_FOLDER/screenshot_settings
+	dconf load /org/gnome/shell/extensions/openweather/ < $LINUX_BACKUP_FOLDER/openweather_settings
+	dconf load /org/gnome/settings-daemon/plugins/media-keys/ < $LINUX_BACKUP_FOLDER/media-keys
+	dconf load /org/gnome/desktop/wm/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings
 	msgout success "Restore done!"
 	cd ~/
 }
