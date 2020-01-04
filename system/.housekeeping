@@ -73,7 +73,6 @@ function backup(){
 		cp -R ~/.config/remmina $LINUX_BACKUP_FOLDER/.config/remmina
 
 		#settings
-		cd ~/.dotfiles/settings/
 		dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $LINUX_BACKUP_FOLDER/dash_to_panel_settings
 		dconf dump /org/gnome/shell/extensions/clock_override/ > $LINUX_BACKUP_FOLDER/clock_override_settings
 		dconf dump /org/gnome/shell/extensions/panel-osd/ > $LINUX_BACKUP_FOLDER/panel_osd_settings
@@ -100,7 +99,6 @@ function restore(){
 	cp -R $LINUX_BACKUP_FOLDER/ ~/
 
 	#settings
-	cd ~/.dotfiles/settings/
 	dconf load /org/gnome/shell/extensions/dash-to-panel/ < $LINUX_BACKUP_FOLDER/dash_to_panel_settings
 	dconf load /org/gnome/shell/extensions/clock_override/ < $LINUX_BACKUP_FOLDER/clock_override_settings
 	dconf load /org/gnome/shell/extensions/panel-osd/ < $LINUX_BACKUP_FOLDER/panel_osd_settings
