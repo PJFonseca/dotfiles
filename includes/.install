@@ -199,7 +199,7 @@ function etcher_install(){
 	msgout success "Etcher installed!"
 }
 function vmware_install(){
-	cd /tmp/ && wget -P /tmp/ https://www.vmware.com/go/getworkstation-linux -O VMware-Workstation-Full.x86_64.bundle 
+	cd /tmp/ && wget -P /tmp/ https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle -O VMware-Workstation-Full.x86_64.bundle 
 	sudo sh VMware-Workstation-Full.x86_64.bundle --console --required --set-setting vmware-installer --set-setting vmware-installer libdir /usr/lib --ignore-errors
 	msgout success "VMware Workstation installed!"
 	msgout success "Serial: VG51H-6PDE3-088PZ-VWYZ9-YCRT4"
