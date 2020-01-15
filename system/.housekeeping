@@ -14,6 +14,7 @@ function ublock(){
 	sudo -- sh -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
 	sudo -- sh -c "echo 1.2.3.4 http://www.jetbrains.com >> /etc/hosts"
 	sudo -- sh -c "echo 1.2.3.4 www-weighted.jetbrains.com >> /etc/hosts"
+	sudo -- sh -c "echo 0.0.0.0 https://account.jetbrains.com:443 >> /etc/hosts"
 	sudo -- sh -c "echo 0.0.0.0 account.jetbrains.com >> /etc/hosts"
 	msgout success "Hosts updated!"
 }
