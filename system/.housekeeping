@@ -54,6 +54,7 @@ function backup(){
 
 		#DBeaver
 		cp -R ~/.dbeaver4 $LINUX_BACKUP_FOLDER/
+		cp -R ~/.local/share/.DBeaverData $LINUX_BACKUP_FOLDER/.local/share/.DBeaverData
 
 		#Filezilla
 		cp -R ~/.config/filezilla $LINUX_BACKUP_FOLDER/.config/filezilla/
