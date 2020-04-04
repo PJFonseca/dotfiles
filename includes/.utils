@@ -202,7 +202,7 @@ function meteo() {
 # This is based on this tutorial: https://github.com/Neilpang/acme.sh/wiki/Simple-guide-to-add-TLS-cert-to-cpanel
 # Thank you Neil Pang for this awesome script. Find him at https://twitter.com/neilpangxa
 
-function install_remote_ssl(){
+function sslgen(){
 	#Gatering info needed
 	local SERVER=""
 	local EMAIL=""
@@ -232,7 +232,7 @@ function install_remote_ssl(){
 
 	while [[ $PATHSITE == '' ]] # While PATH is empty...
 	do
-		read -p "Path to the page (~/public_html/): " PATHSITE # Ask the user to enter the path to the page
+		read -p "Path to the page (add public_html/ and the rest of the path): " PATHSITE # Ask the user to enter the path to the page
 	done 
 
 	# Creating the staging script
@@ -241,12 +241,12 @@ function install_remote_ssl(){
 	curl https://get.acme.sh | sh
 	source ~/.bashrc
 	~/.acme.sh/acme.sh --update-account --accountemail $EMAIL
-	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATHSITE -d $DOMAIN -d www.$DOMAIN --staging
+	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --staging
 EOF
 	# Creating the FORCE script. This is to be executed if the staging gives green
 	cat << EOF > /tmp/install_ssl_force.sh
 	#!/bin/bash
-	~/.acme.sh/acme.sh --issue --webroot ~/public_html/$PATHSITE -d $DOMAIN -d www.$DOMAIN --force
+	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --force
 	export DEPLOY_cPanel_USER=$CPANELUSERNAME
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain $DOMAIN
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www.$DOMAIN
@@ -364,20 +364,20 @@ function ssh_clients(){
 	ssh -p 21098 $USER@$SERVER
 }
  
-function mergeMP4(){
+function mergevideos(){
 	directory=$(pwd)
 	rm -R inputs.txt
-	rm -R output.mp4
+	rm -R output.${1}
 	#Replace spaces from the names to underscores
 	for i in *' '* ; do mv "$i" "${i// /_}" ; done
 	#Grab the files into an array
-	files=$( find . -type f -name "*.mp4" | sort -V )
+	files=$( find . -type f -name "*.${1}" | sort -V )
 	#Create a list of inputs 
 	for i in $files; do 
 		echo "file '$i'" >> inputs.txt
 	done;
 	#do the magic
-	ffmpeg -f concat -safe 0 -i inputs.txt -c copy output.mp4
+	ffmpeg -f concat -safe 0 -i inputs.txt -c copy output.${1}
 }
 
 function ODT2PDF(){

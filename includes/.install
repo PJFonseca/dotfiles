@@ -21,9 +21,12 @@ EOF
 }
 
 function telegram_install(){
-	cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xf -C /opt/
-	sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
-	sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
+	##cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux -O telegram.tar.gz
+	#sudo tar xf telegram.tar.gz -C /opt/
+	#sudo rm /usr/local/bin/telegram-desktop
+	#sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+	#sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
+	sudo dnf install telegram-desktop
 }
 
 function dbeaver_install(){

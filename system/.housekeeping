@@ -33,7 +33,7 @@ function togglehost() {
 function update(){
     DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
     if [[ "${DISTRO}" = "Fedora" ]]; then
-        sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && sudo dnf -y clean all && backup && ydl_update && clean && ublock
+        sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && sudo dnf -y clean all && backup && ydl_update && clean && ublock && vmware_build_kernel
 		#Update GNOME Shell Extensions
 		gnome-shell-extension-installer --yes --update --restart-shell
 	fi;
@@ -53,7 +53,6 @@ function backup(){
 		cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
 
 		#DBeaver
-		cp -R ~/.dbeaver4 $LINUX_BACKUP_FOLDER/
 		cp -R ~/.local/share/.DBeaverData $LINUX_BACKUP_FOLDER/.local/share/.DBeaverData
 
 		#Filezilla
@@ -89,7 +88,9 @@ function backup(){
 		
 		#OpenHAB Backup
 		if [ "$(ls -A /mnt/openhab-conf)" ]; then
-			cp -R /mnt/openhab-conf/ $LINUX_BACKUP_FOLDER/
+			name=$(date '+%Y%m%d')
+			tar -zcvf "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" /mnt/openhab-conf/
+			cp -R "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" $LINUX_BACKUP_FOLDER/
 		fi
 		msgout success "Personal Backup done!"
 		cd ~/
