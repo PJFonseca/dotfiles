@@ -40,7 +40,7 @@ function update(){
 }
 
 function backup(){
-	if [[ "${HOSTNAME}" = "FedoraBox" ]]; then
+	if [[ "${DISTRO}" = "Fedora" ]]; then
 		local destiny=$LINUX_BACKUP_FOLDER
 
 		#Clean Backup dir
