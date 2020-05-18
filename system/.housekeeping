@@ -40,7 +40,6 @@ function update(){
 }
 
 function backup(){
-	if [[ "${DISTRO}" = "Fedora" ]]; then
 		local destiny=$LINUX_BACKUP_FOLDER
 
 		#Clean Backup dir
@@ -94,7 +93,6 @@ function backup(){
 		fi
 		msgout success "Personal Backup done!"
 		cd ~/
-	fi;
 }
 
 function restore(){
