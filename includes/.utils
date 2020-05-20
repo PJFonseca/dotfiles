@@ -411,6 +411,7 @@ function allsymlinks(){
 	find $1 -type l -exec ls -lad {} \;
 }
 function vmware_build_kernel(){
+	yum -q list installed packageX &>/dev/null && echo "kernel-devel Installed" || sudo yum install kernel-devel
 	VMWARE_VERSION=`vmware-installer -l |grep workstat|awk '{print $2}' |awk 'BEGIN {FS="."}{print "workstation-"$1"."$2"."$3}'`
 	echo $VMWARE_VERSION
 	TMP_FOLDER=/tmp/patch-vmware
