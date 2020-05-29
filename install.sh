@@ -49,6 +49,7 @@ remmina \
 nautilus-dropbox \
 pwgen \
 asciinema\
+kernel-devel\
 cherrytree
 
 #SoftLinks
@@ -58,6 +59,10 @@ rm -rf /home/$USER/.gitconfig
 ln -s /home/$USER/.dotfiles/.gitconfig /home/$USER/.gitconfig
 rm -rf /home/$USER/.bash_prompt
 ln -s /home/$USER/.dotfiles/.bash_prompt /home/$USER/.bash_prompt
+
+mv ~/Downloads ~/downloads
+mv ~/Videos ~/vids
+mv ~/Documents ~/docx
 
 source /home/$USER/.bashrc
 
