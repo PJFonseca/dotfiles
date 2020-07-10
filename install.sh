@@ -120,6 +120,7 @@ gnome-shell-extension-installer 1112 # Screenshot Tool by oal
 gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
 gnome-shell-extension-installer 1206 # Clock Override by .ext
 
+
 #Install flat-remix-gtk theme
 cd /tmp && sudo rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
 cd /tmp && sudo rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
@@ -137,6 +138,7 @@ gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
 gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 gsettings set org.gnome.nautilus.list-view use-tree-view true
+gsettings set org.gnome.desktop.interface clock-show-seconds true
 
 #Codecs
 sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
