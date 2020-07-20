@@ -44,7 +44,11 @@ function backup(){
 
 		#Clean Backup dir
 		rm -rf $LINUX_BACKUP_FOLDER/*
+		find ~/.cache/ -type f -atime +1 -delete
 
+		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
+			mkdir "$LINUX_BACKUP_FOLDER/.config/"
+		fi
 		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
 			mkdir "$LINUX_BACKUP_FOLDER/.config/"
 		fi
@@ -91,6 +95,9 @@ function backup(){
 			tar -zcvf "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" /mnt/openhab-conf/
 			cp -R "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" $LINUX_BACKUP_FOLDER/
 		fi
+
+		snapshot
+
 		msgout success "Personal Backup done!"
 		cd ~/
 }

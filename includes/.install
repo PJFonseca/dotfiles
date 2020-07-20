@@ -9,7 +9,7 @@ function postman_install(){
     Name=Postman
     GenericName=API Client
     X-GNOME-FullName=Postman API Client
-    Comment=Make and view REST API calls and responses
+    Comment=Make and view REST API calls and responsesT
     Keywords=api;
     Exec=/opt/Postman/Postman
     Terminal=false
@@ -21,12 +21,9 @@ EOF
 }
 
 function telegram_install(){
-	##cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux -O telegram.tar.gz
-	#sudo tar xf telegram.tar.gz -C /opt/
-	#sudo rm /usr/local/bin/telegram-desktop
-	#sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
-	#sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
-	sudo dnf install telegram-desktop
+	cd /tmp/ && wget -P /tmp/ --trust-server-names https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+	sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+	sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
 }
 
 function dbeaver_install(){
@@ -101,11 +98,8 @@ function gnomeShellExtentions_install(){
 }
 #Flat Remix
 function theme_install(){
-	#cd /tmp && sudo rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
-	#cd /tmp && sudo rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
-	sudo dnf copr enable daniruiz/flat-remix
-	sudo dnf install flat-remix-gtk
-	sudo dnf install flat-remix
+	cd /tmp && sudo rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
+	cd /tmp && sudo rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
 }
 
 #breeze-cursor
@@ -186,26 +180,10 @@ function obs_install(){
 }
 
 function openaudible_install(){
-	cd /tmp/ && wget -P /tmp/ https://github.com/openaudible/openaudible/releases/download/v1.6.4/OpenAudible_1.6.4_amd64.sh -O OpenAudible_linux_1.5.2.sh
+	cd /tmp/ && wget -P /tmp/ https://github.com/openaudible/openaudible/releases/download/v1.5.2/OpenAudible_linux_1.5.2.sh -O OpenAudible_linux_1.5.2.sh
 	chmod +x OpenAudible_linux_1.5.2.sh
 	sudo ./OpenAudible_linux_1.5.2.sh
 	msgout success "OpenAudible installed!"
-}
-function slack_install(){
-	cd /tmp/ && wget -P /tmp/ https://downloads.slack-edge.com/linux_releases/slack-4.2.0-0.1.fc21.x86_64.rpm -O slack-4.2.0-0.1.fc21.x86_64.rpm 
-	sudo dnf install slack-4.2.0-0.1.fc21.x86_64.rpm
-	msgout success "Slack installed!"
-}
-function etcher_install(){
-	cd /tmp/ && wget -P /tmp/ https://github.com/balena-io/etcher/releases/download/v1.5.70/balena-etcher-electron-1.5.70.x86_64.rpm -O balena-etcher-electron-1.5.70.x86_64.rpm 
-	sudo dnf install balena-etcher-electron-1.5.70.x86_64.rpm
-	msgout success "Etcher installed!"
-}
-function vmware_install(){
-	cd /tmp/ && wget -P /tmp/ https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle -O VMware-Workstation-Full.x86_64.bundle 
-	sudo sh VMware-Workstation-Full.x86_64.bundle --console --required --set-setting vmware-installer --set-setting vmware-installer libdir /usr/lib --ignore-errors
-	msgout success "VMware Workstation installed!"
-	msgout success "Serial: VG51H-6PDE3-088PZ-VWYZ9-YCRT4"
 }
 
 #System Sensors
@@ -215,30 +193,6 @@ function sensors_install(){
 	msgout success "Sensors installed!"
 }
 
-function scrcpy_install(){
-	cd /tmp/ && wget -P /tmp/ https://copr-be.cloud.fedoraproject.org/results/zeno/scrcpy/fedora-rawhide-x86_64/01127652-scrcpy/scrcpy-1.12.1-1.fc32.x86_64.rpm -O scrcpy-1.12.1-1.fc32.x86_64.rpm
-	sudo dnf install scrcpy-1.12.1-1.fc32.x86_64.rpm
-	#Add user to group plugdev
-	sudo usermod -aG plugdev $LOGNAME
-	sudo touch /etc/udev/rules.d/99-add-device-to-scrcpy.rules
-	echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", ATTR{idProduct}=="9001", MODE="0666", GROUP="plugdev", TAG+="snap_scrcpy_adb"' | sudo tee /etc/udev/rules.d/99-add-device-to-scrcpy.rules
-	echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", ATTR{idProduct}=="9001", MODE="0666", GROUP="plugdev", TAG+="snap_scrcpy_scrcpy"' | sudo tee -a /etc/udev/rules.d/99-add-device-to-scrcpy.rules
-	sudo udevadm control --reload-rules
-	adb kill-server
-	adb devices
-
-	cp /mnt/Stuff/Dropbox/Documentos/LinuxBackup/openhab-conf/icons/classic/mobile.svg ~/.local/share/applications/scrcpy.svg
-
-	cat << EOF > ~/.local/share/applications/scrcpy.desktop
-	[Desktop Entry]
-	Type=Application
-	Name=scrcpy
-	GenericName=Android Screen Recorder
-	Comment=This application provides display and control of Android devices connected on USB 
-	Categories=Utility;Video;
-	Exec=sh -c "adb connect 192.168.1.68:5555;scrcpy --max-size 1024 --max-fps 30 -b2M -m800"
-	Icon=/home/pjfonseca/.local/share/applications/scrcpy.svg
-	Terminal=false
-EOF
-	msgout success "Scrcpy installed!"
+function dropbox_install(){
+	cd /tmp/ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 }
