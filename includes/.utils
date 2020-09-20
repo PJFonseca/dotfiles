@@ -147,12 +147,12 @@ function compress() {
 }
 #Download stuff from YouTube
 function bookdl(){
-	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '$AUDIO_BOOKS_FOLDER/%(artist)s/%(album)s/%(title)s.%(ext)s'
+	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$AUDIO_BOOKS_FOLDER/%(artist)s/%(album)s/%(title)s.%(ext)s'
 	msgout success "Book downloaded!"
 	cd $AUDIO_BOOKS_FOLDER
 }
 function musicdl(){
-	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s'
+	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s'
 	msgout $MUSIC_FOLDER
 }
 function videodl(){
@@ -356,6 +356,9 @@ function ssh_clients(){
 		;;
 		b2s)  
 			USER=born2sco		
+		;;
+		server)  
+			USER=james009		
 		;;
 		*)       echo "'$1' não foi encontrado"            		;;
 	esac
