@@ -64,3 +64,10 @@ alias mountphone="simple-mtpfs --device 1 oneplus2/"
 alias androidrsa="awk '{print $1}' < ~/.android/adbkey.pub | openssl base64 -A -d -a | openssl md5 -c"
 alias offlinereposync="reposync -p /mnt/Stuff/RPMs/"
 alias mp42webm="for i in *.mp4; do ffmpeg -i \"$i\" -qscale 0 \"$(basename \"$i\" .mp4)\".webm ; done"
+alias mount_instructor="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/'Instructor Materials' /mnt/InstructorMaterials/"
+
+#Instructor Materials
+alias cnic="/mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/"
+alias cnic_bundle="/mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/create_student_bundle.sh"
+alias jts="/mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX"
+alias jts_bundle="/mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX/create_student_bundle.sh"

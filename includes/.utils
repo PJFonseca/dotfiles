@@ -383,16 +383,18 @@ function mergevideos(){
 function ODT2PDF(){
 	#Replace spaces from the names to underscores
 	for i in *' '* ; do mv "$i" "${i// /_}" ; done
-	libreoffice --headless --convert-to pdf *.odt
-	pdfunite $(ls *.pdf | sort -n) ~/Book_of_Labs.pdf
-	rm -R *.pdf
+	sudo libreoffice --headless --convert-to pdf *.odt
+	sudo pdfunite $(ls *.pdf | sort -n) Book_of_Labs.pdf
+	sudo cp Book_of_Labs.pdf ../StudentBundle/
+	#sudo rm -R *.pdf
 }
 function ODP2PDF(){
 	#Replace spaces from the names to underscores
 	for i in *' '* ; do mv "$i" "${i// /_}" ; done
-	libreoffice --headless --convert-to pdf *.odp
-	pdfunite $(ls *.pdf | sort -n) ~/Book_of_Slides.pdf
-	rm -R *.pdf
+	sudo libreoffice --headless --convert-to pdf *.odp
+	sudo pdfunite $(ls *.pdf | sort -n) Book_of_Slides.pdf
+	sudo cp Book_of_Slides.pdf ../StudentBundle/
+	#sudo rm -R *.pdf
 }
 
 function facebook_videos_download(){
