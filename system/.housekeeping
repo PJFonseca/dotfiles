@@ -1,9 +1,9 @@
 #Clears some dirs
 function clean(){
-	rm -r ~/$DOWNLOAD_FOLDER/* 2> /dev/null
-	rm -r ~/$IMAGES_FOLDER/* 2> /dev/null
-	rm -rf ~/.local/share/Trash/info/* 2> /dev/null
-	rm -rf ~/.local/share/Trash/files/* 2> /dev/null
+	sudo rm -r ~/$DOWNLOAD_FOLDER/* 2> /dev/null
+	sudo rm -r ~/$IMAGES_FOLDER/* 2> /dev/null
+	sudo rm -rf ~/.local/share/Trash/info/* 2> /dev/null
+	sudo rm -rf ~/.local/share/Trash/files/* 2> /dev/null
 	
 	msgout success "System clean!"
 }
@@ -33,7 +33,7 @@ function togglehost() {
 function update(){
     DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
     if [[ "${DISTRO}" = "Fedora" ]]; then
-        sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && sudo dnf -y clean all && backup && ydl_update && clean && ublock && vmware_build_kernel
+        sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && sudo dnf -y clean all && backup && ydl_update && clean && ublock
 		#Update GNOME Shell Extensions
 		gnome-shell-extension-installer --yes --update --restart-shell
 	fi;
@@ -44,7 +44,11 @@ function backup(){
 
 		#Clean Backup dir
 		rm -rf $LINUX_BACKUP_FOLDER/*
+		find ~/.cache/ -type f -atime +1 -delete
 
+		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
+			mkdir "$LINUX_BACKUP_FOLDER/.config/"
+		fi
 		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
 			mkdir "$LINUX_BACKUP_FOLDER/.config/"
 		fi
@@ -91,6 +95,9 @@ function backup(){
 			tar -zcvf "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" /mnt/openhab-conf/
 			cp -R "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" $LINUX_BACKUP_FOLDER/
 		fi
+
+		snapshot
+
 		msgout success "Personal Backup done!"
 		cd ~/
 }
