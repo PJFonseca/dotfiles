@@ -188,5 +188,7 @@ function sensors_install(){
 }
 
 function dropbox_install(){
-	cd /tmp/ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+	cd /tmp/ && wget -O dropbox.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf dropbox.tar.gz
+
+	
 }
