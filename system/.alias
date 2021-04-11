@@ -41,7 +41,7 @@ unset GREP_OPTIONS
 
 # Miscellaneous
 alias pulse="pulseaudio -k"
-alias openhab="ssh openhabian@192.168.1.4"
+alias openhab="ssh openhab@192.168.1.167"
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
