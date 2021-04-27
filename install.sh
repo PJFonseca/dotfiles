@@ -29,8 +29,6 @@ arc-theme \
 vlc \
 steam \
 firefox \
-filezilla \
-audacity \
 keepassxc \
 telegram-desktop \
 gnome-tweaks \
@@ -43,14 +41,9 @@ git \
 nautilus-extensions \
 nautilus-image-converter \
 nautilus-search-tool \
-trash-cli \
 libcxx \
 remmina \
-nautilus-dropbox \
-pwgen \
-asciinema\
-kernel-devel\
-cherrytree
+nautilus-dropbox
 
 #SoftLinks
 rm -rf /home/$USER/.bashrc
@@ -115,11 +108,10 @@ EOF
 
 #gnome-shell-extension-installer
 cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
-gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
+#gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
 gnome-shell-extension-installer 1112 # Screenshot Tool by oal
 gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
 gnome-shell-extension-installer 1206 # Clock Override by .ext
-
 
 #Install flat-remix-gtk theme
 cd /tmp && sudo rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
@@ -144,4 +136,4 @@ gsettings set org.gnome.desktop.interface clock-show-seconds true
 sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
 
 #Telegram to start in tray
-sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
+#sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop
