@@ -41,7 +41,6 @@ unset GREP_OPTIONS
 
 # Miscellaneous
 alias pulse="pulseaudio -k"
-alias openhab="ssh openhab@192.168.1.167"
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
@@ -67,10 +66,10 @@ alias offlinereposync="reposync -p /mnt/Stuff/RPMs/"
 alias snapshot="sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER forget --keep-last 1 --prune && sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER --exclude=\"Cache cache .cache Steam steam CachedData\" --verbose backup --files-from /root/.restic_include_files";
 alias webserver="ssh_clients server"
 alias mp42webm="for i in *.mp4; do ffmpeg -i \"$i\" -qscale 0 \"$(basename \"$i\" .mp4)\".webm ; done"
-alias mount_instructor="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/'Instructor Materials' /mnt/InstructorMaterials/"
-alias mount_myshare="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/MyShare /mnt/myshare"
 
 #Instructor Materials
+alias mount_instructor="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/'Instructor Materials' /mnt/InstructorMaterials/"
+alias mount_myshare="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/MyShare /mnt/myshare"
 alias cnic="cd /mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/"
 alias cnic_bundle="/mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/create_student_bundle.sh"
 alias jts="cd /mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX"

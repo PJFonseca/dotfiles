@@ -57,10 +57,6 @@ function backup(){
 		cp -R ~/.config/filezilla $LINUX_BACKUP_FOLDER/.config/filezilla/
 		#Keepassxc
 		cp -R ~/.config/keepassxc $LINUX_BACKUP_FOLDER/.config/keepassxc/
-		#teamviewer
-		cp -R ~/.config/teamviewer $LINUX_BACKUP_FOLDER/.config/teamviewer/
-		#VNC
-		cp -R ~/.vnc $LINUX_BACKUP_FOLDER/
 		#variety
 		cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
 		#ssh
@@ -83,22 +79,11 @@ function backup(){
 		dconf dump /org/gnome/mutter/wayland/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings_wayland
 		dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > $LINUX_BACKUP_FOLDER/custom-keybindings
 		dconf dump /org/gnome/terminal/ > $LINUX_BACKUP_FOLDER/terminal
-		
-		#OpenHAB Backup
-		if [ "$(ls -A /mnt/openhab-conf)" ]; then
-			name=$(date '+%Y%m%d')
-			tar -zcvf "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" /mnt/openhab-conf/
-			cp -R "$DOWNLOAD_FOLDER/$name.openhab.tar.gz" $LINUX_BACKUP_FOLDER/
-		fi
-
-		msgout success "Personal Backup done!"
+				msgout success "Personal Backup done!"
 		cd ~/
 }
 
 function restore(){
-	#Restore files from Dropbox
-	cp -R $LINUX_BACKUP_FOLDER/ ~/
-
 	#settings
 	dconf load /org/gnome/shell/extensions/dash-to-panel/ < $LINUX_BACKUP_FOLDER/dash_to_panel_settings
 	dconf load /org/gnome/shell/extensions/clock_override/ < $LINUX_BACKUP_FOLDER/clock_override_settings

@@ -24,7 +24,6 @@ steam --enablerepo=rpmfusion-nonfree-steam \
 wget \
 numlockx \
 youtube-dl \
-nano \
 arc-theme \
 vlc \
 steam \
@@ -58,9 +57,6 @@ mv ~/Videos ~/vids
 mv ~/Documents ~/docx
 
 source /home/$USER/.bashrc
-
-#TeamViewer
-cd /tmp/ && wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
 
 #DBeaver
 cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm -O dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm

@@ -61,12 +61,6 @@ function discord_install(){
 	msgout success "Discord installed!"
 }
 
-#TeamViewer
-function teamviewer_install(){
-	cd /tmp/ && wget -P /tmp/ https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm && sudo dnf install -y /tmp/teamviewer.x86_64.rpm
-	msgout success "Teamviewer installed!"
-}
-
 #VNC-Viewer
 function vnc_install(){
 	cd /tmp/ && wget -P /tmp/ https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.19.325-Linux-x64.rpm && sudo dnf install -y /tmp/VNC-Viewer-6.19.325-Linux-x64.rpm
@@ -185,10 +179,4 @@ function sensors_install(){
 	sudo dnf install lm_sensors
 	sudo sensors-detect --auto
 	msgout success "Sensors installed!"
-}
-
-function dropbox_install(){
-	cd /tmp/ && wget -O dropbox.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf dropbox.tar.gz
-
-	
 }
