@@ -41,8 +41,7 @@ nautilus-extensions \
 nautilus-image-converter \
 nautilus-search-tool \
 libcxx \
-remmina \
-nautilus-dropbox
+remmina
 
 #SoftLinks
 rm -rf /home/$USER/.bashrc
