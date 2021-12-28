@@ -265,16 +265,15 @@ function sslgen(){
 	curl https://get.acme.sh | sh
 	source ~/.bashrc
 	~/.acme.sh/acme.sh --update-account --accountemail $EMAIL
-	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN -d '*.$DOMAIN' --staging
+	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --staging
 EOF
 	# Creating the FORCE script. This is to be executed if the staging gives green
 	cat << EOF > /tmp/install_ssl_force.sh
 	#!/bin/bash
-	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN -d '*.$DOMAIN' --force
+	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --force
 	export DEPLOY_cPanel_USER=$CPANELUSERNAME
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain $DOMAIN
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www.$DOMAIN
-	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain '*.$DOMAIN'
 	crontab -l
 EOF
 	# Copying files to target server
