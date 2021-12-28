@@ -265,27 +265,25 @@ function sslgen(){
 	curl https://get.acme.sh | sh
 	source ~/.bashrc
 	~/.acme.sh/acme.sh --update-account --accountemail $EMAIL
-	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --staging
+	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN -d '*.$DOMAIN' --staging
 EOF
 	# Creating the FORCE script. This is to be executed if the staging gives green
 	cat << EOF > /tmp/install_ssl_force.sh
 	#!/bin/bash
-	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --force
+	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN -d '*.$DOMAIN' --force
 	export DEPLOY_cPanel_USER=$CPANELUSERNAME
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain $DOMAIN
 	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www.$DOMAIN
+	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain '*.$DOMAIN'
 	crontab -l
 EOF
 	# Copying files to target server
 	scp -P 21098 /tmp/install_ssl_staging.sh $SERVER:~ && scp -P 21098 /tmp/install_ssl_force.sh $SERVER:~
 
 	# Instructions before enter the SSH
-	echo "Make the scripts executable"
-	echo ""
-	echo "chmod +x install_ssl_staging.sh install_ssl_force.sh"
-	echo ""
-	echo "Then run install_ssl_staging.sh and if it succeeds, run the install_ssl_force.sh"
-	echo ""
+	msgout title "Make the scripts executable"
+	msgout info "chmod +x install_ssl_staging.sh install_ssl_force.sh"
+	msgout info "Then run install_ssl_staging.sh and if it succeeds, run the install_ssl_force.sh"
 
 	#SSH into target server
 	ssh -p 21098 $SERVER
