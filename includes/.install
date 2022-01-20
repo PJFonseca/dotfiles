@@ -68,7 +68,7 @@ function vnc_install(){
 }
 
 #“Do The Right Extraction“ installation
-fucntion dtrx_install(){
+function dtrx_install(){
     wget http://brettcsmith.org/2007/dtrx/dtrx-7.1.tar.gz
     tar -xvf dtrx-7.1.tar.gz
     cd dtrx-7.1
