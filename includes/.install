@@ -67,6 +67,15 @@ function vnc_install(){
 	msgout success "VNC installed!"
 }
 
+#“Do The Right Extraction“ installation
+fucntion dtrx_install(){
+    wget http://brettcsmith.org/2007/dtrx/dtrx-7.1.tar.gz
+    tar -xvf dtrx-7.1.tar.gz
+    cd dtrx-7.1
+    python setup.py install --prefix=/usr/local
+}
+
+
 #Skype
 function skype_install(){
 	cd /tmp/ && wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
