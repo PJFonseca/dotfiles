@@ -130,6 +130,30 @@ EOF
 	msgout success "Kdenlive installed!"
 }
 
+function logseq_install(){
+	cd /tmp/ && wget -P /tmp/ https://github.com/logseq/logseq/releases/download/nightly/Logseq-linux-x64-0.5.9+nightly.20220129.AppImage -O logseq.appimage
+
+	sudo chmod +x logseq.appimage
+
+	sudo mkdir /opt/logseq
+	sudo mv logseq.appimage /opt/logseq/
+
+	wget -P /tmp/ view-source:https://asset.logseq.com/static/img/logo.png -O logseq.png
+	sudo mv logseq.png /opt/logseq/logseq.png
+
+	cat << EOF > ~/.local/share/applications/logseq.desktop
+	[Desktop Entry]
+	Type=Application
+	Name=Logseq
+	GenericName=logseq
+	Comment=logseq
+	Categories=Utility;
+	Exec=/opt/logseq/logseq.appimage
+	Icon=/opt/logseq/logseq.png
+	Terminal=false
+EOF
+	msgout success "Logseq installed!"
+}
 function ledger_install(){
 	cd /tmp/ && wget -P /tmp/ https://download-live.ledger.com/releases/latest/download/linux -O ledger.appimage
 
