@@ -138,7 +138,7 @@ function logseq_install(){
 	sudo mkdir /opt/logseq
 	sudo mv logseq.appimage /opt/logseq/
 
-	wget -P /tmp/ view-source:https://asset.logseq.com/static/img/logo.png -O logseq.png
+	wget -P /tmp/ https://asset.logseq.com/static/img/logo.png -O logseq.png
 	sudo mv logseq.png /opt/logseq/logseq.png
 
 	cat << EOF > ~/.local/share/applications/logseq.desktop
