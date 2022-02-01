@@ -41,6 +41,7 @@ unset GREP_OPTIONS
 
 # Miscellaneous
 alias htb="sudo openvpn ~/CloudStorage/Documentos/HackTheBox/0_Setup/balrogPT.ovpn"
+alias logseq="/opt/logseq/logseq.appimage"
 alias pulse="pulseaudio -k"
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
