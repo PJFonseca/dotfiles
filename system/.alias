@@ -40,14 +40,14 @@ alias 777='chmod -R 777'
 unset GREP_OPTIONS
 
 # Miscellaneous
-alias htb="sudo openvpn ~/CloudStorage/Documentos/HackTheBox/0_Setup/balrogPT.ovpn"
+alias htb="sudo openvpn ~/CloudStorage/Documentos/Cyber/0_Setup/balrogPT.ovpn"
+alias thm="sudo openvpn ~/CloudStorage/Documentos/Cyber/0_Setup/thm_Blr0g.ovpn"
 alias logseq="/opt/logseq/logseq.appimage"
 alias pulse="pulseaudio -k"
 alias hosts="sudo gedit /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
 alias delete="rm -rf"
-alias htbvpn="sudo openvpn ~/CloudStorage/Documentos/HackTheBox/0_Setup/balrogPT.ovpn"
 #alias speedtest="wget -O /dev/null https://speed.hetzner.de/1GB.bin"
 alias cls="clear"
 alias icons="cd ~/.local/share/applications/"
@@ -71,10 +71,10 @@ alias webserver="ssh_clients server"
 alias mp42webm="for i in *.mp4; do ffmpeg -i \"$i\" -qscale 0 \"$(basename \"$i\" .mp4)\".webm ; done"
 
 #Instructor Materials
-alias mount_instructor="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/'Instructor Materials' /mnt/InstructorMaterials/"
-alias mount_myshare="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/MyShare /mnt/myshare"
-alias cnic="cd /mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/"
-alias cnic_bundle="/mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/create_student_bundle.sh"
-alias jts="cd /mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX"
-alias jts_bundle="/mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX/create_student_bundle.sh"
+#alias mount_instructor="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/'Instructor Materials' /mnt/InstructorMaterials/"
+#alias mount_myshare="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/MyShare /mnt/myshare"
+#alias cnic="cd /mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/"
+#alias cnic_bundle="/mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/create_student_bundle.sh"
+#alias jts="cd /mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX"
+#alias jts_bundle="/mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX/create_student_bundle.sh"
 
