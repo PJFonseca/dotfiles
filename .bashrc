@@ -15,11 +15,11 @@ export PATH
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/.dotfiles/system"
 
- for DOTFILE in ~/.dotfiles/system/.{alias,functions,housekeeping,env}; do
- 	[ -f "$DOTFILE" ] && . "$DOTFILE"	
+ for DOTFILE in ~/.dotfiles/system/.{}; do
+ 	[ -f "$DOTFILE" ] && . "$DOTFILE"
  done;
 
- for UTILS in ~/.dotfiles/includes/.{utils,install,podcasts,pass.config}; do
+ for UTILS in ~/.dotfiles/includes/.{utils,install,pass.config,alias,housekeeping,env}; do
  	[ -f "$UTILS" ] && . "$UTILS"	
  done;
  unset file;
