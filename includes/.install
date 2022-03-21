@@ -131,7 +131,7 @@ EOF
 }
 
 function logseq_install(){
-	cd /tmp/ && wget -P /tmp/ https://github.com/logseq/logseq/releases/download/0.5.9/Logseq-linux-x64-0.5.9.AppImage -O logseq.appimage
+	cd /tmp/ && wget -P /tmp/ https://github.com/logseq/logseq/releases/download/0.6.4/Logseq-linux-x64-0.6.4.AppImage -O logseq.appimage
 
 	sudo chmod +x logseq.appimage
 
