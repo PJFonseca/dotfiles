@@ -7,7 +7,7 @@ if [ -d ~/.dotfiles/includes ]; then
 fi
 
 #Repos and Basics
-hostnamectl set-hostname --static "FedoraBox"
+hostnamectl set-hostname --static "zx"
 sudo dnf -y update
 sudo dnf upgrade --best --allowerasing --refresh -y
 sudo dnf install -y fedora-workstation-repositories
@@ -27,11 +27,8 @@ youtube-dl \
 arc-theme \
 vlc \
 steam \
-firefox \
 keepassxc \
 telegram-desktop \
-gnome-tweaks \
-gnome-tweak-tool \
 variety \
 qbittorrent \
 exfat-utils \
@@ -51,17 +48,13 @@ ln -s /home/$USER/.dotfiles/.gitconfig /home/$USER/.gitconfig
 rm -rf /home/$USER/.bash_prompt
 ln -s /home/$USER/.dotfiles/.bash_prompt /home/$USER/.bash_prompt
 
-mv ~/Downloads ~/downloads
+mv ~/Downloads ~/dwnx
 mv ~/Videos ~/vids
-mv ~/Documents ~/docx
 
 source /home/$USER/.bashrc
 
 #DBeaver
 cd /tmp/ && wget -P /tmp/ --trust-server-names https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm -O dbeaver-ce-latest-stable.x86_64.rpm && sudo dnf install -y /tmp/dbeaver-ce-latest-stable.x86_64.rpm
-
-#VNC
-cd /tmp/ && wget -P /tmp/ https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.19.325-Linux-x64.rpm && sudo dnf install -y /tmp/VNC-Viewer-6.19.325-Linux-x64.rpm
 
 #Skype
 cd /tmp/ && wget -P /tmp/ --trust-server-names https://go.skype.com/skypeforlinux-64.rpm && sudo dnf install -y /tmp/skypeforlinux-64.rpm
@@ -81,25 +74,6 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 sudo dnf install code
-
-#Postman
-wget -P /tmp/ https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
-sudo tar xvzf /tmp/postman-linux-x64.tar.gz -C /opt
-sudo ln -s /opt/Postman/Postman /usr/bin/postman
-
-cat << EOF > ~/.local/share/applications/postman2.desktop
-[Desktop Entry]
-Name=Postman
-GenericName=API Client
-X-GNOME-FullName=Postman API Client
-Comment=Make and view REST API calls and responses
-Keywords=api;
-Exec=/opt/Postman/Postman
-Terminal=false
-Type=Application
-Icon=/opt/Postman/app/resources/app/assets/icon.png
-Categories=Development;Utilities;
-EOF
 
 #gnome-shell-extension-installer
 cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
