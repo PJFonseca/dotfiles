@@ -19,7 +19,7 @@ export PATH="$PATH:$HOME/.dotfiles/system"
  	[ -f "$DOTFILE" ] && . "$DOTFILE"
  done;
 
- for UTILS in ~/.dotfiles/includes/.{utils,install,pass.config,alias,housekeeping,env}; do
+ for UTILS in ~/.dotfiles/includes/.{utils,install,alias,housekeeping,env}; do
  	[ -f "$UTILS" ] && . "$UTILS"	
  done;
  unset file;
