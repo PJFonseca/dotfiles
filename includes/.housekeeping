@@ -2,6 +2,8 @@
 function clean(){
 	sudo rm -r ~/$DOWNLOAD_FOLDER/* 2> /dev/null
 	sudo rm -r ~/$IMAGES_FOLDER/* 2> /dev/null
+	sudo rm -r ~/Downloads 2> /dev/null
+	sudo rm -r ~/Screenshots/* 2> /dev/null
 	sudo rm -rf ~/.local/share/Trash/info/* 2> /dev/null
 	sudo rm -rf ~/.local/share/Trash/files/* 2> /dev/null
 	
