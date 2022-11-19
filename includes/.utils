@@ -358,7 +358,7 @@ function compress_mp4(){
 	for f in *; do mv "$f" `echo $f | tr ' ' '_'`; done
 	files=$( find . -type f -name "*.mp4" | sort -V )
 	for i in $files; do
-		ffmpeg -i $i -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p "${filename%.*}"_compressed.mp4
+		ffmpeg -i $i -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p compressed_$i
 	done;
 }
 
