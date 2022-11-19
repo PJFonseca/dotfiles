@@ -365,7 +365,7 @@ function mp4_to_webm(){
 	for f in *; do mv "$f" `echo $f | tr ' ' '_'`; done
 	files=$( ls -1 | sed -e 's/\.mp4$//' )
 	for file in $files; do
-		ffmpeg -i $file -qscale 0 \"$(basename \"$file\" .mp4)\".webm
+		ffmpeg -i ${file}.mp4 -qscale 0 ${file}.webm
 	done;
 }
 
