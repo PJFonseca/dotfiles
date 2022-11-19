@@ -358,7 +358,7 @@ function compress_mp4(){
 	for f in *; do mv "$f" `echo $f | tr ' ' '_'`; done
 	files=$( ls -1 | sed -e 's/\.mp4$//' )
 	for i in $files; do
-		ffmpeg -i $i -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p $i_compressed.mp4
+		ffmpeg -i $i.mp4 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p $i_compressed.mp4
 	done;
 }
 
