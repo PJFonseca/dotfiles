@@ -457,5 +457,5 @@ function vmware_build_kernel(){
 }
 
 function normalize_filename(){
-    find . -type f -name "* *.$1" -exec bash -c 'mv "$0" "${0// /_}"' {} \;
+    find . -type f -name "* *.${1}" -exec bash -c 'mv "$0" "${0// /_}"' {} \;
 }
