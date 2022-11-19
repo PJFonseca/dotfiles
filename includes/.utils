@@ -455,3 +455,7 @@ function vmware_build_kernel(){
 	/usr/lib/vmware/lib/libz.so.1/libz.so.1
 	sudo /etc/init.d/vmware restart
 }
+
+function normalize_filename(){
+    find . -type f -name "* *.$1" -exec bash -c 'mv "$0" "${0// /_}"' {} \;
+}
