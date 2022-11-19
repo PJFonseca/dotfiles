@@ -456,6 +456,6 @@ function vmware_build_kernel(){
 	sudo /etc/init.d/vmware restart
 }
 
-function normalize_filename(){
-    rename 's/\s/_/g' ./${1}
+function normalize_filenames(){
+    for f in *; do mv "$f" `echo $f | tr ' ' '_'`; done
 }
