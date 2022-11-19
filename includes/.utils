@@ -355,7 +355,8 @@ function myip(){
 }
 
 function compress_mp4(){
-	for f in *; do mv "$f" `echo $f | tr ' ' '_'`; done
+	for f in *; do mv "$f" "${f// /_}"; done
+
 	files=$( ls -1 | sed -e 's/\.mp4$//' )
 	for file in $files; do
 		ffmpeg -i ${file}.mp4 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p ${file}_compressed.mp4
@@ -467,5 +468,5 @@ function vmware_build_kernel(){
 }
 
 function normalize_filenames(){
-    for f in *; do mv "$f" `echo $f | tr ' ' '_'`; done
+    for f in *; do mv "$f" "${f// /_}"; done
 }
