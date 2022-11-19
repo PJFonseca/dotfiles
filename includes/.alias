@@ -69,6 +69,7 @@ alias offlinereposync="reposync -p /mnt/Stuff/RPMs/"
 alias snapshot="sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER forget --keep-last 1 --prune && sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER --exclude=\"Cache cache .cache Steam steam CachedData\" --verbose backup --files-from /root/.restic_include_files";
 alias webserver="ssh_clients server"
 alias mp42webm="for i in *.mp4; do ffmpeg -i \"$i\" -qscale 0 \"$(basename \"$i\" .mp4)\".webm ; done"
+alias normalize_filenames='function _(){find . -type f -name "* *.$1" -exec bash -c 'mv "$0" "${0// /_}"' {} \;}; _'
 
 #Instructor Materials
 #alias mount_instructor="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/'Instructor Materials' /mnt/InstructorMaterials/"
