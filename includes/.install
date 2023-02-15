@@ -36,6 +36,12 @@ function printer_install(){
 	msgout success "Brother HLL2360DW installed!"
 }
 
+function telegram_install(){
+    cd /tmp/ && wget -O telegram.tar.xz https://telegram.org/dl/desktop/linux
+    tar xf telegram.tar.xz
+    sudo mv Telegram /opt/telegram
+    sudo ln -sf /opt/telegram/Telegram /usr/bin/telegram
+}
 function symlinks_install(){
 	rm -rf ~/.bashrc
 	ln -s ~/.dotfiles/.bashrc ~/.bashrc
