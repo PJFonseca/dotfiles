@@ -183,6 +183,16 @@ function default_editors(){
 	xdg-mime default code.desktop text/plain
 	xdg-mime default firefox.desktop text/html
 }
+function signal_install(){
+    curl -L \
+      -o /tmp/network_im_signal.repo \
+      http://download.opensuse.org/repositories/network:/im:/signal/Fedora_37/network:im:signal.repo
+    sed -i 's/37/$releasever/g' /tmp/network_im_signal.repo
+    sudo dnf config-manager --add-repo /tmp/network_im_signal.repo
+    sudo dnf update
+    sudo dnf install -y signal-desktop
+}
+
 
 function obs_install(){
 	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
