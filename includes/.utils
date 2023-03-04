@@ -147,20 +147,20 @@ function compress() {
 }
 #Download stuff from YouTube
 function bookdl(){
-	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$AUDIO_BOOKS_FOLDER/%(artist)s/%(album)s/%(title)s.%(ext)s'
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$AUDIO_BOOKS_FOLDER/%(artist)s/%(album)s/%(title)s.%(ext)s'
 	msgout success "Book downloaded!"
 	cd $AUDIO_BOOKS_FOLDER
 }
 function musicdl(){
-	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s'
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s'
 	msgout $MUSIC_FOLDER
 }
 function videodl(){
-	youtube-dl $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
+	yt-dlp $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
 	msgout $MUSIC_FOLDER
 }
 function playlistdl(){
-	youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '$MUSIC_FOLDER/TMP/%(title)s.%(ext)s'
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '$MUSIC_FOLDER/TMP/%(title)s.%(ext)s'
 	msgout success "Music downloaded!"
 	cd $MUSIC_FOLDER/TMP/
 }
@@ -339,8 +339,8 @@ function teamviewer_reset(){
 }
 
 function ydl_update(){
-	sudo youtube-dl -U &> /dev/null
-	msgout success "youtube-dl updated!"
+	sudo yt-dlp -U &> /dev/null
+	msgout success "yt-dlp updated!"
 }
 
 function repos(){
@@ -438,7 +438,7 @@ function facebook_videos_download(){
 	for i in $files; do 
 		echo "https://www.facebook.com/$i" >> inputs.txt
 	done;
-	youtube-dl --cookies cookies.txt --batch-file inputs.txt 
+	yt-dlp --cookies cookies.txt --batch-file inputs.txt 
 }
 
 function filesymlinks(){
