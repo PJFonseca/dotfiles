@@ -375,7 +375,7 @@ function fhistory(){
 }
 
 function ssh_clients(){
-	SERVER=185.61.153.74
+	SERVER=66.29.152.86
 	case $1 in
 		contas) 	
 			USER=contaseb		
