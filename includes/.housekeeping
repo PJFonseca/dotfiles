@@ -13,6 +13,7 @@ function clean(){
 #Update host files to block bad hosts
 function ublock(){
 	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' &> /dev/null && sync &> /dev/null
+    echo '10.197.250.20 nuadysvvcen.academy.local' >> /etc/hosts
 	msgout success "Hosts updated!"
 }
 
