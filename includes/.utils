@@ -147,22 +147,18 @@ function compress() {
 }
 #Download stuff from YouTube
 function bookdl(){
-	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$AUDIO_BOOKS_FOLDER/%(artist)s/%(album)s/%(title)s.%(ext)s'
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '~/dwx/%(artist)s/%(album)s/%(title)s.%(ext)s'
 	msgout success "Book downloaded!"
-	cd $AUDIO_BOOKS_FOLDER
 }
 function musicdl(){
-	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s'
-	msgout $MUSIC_FOLDER
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '~/dwx/%(title)s.%(ext)s'
 }
 function videodl(){
-	yt-dlp $1 -o '$MUSIC_FOLDER/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
-	msgout $MUSIC_FOLDER
+	yt-dlp $1 -o '~/dwx/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
 }
 function playlistdl(){
-	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '$MUSIC_FOLDER/TMP/%(title)s.%(ext)s'
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 $1 -o '~/dwx/TMP/%(title)s.%(ext)s'
 	msgout success "Music downloaded!"
-	cd $MUSIC_FOLDER/TMP/
 }
 
 function ffind(){
