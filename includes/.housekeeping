@@ -13,6 +13,7 @@ function clean(){
 #Update host files to block bad hosts
 function ublock(){
 	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts' &> /dev/null && sync &> /dev/null
+    sudo -- sh -c "echo 10.197.250.20 nuadysvvcen.academy.local >> /etc/hosts"
 	msgout success "Hosts updated!"
 }
 
@@ -30,7 +31,7 @@ function togglehost() {
 function update(){
     DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
     if [[ "${DISTRO}" = "Fedora" ]]; then
-        sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && sudo dnf -y clean all && backup && ydl_update && clean && ublock
+        sudo dnf -y update --best --allowerasing --skip-broken && sudo dnf -y upgrade --refresh && sudo dnf -y autoremove && sudo dnf -y clean all && ydl_update && clean && ublock
 		#Update GNOME Shell Extensions
 		gnome-shell-extension-installer --yes --update --restart-shell
 	fi;
