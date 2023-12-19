@@ -47,8 +47,8 @@ function backup(){
 		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
 			mkdir "$LINUX_BACKUP_FOLDER/.config/"
 		fi
-		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
-			mkdir "$LINUX_BACKUP_FOLDER/.config/"
+		if [ ! -d "$LINUX_BACKUP_FOLDER/.local/" ]; then
+			mkdir "$LINUX_BACKUP_FOLDER/.local/"
 		fi
 		#vsCode
 		cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
