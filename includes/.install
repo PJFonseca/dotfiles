@@ -75,23 +75,8 @@ function skype_install(){
 #gnome-shell-extension-installer
 function gnomeShellExtentions_install(){
 	cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
-	gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
-	gnome-shell-extension-installer 1112 # Screenshot Tool by oal
-	gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
-	gnome-shell-extension-installer 1206 # Clock Override by .ext
-	gnome-shell-extension-installer 708 # Panel OSD by jens
-	
+	gnome-shell-extension-installer 1160 # Dash to Panel by jderose9
 	msgout success "GNOME Extensions installed!"
-}
-#Flat Remix
-function theme_install(){
-	cd /tmp && sudo rm -rf flat-remix-gtk && git clone https://github.com/daniruiz/flat-remix-gtk && mkdir -p ~/.themes && cp -r flat-remix-gtk/Flat-Remix-GTK* ~/.themes/
-	cd /tmp && sudo rm -rf flat-remix && git clone https://github.com/daniruiz/flat-remix && mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/
-}
-
-#breeze-cursor
-function breeze_cursor_install(){
-	cd /tmp/ && wget -P /tmp/ http://download-ib01.fedoraproject.org/pub/fedora/linux/releases/30/Everything/x86_64/os/Packages/b/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm && sudo dnf install -y /tmp/breeze-cursor-theme-5.15.4.1-1.fc30.noarch.rpm
 }
 
 function codecs_install(){
@@ -192,7 +177,6 @@ function signal_install(){
     sudo dnf update
     sudo dnf install -y signal-desktop
 }
-
 
 function obs_install(){
 	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm

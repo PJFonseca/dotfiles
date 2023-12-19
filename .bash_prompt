@@ -114,7 +114,7 @@ PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\][";
 PS1+="\[${cyan}\]\w"; # working directory full path
 #PS1+="\n";
-PS1+="\[${white}]\]\\[\$(date +%H:%M:%S)\]\$ \[${reset}\]"; # `$` (and reset color)
+PS1+="\[${white}]\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
 PS2="\[${yellow}\]→ \[${reset}\]";

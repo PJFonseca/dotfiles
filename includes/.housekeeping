@@ -54,51 +54,55 @@ function backup(){
 		cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
 
 		#DBeaver
-		cp -R ~/.local/share/.DBeaverData $LINUX_BACKUP_FOLDER/.local/share/.DBeaverData
+		cp -R ~/.local/share/DBeaverData $LINUX_BACKUP_FOLDER/.local/share/DBeaverData
 
-		#Filezilla
-		cp -R ~/.config/filezilla $LINUX_BACKUP_FOLDER/.config/filezilla/
 		#Keepassxc
 		cp -R ~/.config/keepassxc $LINUX_BACKUP_FOLDER/.config/keepassxc/
 		#variety
 		cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
-		#ssh
-		cp -R ~/.ssh $LINUX_BACKUP_FOLDER/.ssh/
-		#autostart
-		cp -R ~/.config/autostart $LINUX_BACKUP_FOLDER/.config/autostart/
 		#remmina
 		cp -R ~/.local/share/remmina $LINUX_BACKUP_FOLDER/.local/share/remmina
 		cp -R ~/.config/remmina $LINUX_BACKUP_FOLDER/.config/remmina
 
 		#GNOME Settings
 		dconf dump /org/gnome/shell/extensions/dash-to-panel/ > $LINUX_BACKUP_FOLDER/dash_to_panel_settings
-		dconf dump /org/gnome/shell/extensions/clock_override/ > $LINUX_BACKUP_FOLDER/clock_override_settings
-		dconf dump /org/gnome/shell/extensions/panel-osd/ > $LINUX_BACKUP_FOLDER/panel_osd_settings
-		dconf dump /org/gnome/shell/extensions/screenshot/ > $LINUX_BACKUP_FOLDER/screenshot_settings
-		dconf dump /org/gnome/shell/extensions/openweather/ > $LINUX_BACKUP_FOLDER/openweather_settings
 		dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > $LINUX_BACKUP_FOLDER/media-keys
 		dconf dump /org/gnome/desktop/wm/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings
 		dconf dump /org/gnome/mutter/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings_mutter
 		dconf dump /org/gnome/mutter/wayland/keybindings/ > $LINUX_BACKUP_FOLDER/keybindings_wayland
 		dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > $LINUX_BACKUP_FOLDER/custom-keybindings
 		dconf dump /org/gnome/terminal/ > $LINUX_BACKUP_FOLDER/terminal
-				msgout success "Personal Backup done!"
+
+        msgout success "Personal Backup done!"
 		cd ~/
 }
 
 function restore(){
-	#settings
-	dconf load /org/gnome/shell/extensions/dash-to-panel/ < $LINUX_BACKUP_FOLDER/dash_to_panel_settings
-	dconf load /org/gnome/shell/extensions/clock_override/ < $LINUX_BACKUP_FOLDER/clock_override_settings
-	dconf load /org/gnome/shell/extensions/panel-osd/ < $LINUX_BACKUP_FOLDER/panel_osd_settings
-	dconf load /org/gnome/shell/extensions/screenshot/ < $LINUX_BACKUP_FOLDER/screenshot_settings
-	dconf load /org/gnome/shell/extensions/openweather/ < $LINUX_BACKUP_FOLDER/openweather_settings
-	dconf load /org/gnome/settings-daemon/plugins/media-keys/ < $LINUX_BACKUP_FOLDER/media-keys
-	dconf load /org/gnome/desktop/wm/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings
-	dconf load /org/gnome/mutter/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings_mutter
-	dconf load /org/gnome/mutter/wayland/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings_wayland
-	dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < $LINUX_BACKUP_FOLDER/custom-keybindings
-	dconf load /org/gnome/terminal/ < $LINUX_BACKUP_FOLDER/terminal
+
+        #vsCode
+		cp -R $LINUX_BACKUP_FOLDER/.config/Code/ ~/.config/Code/User
+		#DBeaver
+		cp -R $LINUX_BACKUP_FOLDER/.local/share/DBeaverData ~/.local/share/DBeaverData
+		#Keepassxc
+		cp -R $LINUX_BACKUP_FOLDER/.config/keepassxc/ ~/.config/keepassxc
+		#variety
+		cp -R $LINUX_BACKUP_FOLDER/.config/variety/ ~/.config/variety
+		#remmina
+		cp -R $LINUX_BACKUP_FOLDER/.local/share/remmina ~/.local/share/remmina
+		cp -R $LINUX_BACKUP_FOLDER/.config/remmina ~/.config/remmina
+
+		#settings
+        dconf load /org/gnome/shell/extensions/dash-to-panel/ < $LINUX_BACKUP_FOLDER/dash_to_panel_settings
+        dconf load /org/gnome/settings-daemon/plugins/media-keys/ < $LINUX_BACKUP_FOLDER/media-keys
+        dconf load /org/gnome/desktop/wm/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings
+        dconf load /org/gnome/mutter/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings_mutter
+        dconf load /org/gnome/mutter/wayland/keybindings/ < $LINUX_BACKUP_FOLDER/keybindings_wayland
+        dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < $LINUX_BACKUP_FOLDER/custom-keybindings
+        dconf load /org/gnome/terminal/ < $LINUX_BACKUP_FOLDER/terminal
+
+        msgout success "Personal Backup done!"
+		cd ~/
+
 
 	msgout success "Restore done!"
 	cd ~/
