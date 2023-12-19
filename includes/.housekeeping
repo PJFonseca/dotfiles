@@ -47,16 +47,13 @@ function backup(){
 		if [ ! -d "$LINUX_BACKUP_FOLDER/.config/" ]; then
 			mkdir "$LINUX_BACKUP_FOLDER/.config/"
 		fi
-		if [ ! -d "$LINUX_BACKUP_FOLDER/.local/" ]; then
-			mkdir "$LINUX_BACKUP_FOLDER/.local/"
+		if [ ! -d "$LINUX_BACKUP_FOLDER/.local/share/" ]; then
+			mkdir -p "$LINUX_BACKUP_FOLDER/.local/share/"
 		fi
 		#vsCode
 		cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
 
 		#DBeaver
-		if [ ! -d "$LINUX_BACKUP_FOLDER/.local/share/DBeaverData" ]; then
-			mkdir -p "$LINUX_BACKUP_FOLDER/.local/share/DBeaverData"
-		fi
 		cp -R ~/.local/share/DBeaverData $LINUX_BACKUP_FOLDER/.local/share/DBeaverData
 
 		#Keepassxc
@@ -64,9 +61,6 @@ function backup(){
 		#variety
 		cp -R ~/.config/variety $LINUX_BACKUP_FOLDER/.config/variety/
 		#remmina
-		if [ ! -d "$LINUX_BACKUP_FOLDER/.local/share/remmina" ]; then
-			mkdir -p "$LINUX_BACKUP_FOLDER/.local/share/remmina"
-		fi
 		cp -R ~/.local/share/remmina $LINUX_BACKUP_FOLDER/.local/share/remmina
 		cp -R ~/.config/remmina $LINUX_BACKUP_FOLDER/.config/remmina
 
