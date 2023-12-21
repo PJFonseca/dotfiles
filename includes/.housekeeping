@@ -31,7 +31,7 @@ function togglehost() {
 function update(){
     DISTRO="$(lsb_release -a | sed -n '3p' | awk '{ print $2 }')"
     if [[ "${DISTRO}" = "Fedora" ]]; then
-        sudo dnf5 -y update --best --allowerasing --skip-broken && sudo dnf5 -y upgrade --refresh && sudo dnf5 -y autoremove && sudo dnf5 -y clean all && ydl_update && clean && ublock && backup
+        sudo dnf5 -y update && sudo dnf5 -y upgrade --refresh && sudo dnf5 -y autoremove && sudo dnf5 -y clean all && ydl_update && clean && ublock && backup
 		#Update GNOME Shell Extensions
 		gnome-shell-extension-installer --yes --update --restart-shell
 	fi;
