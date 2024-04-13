@@ -14,7 +14,7 @@ fi
 
 # Unzip all .zip files into CSV directory
 for zip_file in *.zip; do
-    unzip "$zip_file" -d CSV/
+    unzip "$zip_file" -o -j -d CSV/
 done
 
 # Merge CSV files excluding headers except the first file
