@@ -10,4 +10,5 @@ for svgfile in *.svg; do
     filename=$(basename "$svgfile" .svg)
     # Convert to PNG
     inkscape -w "$WIDTH" -h "$HEIGHT" "$svgfile" -o "${filename}.png"
+    inkscape -w "$WIDTH" -h "$HEIGHT" "$svgfile" -o "${filename}.jpg"
 done
