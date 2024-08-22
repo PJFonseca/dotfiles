@@ -25,3 +25,4 @@ export PATH="$PATH:$HOME/.dotfiles/system"
  unset file;
 
 source ~/.dotfiles/.bash_prompt
+source ~/.secrets
