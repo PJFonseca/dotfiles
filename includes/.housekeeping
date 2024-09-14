@@ -16,6 +16,10 @@ function ublock(){
     sudo -- sh -c "echo 10.197.250.20 nuadysvvcen.academy.local >> /etc/hosts"
 	msgout success "Hosts updated!"
 }
+function kidsublock(){
+	sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts' &> /dev/null && sync &> /dev/null
+	msgout success "Hosts updated!"
+}
 
 function togglehost() {
     if [ -e /etc/host.bak ]
