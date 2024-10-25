@@ -157,9 +157,7 @@ function videodl(){
 	yt-dlp $1 -o '~/dwnx/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
 }
 function playlistdl(){
-    set -x
 	yt-dlp -i -f m4a -o '~/dwnx/%\(artist\)s/%\(album\)s/%\(title\)s.%(ext)s' --extract-audio --embed-thumbnail --yes-playlist "$1"
-	set +x
 	msgout success "Music downloaded!"
 }
 
