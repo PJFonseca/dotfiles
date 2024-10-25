@@ -158,7 +158,7 @@ function videodl(){
 }
 function playlistdl(){
     set -x
-	yt-dlp -i -f m4a -o '~/dwx/%(artist, uploader)s/%(album, playlist_title)s/%(title)s.%(ext)s' --extract-audio --embed-thumbnail --yes-playlist "$1"
+	yt-dlp -i -f m4a -o '~/dwnx/%\(artist\)s/%\(album\)s/%\(title\)s.%(ext)s' --extract-audio --embed-thumbnail --yes-playlist "$1"
 	set +x
 	msgout success "Music downloaded!"
 }
