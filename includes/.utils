@@ -147,14 +147,14 @@ function compress() {
 }
 #Download stuff from YouTube
 function bookdl(){
-	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '~/dwx/%(artist)s/%(album)s/%(title)s.%(ext)s'
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '~/dwnx/%(artist)s/%(album)s/%(title)s.%(ext)s'
 	msgout success "Book downloaded!"
 }
 function musicdl(){
-	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '~/dwx/%(title)s.%(ext)s'
+	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --embed-thumbnail --audio-quality 0 $1 -o '~/dwnx/%(title)s.%(ext)s'
 }
 function videodl(){
-	yt-dlp $1 -o '~/dwx/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
+	yt-dlp $1 -o '~/dwnx/%(title)s.%(ext)s' -f 'bestvideo[height>=720]+bestaudio/best[height>=720]'
 }
 function playlistdl(){
 	yt-dlp --ignore-errors -f bestaudio --extract-audio --audio-format m4a --audio-quality 0 $1 -o '~/dwx/%(artist)s/%(album)s/%(title)s.%(ext)s'
@@ -199,10 +199,6 @@ function man2pdf(){
 	man -t $1 | ps2pdf - ~/$DOWNLOAD_FOLDER/$1.pdf
 }
 
-#shutdown my server
-function hpoff(){
-	net rpc shutdown -C MESSAGE -I HPSERVER -U PJFonseca -f -t 1
-}
 #Meteo in CLI
 function meteo() {
   local LOCALE=$(echo ${LANG:-en} | cut -c1-2)
@@ -212,76 +208,6 @@ function meteo() {
     local LOCATION=$1
   fi
   curl -s "$LOCALE.wttr.in/$LOCATION"
-}
-
-# This will generate two scripts and copy them to the target server
-# that has cPanel on it and needs SSL certificates. 
-# The port 21098 used by my provider (namecheap.com) in the SSH connections.
-# Feel free to change.
-#
-# This is based on this tutorial: https://github.com/Neilpang/acme.sh/wiki/Simple-guide-to-add-TLS-cert-to-cpanel
-# Thank you Neil Pang for this awesome script. Find him at https://twitter.com/neilpangxa
-
-function sslgen(){
-	#Gatering info needed
-	local SERVER=""
-	local EMAIL=""
-	local DOMAIN=""
-	local CPANELUSERNAME=""
-	local PATHSITE=""
-
-	while [[ $SERVER == '' ]] # While SERVER is empty...
-	do
-		read -p "Server (username@domain): " SERVER # Ask the user to enter the server details
-	done 
-	
-	while [[ $EMAIL == '' ]] # While EMAIL is empty...
-	do
-		read -p "Email: " EMAIL # Ask the user to enter the email
-	done 
-	
-	while [[ $DOMAIN == '' ]] # While DOMAIN is empty...
-	do
-		read -p "Domain (without www): " DOMAIN # Ask the user to enter the domain
-	done 
-
-	while [[ $CPANELUSERNAME == '' ]] # While CPANELUSERNAME is empty...
-	do
-		read -p "cPanel Username: " CPANELUSERNAME # Ask the user to enter the cPanel Username
-	done 
-
-	while [[ $PATHSITE == '' ]] # While PATH is empty...
-	do
-		read -p "Path to the page (add public_html/ and the rest of the path): " PATHSITE # Ask the user to enter the path to the page
-	done 
-
-	# Creating the staging script
-	cat << EOF > /tmp/install_ssl_staging.sh
-	#!/bin/bash
-	curl https://get.acme.sh | sh
-	source ~/.bashrc
-	~/.acme.sh/acme.sh --update-account --accountemail $EMAIL
-	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --staging
-EOF
-	# Creating the FORCE script. This is to be executed if the staging gives green
-	cat << EOF > /tmp/install_ssl_force.sh
-	#!/bin/bash
-	~/.acme.sh/acme.sh --issue --webroot ~/$PATHSITE -d $DOMAIN -d www.$DOMAIN --force
-	export DEPLOY_cPanel_USER=$CPANELUSERNAME
-	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain $DOMAIN
-	~/.acme.sh/acme.sh --deploy --deploy-hook cpanel_uapi --domain www.$DOMAIN
-	crontab -l
-EOF
-	# Copying files to target server
-	scp -P 21098 /tmp/install_ssl_staging.sh $SERVER:~ && scp -P 21098 /tmp/install_ssl_force.sh $SERVER:~
-
-	# Instructions before enter the SSH
-	msgout title "Make the scripts executable"
-	msgout info "chmod +x install_ssl_staging.sh install_ssl_force.sh"
-	msgout info "Then run install_ssl_staging.sh and if it succeeds, run the install_ssl_force.sh"
-
-	#SSH into target server
-	ssh -p 21098 $SERVER
 }
 
 # Show all the names (CNs and SANs) listed in the SSL certificate
@@ -316,12 +242,6 @@ function getcertnames() {
 		echo "ERROR: Certificate not found.";
 		return 1;
 	fi;
-}
-
-#Making sure that when connecting via SSH the ssh keys are copied
-function sshn(){
-	#ssh-copy-id $1
-	ssh -p 21098 $1
 }
 
 #To reset TeamViewer settings and stop showing the warning
@@ -370,31 +290,6 @@ function fhistory(){
 	history | grep $1
 }
 
-function ssh_clients(){
-	SERVER=66.29.152.86
-	case $1 in
-		contas) 	
-			USER=contaseb		
-		;;
-		fls)    	
-			USER=lusodefe			
-		;;
-		multiplus)  
-			USER=multipluscom		
-		;;
-		b2s)  
-			USER=born2sco		
-		;;
-		server)  
-			USER=james009		
-		;;
-		*)       echo "'$1' não foi encontrado"            		;;
-	esac
-	ssh-keyscan $SERVER >> ~/.ssh/known_hosts
-	ssh-copy-id -p 21098 $USER@$SERVER 1> /dev/null 2>/dev/null
-	ssh -p 21098 $USER@$SERVER
-}
- 
 function mergevideos(){
 	directory=$(pwd)
 	rm -R inputs.txt
@@ -428,39 +323,11 @@ function ODP2PDF(){
 	#sudo rm -R *.pdf
 }
 
-function facebook_videos_download(){
-	rm -R inputs.txt
-	files=$( grep -o '/graca.sousabarriga/videos/[^"]*' ${1})
-	for i in $files; do 
-		echo "https://www.facebook.com/$i" >> inputs.txt
-	done;
-	yt-dlp --cookies cookies.txt --batch-file inputs.txt 
-}
-
 function filesymlinks(){
 	find -L / -xtype l -samefile $1 2>/dev/null
 }
 function allsymlinks(){
 	find $1 -type l -exec ls -lad {} \;
-}
-function vmware_build_kernel(){
-	yum -q list installed packageX &>/dev/null && echo "kernel-devel Installed" || sudo yum install kernel-devel
-	VMWARE_VERSION=`vmware-installer -l |grep workstat|awk '{print $2}' |awk 'BEGIN {FS="."}{print "workstation-"$1"."$2"."$3}'`
-	echo $VMWARE_VERSION
-	TMP_FOLDER=/tmp/patch-vmware
-	rm -fdr $TMP_FOLDER
-	mkdir -p $TMP_FOLDER
-	cd $TMP_FOLDER
-	git clone https://github.com/mkubecek/vmware-host-modules.git
-	cd $TMP_FOLDER/vmware-host-modules
-	git checkout $VMWARE_VERSION
-	git fetch
-	make
-	sudo make install
-	sudo rm /usr/lib/vmware/lib/libz.so.1/libz.so.1
-	sudo ln -s /lib/x86_64-linux-gnu/libz.so.1 
-	/usr/lib/vmware/lib/libz.so.1/libz.so.1
-	sudo /etc/init.d/vmware restart
 }
 
 function normalize_filenames(){

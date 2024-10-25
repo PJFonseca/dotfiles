@@ -20,8 +20,9 @@ sudo dnf install \
 -y \
 steam --enablerepo=rpmfusion-nonfree-steam \
 wget \
+dnf5 \
 numlockx \
-youtube-dl \
+yt-dlp \
 arc-theme \
 vlc \
 steam \
@@ -73,13 +74,6 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 sudo dnf install code
 
-#gnome-shell-extension-installer
-cd /tmp/ && wget -P /tmp/ -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer" && sudo chmod +x /tmp/gnome-shell-extension-installer && sudo mv /tmp/gnome-shell-extension-installer /usr/bin/
-#gnome-shell-extension-installer 1160 # Dash to Panel by jderose9 
-gnome-shell-extension-installer 1112 # Screenshot Tool by oal
-gnome-shell-extension-installer 118 # No Topleft Hot Corner by azuri
-gnome-shell-extension-installer 1206 # Clock Override by .ext
-
 #Install flat-remix-gtk theme
 sudo dnf install flat-remix-gtk2-theme flat-remix-gtk3-theme
 
@@ -100,6 +94,3 @@ gsettings set org.gnome.desktop.interface clock-show-seconds true
 
 #Codecs
 sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0 -y
-
-#Telegram to start in tray
-#sed -i 's/ -- / -startintray --/g' ~/.config/autostart/telegram-desktop.desktop

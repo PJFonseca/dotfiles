@@ -1,5 +1,7 @@
 # Shortcuts
 alias reload="source ~/.bashrc"
+alias dnf="dnf5"
+alias sudo="sudo "
 alias _="sudo"
 alias g="git"
 alias sr="sudo rm -rf"
@@ -40,8 +42,6 @@ alias 777='chmod -R 777'
 unset GREP_OPTIONS
 
 # Miscellaneous
-alias htb="sudo openvpn ~/CloudStorage/Documentos/Cyber/0_Setup/balrogPT.ovpn"
-alias thm="sudo openvpn ~/CloudStorage/Documentos/Cyber/0_Setup/thm_Blr0g.ovpn"
 alias logseq="/opt/logseq/logseq.appimage"
 alias pulse="pulseaudio -k"
 alias hosts="sudo gedit /etc/hosts"
@@ -54,7 +54,7 @@ alias icons="cd ~/.local/share/applications/"
 alias specs="screenfetch"
 alias edit="sudo gedit"
 alias fstab="sudo nano /etc/fstab"
-alias install="sudo dnf -y install"
+alias install="sudo dnf5 -y install"
 alias sysinfo="sudo rpm -qi basesystem"
 alias version="rpm -qi"
 alias cpus="cat /proc/cpuinfo | grep \"model name\" | wc -l"
@@ -62,19 +62,10 @@ alias extensions="dconf list /org/gnome/shell/extensions/"
 alias temp="watch -n 1 sensors"
 alias scpn="scp -P 21098"
 alias recordterminal="asciinema rec demo.cast"
-alias oneplus6="adb connect 192.168.1.209:5555 && scrcpy --max-size 1024 --max-fps 30 -b2M -m800"
-alias mountphone="simple-mtpfs --device 1 oneplus2/"
 alias androidrsa="awk '{print $1}' < ~/.android/adbkey.pub | openssl base64 -A -d -a | openssl md5 -c"
 alias offlinereposync="reposync -p /mnt/Stuff/RPMs/"
 alias snapshot="sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER forget --keep-last 1 --prune && sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER --exclude=\"Cache cache .cache Steam steam CachedData\" --verbose backup --files-from /root/.restic_include_files";
 alias webserver="ssh_clients server"
 alias mp42webm="for i in *.mp4; do ffmpeg -i \"$i\" -qscale 0 \"$(basename \"$i\" .mp4)\".webm ; done"
-
-#Instructor Materials
-#alias mount_instructor="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/'Instructor Materials' /mnt/InstructorMaterials/"
-#alias mount_myshare="sudo mount -t cifs -o username=instructor,uid=1000 //100.1.9.55/MyShare /mnt/myshare"
-#alias cnic="cd /mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/"
-#alias cnic_bundle="/mnt/InstructorMaterials/Courses/1000\ -\ CNIC/3.4.0/create_student_bundle.sh"
-#alias jts="cd /mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX"
-#alias jts_bundle="/mnt/InstructorMaterials/Courses/1007 - JTS_FAST/4.2/LINUX/create_student_bundle.sh"
-
+alias svg2png='~/.dotfiles/scripts/svg2png.sh png'
+alias svg2jpg='~/.dotfiles/scripts/svg2png.sh jpg'
