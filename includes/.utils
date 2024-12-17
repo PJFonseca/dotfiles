@@ -278,6 +278,58 @@ function compress_mp4(){
 		ffmpeg -i ${file}.mp4 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p ${file}_compressed.mp4
 	done;
 }
+#!/bin/bash
+
+function compress_pdfs() {
+  local input_dir="$1"
+  local output_dir="${2:-${input_dir}/compressed}"
+
+  # Check if input directory exists
+  if [[ ! -d "$input_dir" ]]; then
+    echo "Error: Directory '$input_dir' does not exist."
+    return 1
+  fi
+
+  # Create output directory if it doesn't exist
+  mkdir -p "$output_dir"
+
+  # Loop through all PDF files in the input directory
+  for pdf in "$input_dir"/*.pdf; do
+    # Check if any PDFs exist
+    if [[ ! -f "$pdf" ]]; then
+      echo "No PDF files found in '$input_dir'."
+      return 1
+    fi
+
+    # Get the base name of the file (without path)
+    local filename=$(basename "$pdf")
+    local output_file="$output_dir/$filename"
+
+    echo "Compressing '$pdf' to '$output_file'..."
+
+    # Run Ghostscript command for compression
+    gs -sDEVICE=pdfwrite \
+       -dCompatibilityLevel=1.4 \
+       -dPDFSETTINGS=/prepress \
+       -dNOPAUSE -dQUIET -dBATCH \
+       -sOutputFile="$output_file" \
+       "$pdf"
+
+    # Check for success
+    if [[ $? -eq 0 ]]; then
+      echo "Compressed: '$output_file'"
+    else
+      echo "Failed to compress: '$pdf'"
+    fi
+  done
+
+  echo "Compression completed. Compressed PDFs are in '$output_dir'."
+}
+
+# Usage example:
+# compress_pdfs "/path/to/input/directory" "/path/to/output/directory"
+# If output_dir is omitted, it defaults to 'compressed' inside the input directory.
+
 function mp4_to_webm(){
 	for f in *; do mv "$f" `echo $f | tr ' ' '_'`; done
 	files=$( ls -1 | sed -e 's/\.mp4$//' )
