@@ -82,7 +82,6 @@ template_html = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Glossary</title>
     <style>
         body { font-family: Arial, sans-serif; }
         .entry { margin-bottom: 20px; padding: 10px; border-bottom: 1px solid #ddd; }
