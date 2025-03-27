@@ -96,7 +96,6 @@ template_html = """
     </style>
 </head>
 <body>
-    <h1>Glossary</h1>
     {% for letter, entries in glossary.items() %}
         <div class="letter-group">{{ letter }}</div>
         {% for entry in entries %}
