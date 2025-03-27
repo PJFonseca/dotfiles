@@ -1,0 +1,11 @@
+title,description,last_updated
+Algorithm,"A step-by-step procedure or set of rules to solve a specific problem or perform a computation.",2025-03-27
+Binary,"A numbering system that consists of only two digits, 0 and 1, used internally by almost all modern computers and computer-based devices.",2025-03-27
+Cache,"A hardware or software component that stores data so that future requests for that data can be served faster.",2025-03-27
+Database,"An organized collection of data, generally stored and accessed electronically from a computer system.",2025-03-27
+Encryption,"The process of converting information or data into a code, especially to prevent unauthorized access.",2025-03-27
+Firewall,"A network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules.",2025-03-27
+Gateway,"A piece of networking hardware or software that allows data to flow from one discrete network to another.",2025-03-27
+Hash,"The output of a hash function, which maps data of arbitrary size to fixed-size values, often used in data structures like hash tables.",2025-03-27
+Index,"A data structure that improves the speed of data retrieval operations on a database table at the cost of additional space and decreased performance on data modification operations.",2025-03-27
+JavaScript,"A high-level, often just-in-time compiled, and multi-paradigm programming language that conforms to the ECMAScript specification.",2025-03-27
