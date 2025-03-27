@@ -91,7 +91,7 @@ template_html = """
         .description { margin-top: 5px; }
         .date { font-size: 12px; color: gray; }
         .letter-group { margin-top: 30px; font-size: 24px; font-weight: bold; border-bottom: 2px solid black; padding-bottom: 5px; }
-        a { color: #007bff; text-decoration: none; }
+        a { color: #118EBF; text-decoration: none; }
         a:hover { text-decoration: underline; }
     </style>
 </head>
