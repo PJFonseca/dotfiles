@@ -43,7 +43,7 @@ def load_credentials():
 def get_current_week_dates():
     today = datetime.now(timezone.utc)
     start_of_week = today - timedelta(days=today.weekday())  # Start of the current week (Monday)
-    end_of_week = start_of_week + timedelta(days=6)  # End of the current week (Sunday)
+    end_of_week = start_of_week # timedelta(days=6) End of the current week (Sunday)
     return start_of_week, end_of_week
 
 # Function to parse date from the CSV field (returns datetime object or None)
