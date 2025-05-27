@@ -69,5 +69,5 @@ alias mp42webm="for i in *.mp4; do ffmpeg -i \"$i\" -qscale 0 \"$(basename \"$i\
 alias svg2png='~/.dotfiles/scripts/svg2png.sh png'
 alias svg2jpg='~/.dotfiles/scripts/svg2png.sh jpg'
 
-alias nsfvpn='sudo -E gpclient -h connect gp.dev.nato.int'
-alias cwixvpn='sudo -E gpclient -h connect vpn.jftc.nato.int'
+alias nsfvpn='sudo -E gpclient connect --browser firefox gp.dev.nato.int'
+alias cwixvpn='sudo -E gpclient connect --browser firefox vpn.jftc.nato.int'
