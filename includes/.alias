@@ -65,7 +65,9 @@ alias recordterminal="asciinema rec demo.cast"
 alias androidrsa="awk '{print $1}' < ~/.android/adbkey.pub | openssl base64 -A -d -a | openssl md5 -c"
 alias offlinereposync="reposync -p /mnt/Stuff/RPMs/"
 alias snapshot="sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER forget --keep-last 1 --prune && sudo restic --password-file /root/.restic -r $RESTIC_BACKUP_FOLDER --exclude=\"Cache cache .cache Steam steam CachedData\" --verbose backup --files-from /root/.restic_include_files";
-alias webserver="ssh_clients server"
 alias mp42webm="for i in *.mp4; do ffmpeg -i \"$i\" -qscale 0 \"$(basename \"$i\" .mp4)\".webm ; done"
 alias svg2png='~/.dotfiles/scripts/svg2png.sh png'
 alias svg2jpg='~/.dotfiles/scripts/svg2png.sh jpg'
+
+alias nsfvpn='sudo -E gpclient -h connect gp.dev.nato.int'
+alias cwixvpn='sudo -E gpclient -h connect vpn.jftc.nato.int'
