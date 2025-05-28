@@ -41,46 +41,77 @@ def is_shelly_device(device_ip, retries=3):
         return False
 
 # Function to update MQTT configuration on a Shelly device
+# Function to update MQTT configuration and device settings on a Shelly device
 def update_mqtt(device_ip, dry_run):
     try:
-        # Construct the URL to access the Shelly device's MQTT configuration
         url = f"http://{device_ip}/rpc"
-        data = {
-            "id": 1,
-            "method": "Mqtt.SetConfig",
-            "params": {
-                "config": {
-                    "enable": mqtt_config["enable"],
-                    "server": mqtt_config["server"],
-                    "user": mqtt_config["user"],
-                    "pass": mqtt_config["pass"],
-                    "topic": mqtt_config["topic"]
+
+        # Define all configuration requests
+        requests_to_send = [
+            {
+                "desc": "MQTT settings",
+                "data": {
+                    "id": 1,
+                    "method": "Mqtt.SetConfig",
+                    "params": {
+                        "config": {
+                            "enable": mqtt_config["enable"],
+                            "server": mqtt_config["server"],
+                            "user": mqtt_config["user"],
+                            "pass": mqtt_config["pass"],
+                            "topic": mqtt_config["topic"]
+                        }
+                    }
+                }
+            },
+            {
+                "desc": "Disable WiFi AP",
+                "data": {
+                    "id": 2,
+                    "method": "WiFi.SetConfig",
+                    "params": {
+                        "config": {
+                            "ap": {
+                                "enable": False
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "desc": "Enable Bluetooth",
+                "data": {
+                    "id": 3,
+                    "method": "Ble.SetConfig",
+                    "params": {
+                        "config": {
+                            "enable": True
+                        }
+                    }
                 }
             }
-        }
+        ]
 
-        if dry_run:
-            print(f"Dry run: Would update MQTT settings for {device_ip}")
-            # Actually apply the change in dry-run mode, but only for this IP
-            response = requests.post(url, json=data, timeout=10)
-            if response.status_code == 200:
-                print(f"Dry-run: Successfully updated MQTT settings for {device_ip}")
-                # Reboot the device after updating the config
-                reboot_device(device_ip)  # Perform reboot in dry-run mode
+        for req in requests_to_send:
+            if dry_run:
+                print(f"Dry run: Would send request to {device_ip} to update {req['desc']}")
+                response = requests.post(url, json=req["data"], timeout=10)
+                if response.status_code == 200:
+                    print(f"Dry-run: Successfully updated {req['desc']} for {device_ip}")
+                else:
+                    print(f"Failed to update {req['desc']} for {device_ip}. Status code: {response.status_code}")
             else:
-                print(f"Failed to update MQTT settings for {device_ip}. Status code: {response.status_code}")
-            return  # Return to avoid updating other devices in dry-run mode
+                response = requests.post(url, json=req["data"], timeout=10)
+                if response.status_code == 200:
+                    print(f"Successfully updated {req['desc']} for {device_ip}")
+                else:
+                    print(f"Failed to update {req['desc']} for {device_ip}. Status code: {response.status_code}")
 
-        # In normal mode, update and reboot as usual
-        response = requests.post(url, json=data, timeout=10)
-
-        if response.status_code == 200:
-            print(f"Successfully updated MQTT settings for {device_ip}")
-
-            # Reboot the device after updating the config
+        # Reboot device if not in dry run
+        if not dry_run:
             reboot_device(device_ip)
-        else:
-            print(f"Failed to update MQTT settings for {device_ip}. Status code: {response.status_code}")
+        elif dry_run:
+            reboot_device(device_ip)
 
     except requests.exceptions.RequestException as e:
         print(f"Error while connecting to {device_ip}: {e}")
