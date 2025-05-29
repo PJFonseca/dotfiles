@@ -1,88 +1,88 @@
 "Title","Acronym","Description","Last Updated"
-"Area of knowledge",,"Specific body of knowledge that identifies the course category and supports the identification.",2025-04-02
-"Attendance",,"A measure of the number of students who attend a course iteration either in physical or virtual form. Students who did not complete the course or needed to withdraw once starting the course are considered to have attended a course iteration but have not graduated.",2025-04-02
-"Blended learning",,"Multiple delivery types are used within the bounds of achieving the same course objectives, most commonly using self-paced online as a precursor to live online, MTT, or face-to-face.",2025-04-02
-"Branch",,"A subdivision of a department that focuses on a specific domain or operational area within the department’s broader responsibilities.",2025-04-02
-"Certification",,"Attendance at an Academy course may entitle students to a certificate of attendance, a certificate of completion, or a certificate of qualification as detailed in the individual course descriptions in the catalogue.",2025-04-02
-"Course",,"Planned, sequenced, and structured learning activities based on objectives, which stem from E&IT requirements, for a clearly identified audience.",2025-04-02
-"Course Code",,"Unique course identifier.",2025-04-02
-"Course completion",,"Means that a student has completed an iteration of a course to the required standard and the provider of the course has recorded the outcome.",2025-04-02
-"Course Control Document","CCD","A series of three course governing documents (CCD I, II, and III) that provide details of a course uploaded into the ETOC that meet a NATO E&IT requirement.",2025-04-02
-"Course Graduate",,"See Graduate.",2025-04-02
-"Course Iteration",,"See Iteration.",2025-04-02
-"Customer",,"A NATO nation or group of nations (to include NATO Partner Nations when approved by the NAC) or a NATO entity who is the budget holder and has the authority to obligate and expend funds.",2025-04-02
-"Customer External / External Customer",,"Nations or organizations public or private, purchasing Agency services with other than NATO common funds.",2025-04-02
-"Customer Funding",,"The mechanism whereby the Agency receives funding on the basis of an agreement with the fund provider defining the scope, the cost and the timelines of the product or service to be provided.",2025-04-02
-"Customer Hosted Training Event",,"An instructor travels to the customer's site to deliver a complete iteration of a course.",2025-04-02
-"Customer Internal / Internal Customer",,"Organization or nations using NATO common funds. This includes the NCS, International Staff, IC, and International Military (MIL) Staff or when NCI Agency is assigned Host Nation through the IC.",2025-04-02
-"Delivery Method",,"Delivery method refers to the way academic content is conveyed from instructors to students in a course. Current methods used within the NCI Academy are classified as Blended Learning, Face-to-Face, Hybrid Learning, Live Online, Mobile Training Team (EU or NA), Public event or Self-Paced Online ",2025-04-02
-"Department",,"A major functional unit within an organization, typically responsible for a broad area of work.",2025-04-02
-"Department Head","DH","An officially recognized volunteer institution appointed by HQ SACT who is responsible to maintain a Discipline E&T programme.",2025-04-02
-"Discipline",,"A NATO approved body of knowledge and skills, which supports an existing or evolving capability.",2025-04-02
-"Education and Individual Training Solution",,"See Course.",2025-04-02
-"Education and Training Activity",,"See NATO Education and Training Activity.",2025-04-02
-"Education and Training Facility","EFT","Location or institution (such as a school, academy, or center) that provides education and training services—like delivering courses, exercises, or simulations—for military or civilian personnel.",2025-04-02
-"Essential Qualification",,"An E&IT qualification that is required of an Allied member prior to filling a NATO post.",2025-04-02
-"Evaluation",,"The process of making judgments. A structured process of examining activities, capabilities, and/or performances against defined standards or criteria.",2025-04-02
-"External Services Revenue",,"(synonym ECIS services revenue) The revenue earned from goods and services procured from industry for the delivery of ICT/CIS services to a customer under a SLA. Customers; principally NCS (ACO and ACT), NATO Headquarters (IS and IMS), funded through the MIL and CIV Budget, but also national and multinational organizations.",2025-04-02
-"Face-to-Face",,"Students and instructor are physically present in the same NCI Academy training facilities, at the same time (synchronously).",2025-04-02
-"Graduate",,"A student who has met all the requirements of the course.",2025-04-02
-"Hybrid learning",,"The instructor is physically present in one of the NCI Academy training facilities, together with a number of students.",2025-04-02
-"Iteration",,"The term given to the repetition of planned, sequenced, and structured learning activities based on objectives.",2025-04-02
-"Iteration Cancelled",,"Iteration that has been cancelled by Learning Coordinator",2025-04-02
-"Iteration Closed",,"Iteration that has been closed after completion. Follows finished iteration.",2025-04-02
-"Iteration Confirmed",,"An iteration that is approved to take place. This is generally 8-6 weeks prior the iteration starts. ",2025-04-02
-"Iteration Finished",,"An iteration that has been completed and certificates are available on student profile.",2025-04-02
-"Iteration ID",,"Unique identifier of the iteration.",2025-04-02
-"Iteration Open",,"An iteration that is open for enrollments. Seats can be added or turned back and names can be set. ",2025-04-02
-"Iteration Planned",,"An iteration that is viewable to allow long term planning. TCs are not able to assign seats or wait-list.",2025-04-02
-"Iteration Rescheduled",,"An iteration that has been moved to a different timeframe than the originally planned iteration. ",2025-04-02
-"Iteration Running",,"An iteration that is currently in progress.",2025-04-02
-"Level of Proficiency",,"A scale that differentiates the level of task, skill, and knowledge required for the job and will affect the type and amount of instruction required.",2025-04-02
-"Mobile Training Team","MTT","An instructor travels to the customer's site to deliver a complete iteration of a course.",2025-04-02
-"NATO Approved Course",,"DCOS MDFD certifies that a course open to NATO meets NATO-Specific E&IT Requirements and the ETF providing the solution is accredited.",2025-04-02
-"NATO Education and Individual Training Activity","E&IT","The delivery and conduct of specific individual solutions to satisfy NATO-specific E&T requirements.",2025-04-02
-"NATO Education and Training Activity","E&T","The delivery and conduct of specific collective solutions to satisfy NATO-specific E&T requirements.",2025-04-02
-"NATO Listed Course",,"A course open to NATO (and Partners) with this default certification category has not been certified by DCOS MDFD as meeting NATO-Specific E&IT Requirements. Listed courses meet the E&IT needs of nations and often support broader capacity-building objectives. Courses in this category are conducted in English and contribute to pooling and sharing of national E&T opportunities. ",2025-04-02
-"NATO Provided Course",,"A course that is programmed and delivered to meet the specific needs of NATO, categorized as compliant, and certified.",2025-04-02
-"NATO Selected Course",,"DCOS MDFD confirms that a course open to NATO (and Partners) meets NATO-Specific E&IT Requirements; however, the ETF providing the solution is not an institution accredited by DCOS MDFD within the NATO Quality Assurance Programme. ",2025-04-02
-"NCI Academy Data Warehouse","DWH","A centralised data analysis repository on the Academy's core data (training for the Alliance, training for the Agency, staff and finance) based on Power BI.",2025-04-02
-"Pilot Course",,"The third level of trials that must be completed prior to seeking course certification. Pilot iterations of a course are with students who are part of the training audience and who will receive a certificate upon successful completion of the course. Students taking part in a pilot course are included in reporting as students or graduates of a course. ",2025-04-02
-"Prerequisites",,"All students are expected to meet the prerequisites for the courses attended as specified in the catalogue, including security clearance and language proficiency.",2025-04-02
-"Project",,"A project is a temporary endeavour undertaken to create a unique product, service or result with a defined beginning and end, usually time-constrained, and often constrained by funding or deliverables that meet unique goals and objectives. Generally a project is, together with other projects, part of a larger programme, which focusses on strategic delivery.",2025-04-02
-"Project Service Costs",,"The direct costs related to the delivery of a Customer Funded project, including: labour – direct (billable) level of effort (in person hours or person-years), based on the customer rate including overhead recovery; subject matter expertise provided by external contractors; travel; specific investments and expenses.",2025-04-02
-"Public Event",,"A TMS iteration created to track students who were added to publicly held iterations of commercial courses who did not reached the necessary minimum attendance numbers to justify having a dedicated iterations allocated to the NCI Academy.",2025-04-02
-"Purchase Requisition Number","PR Number","Uniquely identifies financial transaction in the EBA.",2025-04-02
-"Qualification",,"A formal result of a judgment and validation process where an authorized institution determines that individual learning output complies with defined standards.",2025-04-02
-"Request ID",,"Unique identifier of the request made by the student.",2025-04-02
-"Requirements Authority ","RA","Assigned to a discipline, a RA is responsible for identifying, collecting and managing the specific education and training requirements associated with the discipline. The RA is an operational expert in the discipline and represents the end user of educated and trained personnel and forces.",2025-04-02
-"Seat Attended",,"Every single seat that the student attended and completed the iteration.",2025-04-02
-"Seat Cancelled",,"Every single seat that is turned back or cancelled by Learning Coordinators.  ",2025-04-02
-"Seat Confirmed",,"Every seat with a student confirmed to attend an already confirmed course.",2025-04-02
-"Seat Did Not Complete",,"All the seats that had a student but could not finish the iteration.",2025-04-02
-"Seat Enrolled",,"A seat is enrolled and reserved for the sole use of a customer with the student name set. The student should not book travel or accommodation until the course is confirmed. The customer may change a student name at any time up to one week before the start of the course. The seat can be turned back prior to the turn-back date with no charge. All Enrolled Seats will be processed for invoicing at the turn-back date.",2025-04-02
-"Seat Locked Reserved",,"(flag not the status) A reserved seat that has no student set but is locked by the customer for their sole use even after the turn back date. The Academy will not attempt to replace the Locked Reserved Seat from an entry on the wait-list. The customer may set a student name at any time up to one week before course start date. The seat can be unlocked and turned back prior to the turn-back date with no charge. All Locked Reserved Seats will be processed for invoicing at the turn back date. ",2025-04-02
-"Seat No Show",,"All the seats that had a student assigned but did not appear.",2025-04-02
-"Seat Not Used",,"A seat that was allocated but not used by the entity (it does not have a student name in it).",2025-04-02
-"Seat Pending Joining Report",,"The seat is pending the Joining Report.",2025-04-02
-"Seat Refused",,"All the seats where the students is not compliant with the prerequisites and it is refused by the instructors/Academy.",2025-04-02
-"Seat Requested",,"The seat is requested by a customer and is awaiting Academy action to process it on-to the Seat List or Wait List. There is no charge for requested seats that are not processed onto the Seat List or Wait List. A Requested Seat can be withdrawn at any time without charge. ",2025-04-02
-"Seat Rescheduled",,"The seat is rescheduled for another date.",2025-04-02
-"Seat Reserved",,"A requested seat that has been processed by the Academy onto the Seat List but the customer has not yet set a student (Enrolled Seat) or locked the seat (Locked Reserved Seat). The seat is reserved for sole use of a customer. The customer can set a student or lock the seat at any time up to the turn back date. The seat can be turned back prior to the turn-back date with no charge. ",2025-04-02
-"Seat Revoked",,"The learning requirement is revoked.",2025-04-02
-"Seat Status",,"Different status options for students' seats in the Training Management System.",2025-04-02
-"Seat Under Review",,"CS-B use this status in cases they have doubts for screening purposes (never been used but exists in TMS).",2025-04-02
-"Section",,"A subdivision of a branch, typically organized for task execution, support functions, or processes.",2025-04-02
-"Self-paced online",,"Learning activity that is not led by an instructor where students access online learning materials at a time of their own choosing.",2025-04-02
-"Service Support Training Agreement","SST Agreement","The SST Agreement is an annual, amendable agreement to capture user-training requirements, provide a framework for training delivery and agree terms and conditions. SST agreements are initiated by a Customer Request Form. ",2025-04-02
-"Student",,"An individual who has successfully completed a specific training course or program.",2025-04-02
-"Student Enrolment",,"Enrolment is the process of arranging for a student to attend a specific iteration (class). The process of enrolment incorporates the following terminology:",2025-04-02
-"Student Enrolment Enrolled Seat",,"A seat allocated to an organization that identifies the student to be enrolled.",2025-04-02
-"Student Enrolment Requested Seat",,"A request to allocate a seat to an organization.",2025-04-02
-"Student Enrolment Reserved Seat",,"A seat that is allocated to an organization.",2025-04-02
-"Students trained",,"Unique number of students trained irrespective of number of courses attended.",2025-04-02
-"Training Audience",,"The individual/participant component of the Training Audience within E&IT. This perspective is from a training point of view and considered during the Design Phase which will influence the development of CCD.",2025-04-02
-"Training Coordinator","TC","Training Coordinator is Academy focal point for all discussions regarding the training and has appropriate authority to manage courses, iterations and seats on behalf of the customer. ",2025-04-02
+"Area of knowledge",,"Specific body of knowledge that identifies the course category and supports the identification.",2025-05-29
+"Attendance",,"A measure of the number of students who attend a course iteration either in physical or virtual form. Students who did not complete the course or needed to withdraw once starting the course are considered to have attended a course iteration but have not graduated.",2025-05-29
+"Blended learning",,"Multiple delivery types are used within the bounds of achieving the same course objectives, most commonly using self-paced online as a precursor to live online, MTT, or face-to-face.",2025-05-29
+"Branch",,"A subdivision of a department that focuses on a specific domain or operational area within the department’s broader responsibilities.",2025-05-29
+"Certification",,"Attendance at an Academy course may entitle students to a certificate of attendance, a certificate of completion, or a certificate of qualification as detailed in the individual course descriptions in the catalogue.",2025-05-29
+"Course",,"Planned, sequenced, and structured learning activities based on objectives, which stem from E&IT requirements, for a clearly identified audience.",2025-05-29
+"Course Code",,"Unique course identifier.",2025-05-29
+"Course completion",,"Means that a student has completed an iteration of a course to the required standard and the provider of the course has recorded the outcome.",2025-05-29
+"Course Control Document","CCD","A series of three course governing documents (CCD I, II, and III) that provide details of a course uploaded into the ETOC that meet a NATO E&IT requirement.",2025-05-29
+"Course Graduate",,"See Graduate.",2025-05-29
+"Course Iteration",,"See Iteration.",2025-05-29
+"Customer",,"A NATO nation or group of nations (to include NATO Partner Nations when approved by the NAC) or a NATO entity who is the budget holder and has the authority to obligate and expend funds.",2025-05-29
+"Customer External / External Customer",,"Nations or organizations public or private, purchasing Agency services with other than NATO common funds.",2025-05-29
+"Customer Funding",,"The mechanism whereby the Agency receives funding on the basis of an agreement with the fund provider defining the scope, the cost and the timelines of the product or service to be provided.",2025-05-29
+"Customer Hosted Training Event",,"An instructor travels to the customer's site to deliver a complete iteration of a course.",2025-05-29
+"Customer Internal / Internal Customer",,"Organization or nations using NATO common funds. This includes the NCS, International Staff, IC, and International Military (MIL) Staff or when NCI Agency is assigned Host Nation through the IC.",2025-05-29
+"Delivery Method",,"Delivery method refers to the way academic content is conveyed from instructors to students in a course. Current methods used within the NCI Academy are classified as Blended Learning, Face-to-Face, Hybrid Learning, Live Online, Mobile Training Team (EU or NA), Public event or Self-Paced Online ",2025-05-29
+"Department",,"A major functional unit within an organization, typically responsible for a broad area of work.",2025-05-29
+"Department Head","DH","An officially recognized volunteer institution appointed by HQ SACT who is responsible to maintain a Discipline E&T programme.",2025-05-29
+"Discipline",,"A NATO approved body of knowledge and skills, which supports an existing or evolving capability.",2025-05-29
+"Education and Individual Training Solution",,"See Course.",2025-05-29
+"Education and Training Activity",,"See NATO Education and Training Activity.",2025-05-29
+"Education and Training Facility","EFT","Location or institution (such as a school, academy, or center) that provides education and training services—like delivering courses, exercises, or simulations—for military or civilian personnel.",2025-05-29
+"Essential Qualification",,"An E&IT qualification that is required of an Allied member prior to filling a NATO post.",2025-05-29
+"Evaluation",,"The process of making judgments. A structured process of examining activities, capabilities, and/or performances against defined standards or criteria.",2025-05-29
+"External Services Revenue",,"(synonym ECIS services revenue) The revenue earned from goods and services procured from industry for the delivery of ICT/CIS services to a customer under a SLA. Customers; principally NCS (ACO and ACT), NATO Headquarters (IS and IMS), funded through the MIL and CIV Budget, but also national and multinational organizations.",2025-05-29
+"Face-to-Face",,"Students and instructor are physically present in the same NCI Academy training facilities, at the same time (synchronously).",2025-05-29
+"Graduate",,"A student who has met all the requirements of the course.",2025-05-29
+"Hybrid learning",,"The instructor is physically present in one of the NCI Academy training facilities, together with a number of students.",2025-05-29
+"Iteration",,"The term given to the repetition of planned, sequenced, and structured learning activities based on objectives.",2025-05-29
+"Iteration Cancelled",,"Iteration that has been cancelled by Learning Coordinator",2025-05-29
+"Iteration Closed",,"Iteration that has been closed after completion. Follows finished iteration.",2025-05-29
+"Iteration Confirmed",,"An iteration that is approved to take place. This is generally 8-6 weeks prior the iteration starts. ",2025-05-29
+"Iteration Finished",,"An iteration that has been completed and certificates are available on student profile.",2025-05-29
+"Iteration ID",,"Unique identifier of the iteration.",2025-05-29
+"Iteration Open",,"An iteration that is open for enrollments. Seats can be added or turned back and names can be set. ",2025-05-29
+"Iteration Planned",,"An iteration that is viewable to allow long term planning. TCs are not able to assign seats or wait-list.",2025-05-29
+"Iteration Rescheduled",,"An iteration that has been moved to a different timeframe than the originally planned iteration. ",2025-05-29
+"Iteration Running",,"An iteration that is currently in progress.",2025-05-29
+"Level of Proficiency",,"A scale that differentiates the level of task, skill, and knowledge required for the job and will affect the type and amount of instruction required.",2025-05-29
+"Mobile Training Team","MTT","An instructor travels to the customer's site to deliver a complete iteration of a course.",2025-05-29
+"NATO Approved Course",,"DCOS MDFD certifies that a course open to NATO meets NATO-Specific E&IT Requirements and the ETF providing the solution is accredited.",2025-05-29
+"NATO Education and Individual Training Activity","E&IT","The delivery and conduct of specific individual solutions to satisfy NATO-specific E&T requirements.",2025-05-29
+"NATO Education and Training Activity","E&T","The delivery and conduct of specific collective solutions to satisfy NATO-specific E&T requirements.",2025-05-29
+"NATO Listed Course",,"A course open to NATO (and Partners) with this default certification category has not been certified by DCOS MDFD as meeting NATO-Specific E&IT Requirements. Listed courses meet the E&IT needs of nations and often support broader capacity-building objectives. Courses in this category are conducted in English and contribute to pooling and sharing of national E&T opportunities. ",2025-05-29
+"NATO Provided Course",,"A course that is programmed and delivered to meet the specific needs of NATO, categorized as compliant, and certified.",2025-05-29
+"NATO Selected Course",,"DCOS MDFD confirms that a course open to NATO (and Partners) meets NATO-Specific E&IT Requirements; however, the ETF providing the solution is not an institution accredited by DCOS MDFD within the NATO Quality Assurance Programme. ",2025-05-29
+"NCI Academy Data Warehouse","DWH","A centralised data analysis repository on the Academy's core data (training for the Alliance, training for the Agency, staff and finance) based on Power BI.",2025-05-29
+"Pilot Course",,"The third level of trials that must be completed prior to seeking course certification. Pilot iterations of a course are with students who are part of the training audience and who will receive a certificate upon successful completion of the course. Students taking part in a pilot course are included in reporting as students or graduates of a course. ",2025-05-29
+"Prerequisites",,"All students are expected to meet the prerequisites for the courses attended as specified in the catalogue, including security clearance and language proficiency.",2025-05-29
+"Project",,"A project is a temporary endeavour undertaken to create a unique product, service or result with a defined beginning and end, usually time-constrained, and often constrained by funding or deliverables that meet unique goals and objectives. Generally a project is, together with other projects, part of a larger programme, which focusses on strategic delivery.",2025-05-29
+"Project Service Costs",,"The direct costs related to the delivery of a Customer Funded project, including: labour – direct (billable) level of effort (in person hours or person-years), based on the customer rate including overhead recovery; subject matter expertise provided by external contractors; travel; specific investments and expenses.",2025-05-29
+"Public Event",,"A TMS iteration created to track students who were added to publicly held iterations of commercial courses who did not reached the necessary minimum attendance numbers to justify having a dedicated iterations allocated to the NCI Academy.",2025-05-29
+"Purchase Requisition Number","PR Number","Uniquely identifies financial transaction in the EBA.",2025-05-29
+"Qualification",,"A formal result of a judgment and validation process where an authorized institution determines that individual learning output complies with defined standards.",2025-05-29
+"Request ID",,"Unique identifier of the request made by the student.",2025-05-29
+"Requirements Authority ","RA","Assigned to a discipline, a RA is responsible for identifying, collecting and managing the specific education and training requirements associated with the discipline. The RA is an operational expert in the discipline and represents the end user of educated and trained personnel and forces.",2025-05-29
+"Seat Attended",,"Every single seat that the student attended and completed the iteration.",2025-05-29
+"Seat Cancelled",,"Every single seat that is turned back or cancelled by Learning Coordinators.  ",2025-05-29
+"Seat Confirmed",,"Every seat with a student confirmed to attend an already confirmed course.",2025-05-29
+"Seat Did Not Complete",,"All the seats that had a student but could not finish the iteration.",2025-05-29
+"Seat Enrolled",,"A seat is enrolled and reserved for the sole use of a customer with the student name set. The student should not book travel or accommodation until the course is confirmed. The customer may change a student name at any time up to one week before the start of the course. The seat can be turned back prior to the turn-back date with no charge. All Enrolled Seats will be processed for invoicing at the turn-back date.",2025-05-29
+"Seat Locked Reserved",,"(flag not the status) A reserved seat that has no student set but is locked by the customer for their sole use even after the turn back date. The Academy will not attempt to replace the Locked Reserved Seat from an entry on the wait-list. The customer may set a student name at any time up to one week before course start date. The seat can be unlocked and turned back prior to the turn-back date with no charge. All Locked Reserved Seats will be processed for invoicing at the turn back date. ",2025-05-29
+"Seat No Show",,"All the seats that had a student assigned but did not appear.",2025-05-29
+"Seat Not Used",,"A seat that was allocated but not used by the entity (it does not have a student name in it).",2025-05-29
+"Seat Pending Joining Report",,"The seat is pending the Joining Report.",2025-05-29
+"Seat Refused",,"All the seats where the students is not compliant with the prerequisites and it is refused by the instructors/Academy.",2025-05-29
+"Seat Requested",,"The seat is requested by a customer and is awaiting Academy action to process it on-to the Seat List or Wait List. There is no charge for requested seats that are not processed onto the Seat List or Wait List. A Requested Seat can be withdrawn at any time without charge. ",2025-05-29
+"Seat Rescheduled",,"The seat is rescheduled for another date.",2025-05-29
+"Seat Reserved",,"A requested seat that has been processed by the Academy onto the Seat List but the customer has not yet set a student (Enrolled Seat) or locked the seat (Locked Reserved Seat). The seat is reserved for sole use of a customer. The customer can set a student or lock the seat at any time up to the turn back date. The seat can be turned back prior to the turn-back date with no charge. ",2025-05-29
+"Seat Revoked",,"The learning requirement is revoked.",2025-05-29
+"Seat Status",,"Different status options for students' seats in the Training Management System.",2025-05-29
+"Seat Under Review",,"CS-B use this status in cases they have doubts for screening purposes (never been used but exists in TMS).",2025-05-29
+"Section",,"A subdivision of a branch, typically organized for task execution, support functions, or processes.",2025-05-29
+"Self-paced online",,"Learning activity that is not led by an instructor where students access online learning materials at a time of their own choosing.",2025-05-29
+"Service Support Training Agreement","SST Agreement","The SST Agreement is an annual, amendable agreement to capture user-training requirements, provide a framework for training delivery and agree terms and conditions. SST agreements are initiated by a Customer Request Form. ",2025-05-29
+"Student",,"An individual who has successfully completed a specific training course or program.",2025-05-29
+"Student Enrolment",,"Enrolment is the process of arranging for a student to attend a specific iteration (class). The process of enrolment incorporates the following terminology:",2025-05-29
+"Student Enrolment Enrolled Seat",,"A seat allocated to an organization that identifies the student to be enrolled.",2025-05-29
+"Student Enrolment Requested Seat",,"A request to allocate a seat to an organization.",2025-05-29
+"Student Enrolment Reserved Seat",,"A seat that is allocated to an organization.",2025-05-29
+"Students trained",,"Unique number of students trained irrespective of number of courses attended.",2025-05-29
+"Training Audience",,"The individual/participant component of the Training Audience within E&IT. This perspective is from a training point of view and considered during the Design Phase which will influence the development of CCD.",2025-05-29
+"Training Coordinator","TC","Training Coordinator is Academy focal point for all discussions regarding the training and has appropriate authority to manage courses, iterations and seats on behalf of the customer. ",2025-05-29
 "Training Management System","TMS","TMS is an on online system available from any internet-capable computer or mobile device and is accessed by both customer and the NCI Academy to manage training requirements. ",2025-05-29
 "Training Provider",,"The training provider refers to the Organization or Company delivering a course.",2025-05-29
 "Training Unit",,"A list of the following: NCI Academy, Corporate Academy or NATO School Oberammergau (NSO).",2025-05-29
