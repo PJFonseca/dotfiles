@@ -106,16 +106,17 @@ else
 fi;
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]";                    # terminal title
-PS1+="\[${userStyle}\]\u";                  # username
+PS1="\[\033]0;\W\007\]";                         # terminal title
+PS1+="\[${userStyle}\]\u";                       # username
 PS1+="\[${white}\]@";
-PS1+="\[${hostStyle}\]\h";                  # hostname
+PS1+="\[${hostStyle}\]\h";                       # hostname
 PS1+="\[${white}\][";
-PS1+="\d \t ";                              # date and time with seconds
-PS1+="\[${cyan}\]\w";                       # working directory
+PS1+="\$(date +%d%b%y@%H:%M:%S) ";               # custom date/time format
+PS1+="\[${cyan}\]\w";                            # working directory
 PS1+="\[${white}]\]";
-PS1+="\n\$ \[${reset}\]";                   # newline and prompt symbol
+PS1+="\n\$ \[${reset}\]";                        # newline + prompt + reset
 export PS1;
+
 
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
