@@ -15,6 +15,7 @@ alias path='echo -e ${PATH//:/\\n}'
 # Directory listing/traversal
 alias l="ls -lhF --color=auto"
 alias wl="watch -n 1 ls -lhF --color=auto"
+alias wd='watch -n 1 "find . -type f | wc -l"'
 alias ll="ls -lhAa "
 alias lt="ls -lhAtr"
 alias ld="ls -ld */"
