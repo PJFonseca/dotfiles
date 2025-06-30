@@ -3,6 +3,7 @@ import csv
 from datetime import datetime, timezone, timedelta
 import caldav
 from caldav.elements import dav
+from getpass import getpass
 import json
 
 # Define constants
