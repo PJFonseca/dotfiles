@@ -366,3 +366,14 @@ function allsymlinks(){
 function normalize_filenames(){
     for f in *; do mv "$f" "${f// /_}"; done
 }
+
+getservername() {
+    domain="$1"
+    ip=$(dig +short "$domain" | head -n1)
+    if [[ -n "$ip" ]]; then
+        echo "IP: $ip"
+        dig -x "$ip" +short
+    else
+        echo "No IP found for $domain"
+    fi
+}
