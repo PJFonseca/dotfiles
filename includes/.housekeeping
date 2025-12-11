@@ -56,7 +56,7 @@ function backup(){
 		cp -R ~/.config/Code/User $LINUX_BACKUP_FOLDER/.config/Code/
 
 		#DBeaver
-		cp -R ~/.local/share/DBeaverData $LINUX_BACKUP_FOLDER/.local/share/DBeaverData
+		cp -R ~/.local/share/DBeaverData $LINUX_BACKUP_FOLDER/.local/share/
 
 		#Keepassxc
 		cp -R ~/.config/keepassxc $LINUX_BACKUP_FOLDER/.config/keepassxc/
@@ -84,7 +84,7 @@ function restore(){
         #vsCode
 		cp -R $LINUX_BACKUP_FOLDER/.config/Code/ ~/.config/Code/User
 		#DBeaver
-		cp -R $LINUX_BACKUP_FOLDER/.local/share/DBeaverData ~/.local/share/DBeaverData
+		cp -R $LINUX_BACKUP_FOLDER/.local/share/DBeaverData ~/.local/share/
 		#Keepassxc
 		cp -R $LINUX_BACKUP_FOLDER/.config/keepassxc/ ~/.config/keepassxc
 		#variety
