@@ -5,7 +5,7 @@ import sys
 def extract_and_generate_ddl(directory):
     # Regular expression to match text that starts with '._' and ends with '.'
     # and only contains letters and underscores, allowing optional spaces around the dots
-    pattern = r"\s*\.\s*_\s*([A-Za-z_]+)\s*\.\s*"
+    pattern = r"\s*\.\s*_\s*([A-Za-z0-9_]+)\s*\.\s*"
 
     # Set to store unique variable names
     unique_matches = set()
