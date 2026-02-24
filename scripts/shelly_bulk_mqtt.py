@@ -85,7 +85,7 @@ def update_mqtt(device_ip, dry_run):
                     "method": "Ble.SetConfig",
                     "params": {
                         "config": {
-                            "enable": True
+                            "enable": False
                         }
                     }
                 }
