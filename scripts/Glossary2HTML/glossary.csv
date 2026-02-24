@@ -11,6 +11,7 @@
 "Course Control Document","CCD","A series of three course governing documents (CCD I, II, and III) that provide details of a course uploaded into the ETOC that meet a NATO E&IT requirement.",02/04/2025
 "Course Graduate",,"See Graduate.",02/04/2025
 "Course Iteration",,"See Iteration.",02/04/2025
+"Course Request",,"A Course Request is a request made by a student on the NCI Academy Cyberspace Learning Catalogue to add a new course into the Catalogue of courses. ",03/04/2025
 "Current Instructor",,"An instructor who is providing training for the NCI Academy.",24/09/2025
 "Customer",,"A NATO nation or group of nations (to include NATO Partner Nations when approved by the NAC) or a NATO entity who is the budget holder and has the authority to obligate and expend funds.",02/04/2025
 "Customer External / External Customer",,"Nations or organizations public or private, purchasing Agency services with other than NATO common funds.",02/04/2025
@@ -34,9 +35,9 @@
 "Group Iteration",,"A scheduled training session or course delivery intended for multiple participants enrolled as a group.",27/11/2025
 "Hybrid learning",,"The instructor is physically present in one of the NCI Academy training facilities, together with a number of students.",02/04/2025
 "Individual Iteration",,"A scheduled training session or course delivery intended for a single participant, not associated with a group enrollment.",27/11/2025
+"Instructor",,"A named person who is supporting the delivery of training for the NCI Academy on a given course iteration. ",24/09/2025
 "Internal Evaluation",,"Specific to the Systems Approach to Training (SAT) Evaluation Phase, uses both qualitative and quantitative data to assess the overall quality (the effectiveness, efficiency and affordability) of a course, including if the instruction provided has satisfied the intended objectives in relation to the resources expended.",24/09/2025
 "Internal Instructor",,"An instructor who is posted to a Personnel Establishment (PE) position of the NCI Academy or providing instruction in an IWC (PE) or IWC (Surge) capacity for the NCI Academy. ",24/09/2025
-"Instructor",,"A named person who is supporting the delivery of training for the NCI Academy on a given course iteration. ",24/09/2025
 "Iteration",,"The term given to the repetition of planned, sequenced, and structured learning activities based on objectives.",02/04/2025
 "Iteration Cancelled",,"Iteration that has been cancelled by Learning Coordinator",02/04/2025
 "Iteration Closed",,"Iteration that has been closed after completion. Follows finished iteration.",02/04/2025
@@ -45,6 +46,7 @@
 "Iteration ID",,"Unique identifier of the iteration.",02/04/2025
 "Iteration Open",,"An iteration that is open for enrollments. Seats can be added or turned back and names can be set. ",02/04/2025
 "Iteration Planned",,"An iteration that is viewable to allow long term planning. TCs are not able to assign seats or wait-list.",02/04/2025
+"Iteration Request",,"An iteration request is a request made by a student on the NCI Academy Cyberspace Learning Catalogue to schedule a new iteration of a course on a concrete date or period. ",03/04/2025
 "Iteration Rescheduled",,"An iteration that has been moved to a different timeframe than the originally planned iteration. ",02/04/2025
 "Iteration Running",,"An iteration that is currently in progress.",02/04/2025
 "Iteration Withdrawn",,"A course status applied to iterations that were in an Under Review state but have passed their scheduled start date without approval. At that point, the iterations are automatically converted to Withdrawn. This status is not visible to customers and exists solely for internal coordination and reporting purposes.",24/09/2025
@@ -78,6 +80,7 @@
 "Seat Not Used",,"A seat that was allocated but not used by the entity (it does not have a student name in it).",02/04/2025
 "Seat Pending Joining Report",,"The seat is pending the Joining Report.",02/04/2025
 "Seat Refused",,"All the seats where the students is not compliant with the prerequisites and it is refused by the instructors/Academy.",02/04/2025
+"Seat Request",,"A seat request is a request made by a student on the NCI Academy Cyberspace Learning Catalogue to attend a schedule iteration of a course on a concrete date or period.",03/04/2025
 "Seat Requested",,"The seat is requested by a customer and is awaiting Academy action to process it on-to the Seat List or Wait List. There is no charge for requested seats that are not processed onto the Seat List or Wait List. A Requested Seat can be withdrawn at any time without charge. ",02/04/2025
 "Seat Rescheduled",,"The seat is rescheduled for another date.",02/04/2025
 "Seat Reserved",,"A requested seat that has been processed by the Academy onto the Seat List but the customer has not yet set a student (Enrolled Seat) or locked the seat (Locked Reserved Seat). The seat is reserved for sole use of a customer. The customer can set a student or lock the seat at any time up to the turn back date. The seat can be turned back prior to the turn-back date with no charge. ",02/04/2025
@@ -95,6 +98,9 @@
 "Student Enrolment Reserved Seat",,"A seat that is allocated to an organization.",02/04/2025
 "Students trained",,"Unique number of students trained irrespective of number of courses attended.",02/04/2025
 "Subscription",,"A training model that allows a student to register with a specific vendor and gain ongoing access to that vendor’s online learning materials, typically for a defined period.",27/11/2025
+"Subscription Account",,"An individual access record assigned to a specific student under a Subscription Purchase, allowing access to online learning materials. A Subscription Account has lifecycle management trough statuses and defined time period.",24/02/2026
+"Subscription License",,"A license type or access entitlement defined within a Subscription that specifies the level, category, or configuration of access granted to the vendor’s online learning materials (e.g., Regular, Pro Add-On, Core Topology). A Subscription may include one or more License types, each potentially associated with a defined number of accounts. A Subscription can have multiple Licenses (license types). Licenses are defined at Subscription level and are assigned to Accounts.",24/02/2026
+"Subscription Purchase",,"A procurement record linked to a specific Subscription, representing the acquisition of access to a vendor’s online learning materials for a defined period and for a defined number of accounts. A Subscription can have multiple Purchases (each purchase covers a period and capacity). A Purchase can provide multiple Accounts.",24/02/2026
 "Support Satisfaction",,"A quantitative measure of student satisfaction related to the supporting services and training environment of the course across 6 dimensions. ",24/09/2025
 "Team Building",,"A collective term for structured activities and processes designed to enhance the interpersonal relationships and group dynamics within a team, ultimately improving their ability to work together as a cohesive and effective unit.",15/12/2025
 "Training Audience",,"The individual/participant component of the Training Audience within E&IT. This perspective is from a training point of view and considered during the Design Phase which will influence the development of CCD.",02/04/2025
