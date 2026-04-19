@@ -377,3 +377,106 @@ getservername() {
         echo "No IP found for $domain"
     fi
 }
+
+appimage-desktop-gen() {
+    # Usage: appimage-desktop-gen /path/to/apps
+    if [[ -z "${1:-}" ]]; then
+        echo "Usage: appimage-desktop-gen /path/to/apps"
+        return 1
+    fi
+
+    local APPS_DIR="$1"
+    local DESKTOP_DIR="$HOME/.local/share/applications"
+    local ICONS_DIR="$APPS_DIR"
+    local PREV_DIR
+    PREV_DIR=$(pwd)
+
+    if [[ ! -d "$APPS_DIR" ]]; then
+        echo "Error: Directory '$APPS_DIR' does not exist."
+        return 1
+    fi
+
+    mkdir -p "$DESKTOP_DIR"
+
+    echo "Scanning for AppImages in: $APPS_DIR"
+    echo ""
+
+    find "$APPS_DIR" -maxdepth 1 -name "*.AppImage" | sort | while read -r appimage; do
+        local FILENAME APPNAME DESKTOP_FILE ICON_DEST ICON_FOUND PRETTY_NAME
+        FILENAME=$(basename "$appimage")
+        APPNAME=$(echo "${FILENAME%.AppImage}" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+        DESKTOP_FILE="$DESKTOP_DIR/${APPNAME}.desktop"
+        ICON_DEST="$ICONS_DIR/${APPNAME}.png"
+
+        echo "Processing: $FILENAME"
+
+        # Ensure the AppImage is executable
+        if [[ ! -x "$appimage" ]]; then
+            chmod +x "$appimage"
+            echo "  Made executable: $FILENAME"
+        fi
+
+        # --- Extract icon ---
+        if [[ -f "$ICON_DEST" ]]; then
+            echo "  Icon already exists, skipping extraction."
+        else
+            ICON_FOUND=false
+            cd /tmp
+            rm -rf squashfs-root
+
+            "$appimage" --appimage-extract '*.png' > /dev/null 2>&1 || true
+
+            while IFS= read -r candidate; do
+                if [[ -L "$candidate" ]]; then
+                    local TARGET FULL_TARGET
+                    TARGET=$(readlink "$candidate")
+                    FULL_TARGET="/tmp/squashfs-root/$TARGET"
+                    if [[ ! -f "$FULL_TARGET" ]]; then
+                        "$appimage" --appimage-extract "$TARGET" > /dev/null 2>&1 || true
+                        FULL_TARGET="/tmp/squashfs-root/$TARGET"
+                    fi
+                    if [[ -f "$FULL_TARGET" ]]; then
+                        cp "$FULL_TARGET" "$ICON_DEST"
+                        ICON_FOUND=true
+                        echo "  Icon extracted: $(basename "$candidate") -> $TARGET"
+                        break
+                    fi
+                elif [[ -f "$candidate" ]]; then
+                    cp "$candidate" "$ICON_DEST"
+                    ICON_FOUND=true
+                    echo "  Icon extracted: $(basename "$candidate")"
+                    break
+                fi
+            done < <(find /tmp/squashfs-root -maxdepth 1 -name "*.png" 2>/dev/null)
+
+            rm -rf /tmp/squashfs-root
+            cd "$PREV_DIR"
+
+            if ! $ICON_FOUND; then
+                echo "  WARNING: Could not extract icon. Using app name as icon fallback."
+                ICON_DEST="$APPNAME"
+            fi
+        fi
+
+        # --- Create .desktop entry (always overwrite) ---
+        PRETTY_NAME=$(echo "${FILENAME%.AppImage}" | sed 's/[-_]/ /g; s/\b\(.\)/\u\1/g' | sed 's/ [0-9].*//')
+
+        cat > "$DESKTOP_FILE" << EOF
+[Desktop Entry]
+Name=${PRETTY_NAME}
+Exec=${appimage} %F
+Terminal=false
+Type=Application
+Icon=${ICON_DEST}
+Comment=Launched via AppImage
+MimeType=
+Categories=Application;
+EOF
+        echo "  .desktop entry created: $DESKTOP_FILE"
+        echo ""
+    done
+
+    echo "Refreshing launcher database..."
+    update-desktop-database "$DESKTOP_DIR"
+    echo "Done!"
+}
