@@ -196,7 +196,7 @@ function mp42gif(){
 }
 
 function man2pdf(){	
-	man -t $1 | ps2pdf - ~/$DOWNLOAD_FOLDER/$1.pdf
+	man -t $1 2>/dev/null | ps2pdf - ~/$DOWNLOAD_FOLDER/$1.pdf
 }
 
 #Meteo in CLI
