@@ -47,7 +47,7 @@
 "Iteration Open",,"An iteration that is open for enrollments. Seats can be added or turned back and names can be set. ",02/04/2025
 "Iteration Planned",,"An iteration that is viewable to allow long term planning. TCs are not able to assign seats or wait-list.",02/04/2025
 "Iteration Request",,"An iteration request is a request made by a student on the NCI Academy Cyberspace Learning Catalogue to schedule a new iteration of a course on a concrete date or period. ",03/04/2025
-"Iteration Rescheduled",,"An iteration that has been moved to a different timeframe than the originally planned iteration. ",02/04/2025
+"Iteration Rescheduled",,"An iteration that was not delivered on its originally planned dates and was replaced by a new one.",26/06/2026
 "Iteration Running",,"An iteration that is currently in progress.",02/04/2025
 "Iteration Withdrawn",,"A course status applied to iterations that were in an Under Review state but have passed their scheduled start date without approval. At that point, the iterations are automatically converted to Withdrawn. This status is not visible to customers and exists solely for internal coordination and reporting purposes.",24/09/2025
 "Level of Proficiency",,"A scale that differentiates the level of task, skill, and knowledge required for the job and will affect the type and amount of instruction required.",02/04/2025
@@ -82,7 +82,7 @@
 "Seat Refused",,"All the seats where the students is not compliant with the prerequisites and it is refused by the instructors/Academy.",02/04/2025
 "Seat Request",,"A seat request is a request made by a student on the NCI Academy Cyberspace Learning Catalogue to attend a schedule iteration of a course on a concrete date or period.",03/04/2025
 "Seat Requested",,"The seat is requested by a customer and is awaiting Academy action to process it on-to the Seat List or Wait List. There is no charge for requested seats that are not processed onto the Seat List or Wait List. A Requested Seat can be withdrawn at any time without charge. ",02/04/2025
-"Seat Rescheduled",,"The seat is rescheduled for another date.",02/04/2025
+"Seat Rescheduled",,"A seat that did not take place on the originally scheduled iteration dates and was replaced by a new one.",26/06/2026
 "Seat Reserved",,"A requested seat that has been processed by the Academy onto the Seat List but the customer has not yet set a student (Enrolled Seat) or locked the seat (Locked Reserved Seat). The seat is reserved for sole use of a customer. The customer can set a student or lock the seat at any time up to the turn back date. The seat can be turned back prior to the turn-back date with no charge. ",02/04/2025
 "Seat Revoked",,"The learning requirement is revoked.",02/04/2025
 "Seat Status",,"Different status options for students' seats in the Training Management System.",02/04/2025
