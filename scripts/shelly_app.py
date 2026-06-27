@@ -50,6 +50,7 @@ def scan_network(network):
     return ips
 
 def is_shelly_device(device_ip, retries=3):
+    # Gen2+ : /rpc com Mqtt.GetConfig
     try:
         url = f"http://{device_ip}/rpc"
         data = { "id": 1, "method": "Mqtt.GetConfig" }
@@ -60,9 +61,16 @@ def is_shelly_device(device_ip, retries=3):
                     return True
             except requests.exceptions.RequestException:
                 time.sleep(2)
-        return False
     except:
-        return False
+        pass
+    # Gen1 (e fallback geral) : /shelly existe em todas as geracoes
+    try:
+        r = requests.get(f"http://{device_ip}/shelly", timeout=10)
+        if r.status_code == 200 and "mac" in r.json():
+            return True
+    except requests.exceptions.RequestException:
+        pass
+    return False
 
 def detect_generation(device_ip):
     """Devolve 'gen2', 'gen1' ou None. Usado pela migracao para escolher a API."""
@@ -284,7 +292,7 @@ def set_static_gen2(ip, new_ip, dry_run=True):
 
 def set_static_gen1(ip, new_ip, dry_run=True):
     params = {"ipv4_method": "static", "ip": new_ip, "netmask": MIGRATE_NETMASK,
-              "gw": MIGRATE_GATEWAY, "dns": MIGRATE_NAMESERVER}
+              "gateway": MIGRATE_GATEWAY, "dns": MIGRATE_NAMESERVER}
     qs = "&".join(f"{k}={v}" for k, v in params.items())
     url = f"http://{ip}/settings/sta?{qs}"
     if dry_run:
@@ -351,6 +359,20 @@ def migrate_devices(discovered_ips):
         print("Se algum nao aparecer: reset fisico (~10s) repoe DHCP.")
 
 
+def find_free_ip(how_many=5):
+    """Mostra IPs livres no bloco 192.168.50.50-250 (para atribuir a mao)."""
+    pool = build_free_pool()
+    if not pool:
+        print("❌ Nenhum IP livre encontrado no range configurado.")
+        return
+    print(f"\n👉 Primeiro IP livre: {pool[0]}")
+    print(f"   (gateway {MIGRATE_GATEWAY}, mascara {MIGRATE_NETMASK})")
+    extra = pool[:how_many]
+    print(f"\nPrimeiros {len(extra)} IPs livres:")
+    for ip in extra:
+        print(f"   - {ip}")
+
+
 # Menu loop
 def main():
     network_range = input("Enter network range (default: 192.168.1.0/24): ").strip() or "192.168.1.0/24"
@@ -366,7 +388,8 @@ def main():
         print("6. Toggle beta firmware updates for a device")
         print("7. Force firmware update on all devices")
         print("8. Migrate devices to 192.168.50.X (static IP)")
-        print("9. Exit")
+        print("9. Find free IP in 192.168.50.0/24")
+        print("10. Exit")
         choice = input("Select an option: ").strip()
 
         if choice == "1":
@@ -415,6 +438,8 @@ def main():
         elif choice == "8":
             migrate_devices(discovered_ips)
         elif choice == "9":
+            find_free_ip()
+        elif choice == "10":
             print("Exiting.")
             break
         else:
